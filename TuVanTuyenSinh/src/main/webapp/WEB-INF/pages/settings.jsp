@@ -4,6 +4,7 @@
     Author     : HP
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <section class="container">
     <h1 class="text-center text-info mt-1">QUẢN LÝ BÀI VIẾT</h1>
@@ -30,7 +31,7 @@
                     <td>${ds.posttype}</td>
                     <td>${ds.postinformation}</td>
                     <td>${ds.usersIdusers.firstName} ${ds.usersIdusers.lastName}</td>
-                    <td> <img src="${ds.postImg}" width="30px" height="20px"/></td>
+                    <td><img src="${ds.postImg}" width="30px" height="20px"/></td>
                     <td>${ds.facultyIdfaculty.facultyname}</td>
                     <td>${ds.admissionIdadmission.typeoftraining}</td>
                     <td>

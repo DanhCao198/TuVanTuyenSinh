@@ -6,6 +6,7 @@ package com.tqh.controllers;
 
 import com.tqh.pojo.Post;
 import com.tqh.service.AdmissionService;
+import com.tqh.service.FacultyService;
 import com.tqh.service.PostService;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,8 @@ public class ApiPostController {
 
     @Autowired
     private PostService postService;
+    @Autowired
+    private FacultyService facultyService;
     @Autowired
     private AdmissionService admissionService;
 

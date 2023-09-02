@@ -6,6 +6,7 @@ package com.tqh.controllers;
 
 import com.tqh.pojo.Faculty;
 import com.tqh.pojo.Post;
+import com.tqh.pojo.Users;
 import com.tqh.service.AdmissionService;
 import com.tqh.service.FacultyService;
 import com.tqh.service.PostService;
@@ -39,14 +40,16 @@ public class PostController {
     @GetMapping("/posts")
     public String list(Model model, Principal p) {
         model.addAttribute("post", new Post());
-        model.addAttribute("faculty",this.facultyService.getFaculties());
-        model.addAttribute("admission",this.admissionService.getAdmissions());
+        model.addAttribute("faculty", this.facultyService.getFaculties());
+        model.addAttribute("admission", this.admissionService.getAdmissions());
         return "posts";
     }
 
     @GetMapping("/posts/{id}")
     public String update(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("post", this.postService.getPostById(id));
+        model.addAttribute("faculty", this.facultyService.getFaculties());
+        model.addAttribute("admission", this.admissionService.getAdmissions());
         return "posts";
     }
 
@@ -58,8 +61,7 @@ public class PostController {
                 return "redirect:/";
             }
         }
-
         return "posts";
     }
-    
+
 }

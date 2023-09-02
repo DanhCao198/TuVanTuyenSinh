@@ -72,9 +72,9 @@ public class PostRepositoryImpl implements PostRepository {
         try {
             if (p.getIdpost() == null) {
                 p.setUsersIdusers(StaticClass.users);
-                
                 s.save(p);
             } else {
+                p.setUsersIdusers(StaticClass.users);
                 s.update(p);
             }
 
