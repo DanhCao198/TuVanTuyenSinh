@@ -58,8 +58,8 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public boolean deletePost(int id) {
-        return this.postRepo.deletePost(id);
+    public boolean deletePost(int idpost) {
+        return this.postRepo.deletePost(idpost);
     }
     
 }

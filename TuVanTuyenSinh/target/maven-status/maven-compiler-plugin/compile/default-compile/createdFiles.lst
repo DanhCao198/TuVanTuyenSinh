@@ -24,6 +24,7 @@ com\tqh\pojo\Admission_.class
 com\tqh\repository\UserRepository.class
 com\tqh\pojo\Banner_.class
 com\tqh\formatter\FacultyFormatter.class
+com\tqh\controllers\ApiPostController.class
 com\tqh\pojo\Benmarks_.class
 com\tqh\pojo\School.class
 com\tqh\controllers\PostController.class

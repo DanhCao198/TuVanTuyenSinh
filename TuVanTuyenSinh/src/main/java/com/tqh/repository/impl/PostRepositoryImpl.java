@@ -92,9 +92,9 @@ public class PostRepositoryImpl implements PostRepository {
     }
 
     @Override
-    public boolean deletePost(int id) {
+    public boolean deletePost(int idpost) {
         Session session = this.factory.getObject().getCurrentSession();
-        Post p = this.getPostById(id);
+        Post p = this.getPostById(idpost);
         try {
             session.delete(p);
             return true;

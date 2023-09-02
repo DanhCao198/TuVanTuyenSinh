@@ -29,9 +29,9 @@
             <div class="col-md-4 d-flex">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
-                        <c:if test="${user!=null}">
-                            <img src="${user.avatar}" width="60px" height="40px"/>
-                        </c:if>
+
+                        <img src="https://res.cloudinary.com/dev7q6f9g/image/upload/v1693319387/norzb2fl19qkalnqtmn5.png" width="60px" height="40px"/>
+
                     </p>
                 </div>
             </div>
@@ -77,8 +77,8 @@
                     <c:when test="${pageContext.request.userPrincipal.name != null}">
                         <li class="nav-item">
                             <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
-                                    <a class="nav-link" href="<c:url value='/admin/settings/' />">Quản lý bài đăng</a>
-                                </c:if>
+                                <a class="nav-link" href="<c:url value='/admin/settings/' />">Quản lý bài đăng</a>
+                            </c:if>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<c:url value='/' />">
