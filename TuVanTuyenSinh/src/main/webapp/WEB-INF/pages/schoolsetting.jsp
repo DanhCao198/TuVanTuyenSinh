@@ -26,7 +26,7 @@
     <div class="form-floating mt-3 mb-3">
         <form:input type="file" class="form-control"
                     path="file" id="imageSchool" name="imageSchool"/>
-        <label for="postImg">Chọn hình</label>
+        <label for="imageSchool">Chọn hình</label>
     </div>
     <div class="form-floating mb-3 mt-3">
         <button class="btn btn-info" type="submit">

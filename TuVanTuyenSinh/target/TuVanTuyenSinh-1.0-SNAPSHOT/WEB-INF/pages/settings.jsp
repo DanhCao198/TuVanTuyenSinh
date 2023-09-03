@@ -8,8 +8,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <section class="container">
     <h1 class="text-center text-info mt-1">QUẢN LÝ BÀI VIẾT</h1>
-    <a href="<c:url value='/admin/posts' />" class="btn btn-info">Đăng bài</a>
-
+    <div class="text-right mb-3">
+        <a href="<c:url value='/admin/posts' />" class="btn btn-info">Đăng bài</a>
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -45,4 +46,4 @@
     </table>
 </section>
 
-    <script src="<c:url value="/assets/js/main1.js" />"></script>
+<script src="<c:url value="/assets/js/main1.js" />"></script>

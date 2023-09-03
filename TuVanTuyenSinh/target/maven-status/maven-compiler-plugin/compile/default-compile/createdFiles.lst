@@ -5,7 +5,9 @@ com\tqh\pojo\Banner.class
 com\tqh\repository\impl\BannerRepositoryImpl.class
 com\tqh\configs\SecurityWebApplicationInitializer.class
 com\tqh\configs\DispatcherServletInit.class
+com\tqh\controllers\ApiBannerController.class
 com\tqh\repository\impl\UserRepositoryImpl.class
+com\tqh\controllers\ApiBenmarkController.class
 com\tqh\pojo\Users_.class
 com\tqh\repository\impl\RoleUserRepositoryImpl.class
 com\tqh\pojo\RoleUser.class

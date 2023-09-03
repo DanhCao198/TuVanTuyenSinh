@@ -47,10 +47,13 @@ DROP TABLE IF EXISTS `banner`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `banner` (
-  `idbanner` int NOT NULL,
+  `idbanner` int NOT NULL AUTO_INCREMENT,
   `image` varchar(225) DEFAULT NULL,
-  PRIMARY KEY (`idbanner`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `users_idusers` int DEFAULT NULL,
+  PRIMARY KEY (`idbanner`),
+  KEY `fk_banner_users1_idx` (`users_idusers`),
+  CONSTRAINT `fk_banner_users1` FOREIGN KEY (`users_idusers`) REFERENCES `users` (`idusers`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +62,7 @@ CREATE TABLE `banner` (
 
 LOCK TABLES `banner` WRITE;
 /*!40000 ALTER TABLE `banner` DISABLE KEYS */;
-INSERT INTO `banner` VALUES (1,NULL);
+INSERT INTO `banner` VALUES (8,'https://res.cloudinary.com/dev7q6f9g/image/upload/v1693768375/evyn0fulrfzl9xrozfuj.jpg',10),(9,'https://res.cloudinary.com/dev7q6f9g/image/upload/v1693768467/cacghxxwpbzyx0uufdij.png',10),(10,'https://res.cloudinary.com/dev7q6f9g/image/upload/v1693768480/nychzn6f4o6nvmkbthdf.jpg',10);
 /*!40000 ALTER TABLE `banner` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +83,7 @@ CREATE TABLE `benmarks` (
   PRIMARY KEY (`idbenmarks`),
   KEY `fk_benmarks_faculty1_idx` (`faculty_idfaculty`),
   CONSTRAINT `fk_benmarks_faculty1` FOREIGN KEY (`faculty_idfaculty`) REFERENCES `faculty` (`idfaculty`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +175,7 @@ CREATE TABLE `post` (
   CONSTRAINT `admission_idAdmission` FOREIGN KEY (`admission_idadmission`) REFERENCES `admission` (`idadmission`),
   CONSTRAINT `faculty_idFaculty` FOREIGN KEY (`faculty_idfaculty`) REFERENCES `faculty` (`idfaculty`),
   CONSTRAINT `users_idusers` FOREIGN KEY (`users_idusers`) REFERENCES `users` (`idusers`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +184,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (4,'Đây là bài làm của Nguyễn Cao Danh và Trần Quang Huy','bú khá nhiều nguồn','abc','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693671342/uyuder3o25balarrhdqp.jpg',10,1,5),(18,'Tuyển sinh năm 2024','Trường đề xuất ....','Thông báo tuyển sinh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693648015/jbmu4leoaozhvinijkd0.png',10,1,5),(19,'Chuyển địa chỉ 3','Chuyển tới Nhà Bè 3','địa chỉ mới 2','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693671365/d9ni1am2sdp7vqomzo4d.png',10,6,5),(21,'Khuya quá còn nhiều môn','Cứu với 1234','Cứu','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674729/nnnn5d8jciwig1bbiz7z.png',13,6,5),(25,'abcde','qưqwqwq\r</br>a\r</br>a\r</br>a','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693753716/grtg24plroelzmcrhhj1.jpg',10,6,5);
+INSERT INTO `post` VALUES (4,'Đây là bài làm của Nguyễn Cao Danh và Trần Quang Huy','bú khá nhiều nguồn','abc','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693671342/uyuder3o25balarrhdqp.jpg',10,1,5),(18,'Tuyển sinh năm 2024','Trường đề xuất ....','Thông báo tuyển sinh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693648015/jbmu4leoaozhvinijkd0.png',10,1,5),(19,'Chuyển địa chỉ 3','Chuyển tới Nhà Bè 3','địa chỉ mới 2','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693671365/d9ni1am2sdp7vqomzo4d.png',10,6,5),(21,'Khuya quá còn nhiều môn','Cứu với 1234','Cứu','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674729/nnnn5d8jciwig1bbiz7z.png',13,6,5),(25,'abcde','qưqwqwq\r</br>a\r</br>a\r</br>a','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693753716/grtg24plroelzmcrhhj1.jpg',10,6,5),(26,'trời ơi cứu tui','aaaaaa\r</br>aaa\r</br>aaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693768427/nbxzpvkb24ldxfxe6jrc.jpg',10,6,5);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,13 +256,10 @@ CREATE TABLE `users` (
   `user_role` varchar(45) DEFAULT NULL,
   `school_idschool` int DEFAULT NULL,
   `role_user_id_roleuser` int DEFAULT NULL,
-  `banner_idbanner` int DEFAULT NULL,
   PRIMARY KEY (`idusers`),
   KEY `fk_users_role_user1_idx` (`role_user_id_roleuser`),
-  KEY `fk_users_banner1_idx` (`banner_idbanner`),
   KEY `school_idschool_idx` (`school_idschool`),
   CONSTRAINT `fk_school_idschool` FOREIGN KEY (`school_idschool`) REFERENCES `school` (`idschool`),
-  CONSTRAINT `fk_users_banner` FOREIGN KEY (`banner_idbanner`) REFERENCES `banner` (`idbanner`),
   CONSTRAINT `fk_users_role_user` FOREIGN KEY (`role_user_id_roleuser`) REFERENCES `role_user` (`id_roleuser`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -270,7 +270,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (10,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693565580/voezzit4zcpw9qm4lwld.jpg','admin','$2a$10$ttgAIqaB5kQQSDABONOgT.J2TqaMqCMWeuKHGgFI3kqUYoHhhZT7S',NULL,NULL,NULL,1,NULL),(11,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693570758/yf9pcqgz41ozoik1pwuu.png','testuser','$2a$10$tmk29hLfVJO.yixKHJodB.KmStM4NVd3SakAg.ksWwgYQyamaRcF2',NULL,NULL,NULL,2,NULL),(12,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693643496/onuye3osums8b4qrgy9g.jpg','testuser1','$2a$10$G87HV7lWiFwmQwmjeFM.MujSKfGKEnCa5LH.vkZWEOBIP8TOWeDBm',NULL,NULL,NULL,2,NULL),(13,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674643/co2wtxilujlfg8rgqzr8.png','admin1','$2a$10$RI8lu48ptQS14pqjx9J82.Rv38g/cjD8mRoW3TeMV.bDRiYt6E9qW',NULL,NULL,NULL,1,NULL);
+INSERT INTO `users` VALUES (10,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693565580/voezzit4zcpw9qm4lwld.jpg','admin','$2a$10$ttgAIqaB5kQQSDABONOgT.J2TqaMqCMWeuKHGgFI3kqUYoHhhZT7S',NULL,NULL,NULL,1),(11,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693570758/yf9pcqgz41ozoik1pwuu.png','testuser','$2a$10$tmk29hLfVJO.yixKHJodB.KmStM4NVd3SakAg.ksWwgYQyamaRcF2',NULL,NULL,NULL,2),(12,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693643496/onuye3osums8b4qrgy9g.jpg','testuser1','$2a$10$G87HV7lWiFwmQwmjeFM.MujSKfGKEnCa5LH.vkZWEOBIP8TOWeDBm',NULL,NULL,NULL,2),(13,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674643/co2wtxilujlfg8rgqzr8.png','admin1','$2a$10$RI8lu48ptQS14pqjx9J82.Rv38g/cjD8mRoW3TeMV.bDRiYt6E9qW',NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -283,4 +283,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-03 22:16:42
+-- Dump completed on 2023-09-04  2:17:00

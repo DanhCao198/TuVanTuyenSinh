@@ -5,6 +5,7 @@
 package com.tqh.repository.impl;
 
 import com.tqh.pojo.Banner;
+import com.tqh.pojo.StaticClass;
 import com.tqh.repository.BannerRepository;
 import java.util.List;
 import java.util.Map;
@@ -44,7 +45,7 @@ public class BannerRepositoryImpl implements BannerRepository {
         q.select(root);
 
         Query query = session.createQuery(q);
-          if (params != null) {
+        if (params != null) {
             String page = params.get("page");
             if (page != null && !page.isEmpty()) {
                 int p = Integer.parseInt(page);
@@ -68,8 +69,9 @@ public class BannerRepositoryImpl implements BannerRepository {
     @Override
     public boolean addOrUpdateBanner(Banner b) {
         Session s = this.factory.getObject().getCurrentSession();
+        b.setUsersIdusers(StaticClass.users);
         try {
-            if (b.getIdbanner()== null) {
+            if (b.getIdbanner() == null) {
                 s.save(b);
             } else {
                 s.update(b);

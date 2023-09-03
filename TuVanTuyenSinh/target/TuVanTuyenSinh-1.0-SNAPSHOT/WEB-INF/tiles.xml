@@ -53,4 +53,24 @@
     <put-attribute name="content"
                        value="/WEB-INF/pages/schoolsetting.jsp" />
     </definition>
+    <definition name="benmarks" extends="baseLayout">
+    <put-attribute name="title" value="Điểm chuẩn" />
+    <put-attribute name="content"
+                       value="/WEB-INF/pages/benmarks.jsp" />
+    </definition>
+    <definition name="benmarksetting" extends="baseLayout">
+    <put-attribute name="title" value="Điểm chuẩn" />
+    <put-attribute name="content"
+                       value="/WEB-INF/pages/benmarksetting.jsp" />
+    </definition>
+    <definition name="banners" extends="baseLayout">
+    <put-attribute name="title" value="Quản lý banners" />
+    <put-attribute name="content"
+                       value="/WEB-INF/pages/banners.jsp" />
+    </definition>
+    <definition name="bannersetting" extends="baseLayout">
+    <put-attribute name="title" value="Quản lý banners" />
+    <put-attribute name="content"
+                       value="/WEB-INF/pages/bannersetting.jsp" />
+    </definition>
 </tiles-definitions>

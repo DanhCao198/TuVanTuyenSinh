@@ -29,9 +29,7 @@
             <div class="col-md-4 d-flex">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
-
                         <img src="https://res.cloudinary.com/dev7q6f9g/image/upload/v1693319387/norzb2fl19qkalnqtmn5.png" width="60px" height="40px"/>
-
                     </p>
                 </div>
             </div>
@@ -40,7 +38,6 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container-fluid">
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-bars"></span> Menu
             </button>
@@ -51,7 +48,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hệ</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <c:forEach items="${admission}" var="ds">
-                                 <a class="dropdown-item" href="#">${ds.typeoftraining}</a>
+                                <a class="dropdown-item" href="#">${ds.typeoftraining}</a>
                             </c:forEach>
                         </div>
                     </li>
@@ -59,11 +56,12 @@
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Khoa</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <c:forEach items="${faculty}" var="ds">
-                                 <a class="dropdown-item" href="${ds.website}">${ds.facultyname}</a>
+                                <a class="dropdown-item" href="${ds.website}">${ds.facultyname}</a>
                             </c:forEach>
                         </div>
                     </li>
-                      <li class="nav-item active"><a href="<c:url value='/school'/>" class="nav-link">Giới thiệu</a></li>
+                    <li class="nav-item "><a href="<c:url value='/school'/>" class="nav-link">Giới thiệu</a></li>
+                    <li class="nav-item "><a href="<c:url value='/benmarks'/>" class="nav-link">Điểm chuẩn</a></li>
                 </ul>
             </div>     
             <ul class="navbar-nav ml-auto">
@@ -71,9 +69,13 @@
                     <c:when test="${pageContext.request.userPrincipal.name != null}">
                         <li class="nav-item">
                             <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
+                            <li class="nav-item">
                                 <a class="nav-link" href="<c:url value='/admin/settings/' />">Quản lý</a>
-                            </c:if>
-                        </li>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<c:url value='/banners/' />">Banners</a>
+                            </li>
+                        </c:if>
                         <li class="nav-item">
                             <a class="nav-link" href="<c:url value='/' />">
                                 <c:if test="${user!=null}">
@@ -96,9 +98,7 @@
                     </c:otherwise>
                 </c:choose>
             </ul>
-
         </div>
     </nav>
     <!-- END nav -->
-
 </section>

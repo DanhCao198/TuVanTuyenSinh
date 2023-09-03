@@ -34,6 +34,7 @@ D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\Use
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\impl\UserServiceImpl.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\BannerService.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\impl\RoleUserServiceImpl.java
+D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\ApiBenmarkController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\configs\DispatcherServletInit.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\RoleUserRepository.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\impl\PostRepositoryImpl.java
@@ -47,6 +48,7 @@ D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\Us
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\formatter\FacultyFormatter.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\impl\FacultyRepositoryImpl.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\BannerController.java
+D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\ApiBannerController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\ApiPostController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\SchoolRepository.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\SchoolService.java

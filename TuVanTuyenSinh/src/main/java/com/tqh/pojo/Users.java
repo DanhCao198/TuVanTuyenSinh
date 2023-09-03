@@ -5,9 +5,7 @@
 package com.tqh.pojo;
 
 import java.io.Serializable;
-import java.util.Set;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,13 +15,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -44,9 +40,6 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email"),
     @NamedQuery(name = "Users.findByUserRole", query = "SELECT u FROM Users u WHERE u.userRole = :userRole")})
 public class Users implements Serializable {
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersIdusers")
-    private Set<Comment> commentSet;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -80,18 +73,13 @@ public class Users implements Serializable {
     @Size(max = 45)
     @Column(name = "user_role")
     private String userRole;
-    @OneToMany(mappedBy = "usersIdusers")
-    private Set<Post> postSet;
-    @JoinColumn(name = "banner_idbanner", referencedColumnName = "idbanner")
-    @ManyToOne
-    private Banner bannerIdbanner;
     @JoinColumn(name = "role_user_id_roleuser", referencedColumnName = "id_roleuser")
     @ManyToOne
     private RoleUser roleUserIdRoleuser;
     @JoinColumn(name = "school_idschool", referencedColumnName = "idschool")
     @ManyToOne
     private School schoolIdschool;
-    @Transient
+     @Transient
     private MultipartFile file;
 
     public MultipartFile getFile() {
@@ -179,23 +167,6 @@ public class Users implements Serializable {
         this.userRole = userRole;
     }
 
-    @XmlTransient
-    public Set<Post> getPostSet() {
-        return postSet;
-    }
-
-    public void setPostSet(Set<Post> postSet) {
-        this.postSet = postSet;
-    }
-
-    public Banner getBannerIdbanner() {
-        return bannerIdbanner;
-    }
-
-    public void setBannerIdbanner(Banner bannerIdbanner) {
-        this.bannerIdbanner = bannerIdbanner;
-    }
-
     public RoleUser getRoleUserIdRoleuser() {
         return roleUserIdRoleuser;
     }
@@ -236,14 +207,5 @@ public class Users implements Serializable {
     public String toString() {
         return "com.tqh.pojo.Users[ idusers=" + idusers + " ]";
     }
-
-    @XmlTransient
-    public Set<Comment> getCommentSet() {
-        return commentSet;
-    }
-
-    public void setCommentSet(Set<Comment> commentSet) {
-        this.commentSet = commentSet;
-    }
-
+    
 }

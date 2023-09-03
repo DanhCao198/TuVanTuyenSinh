@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import java.security.Principal;
+import java.util.Map;
 import javax.validation.Valid;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,21 +24,27 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @author Admin
  */
 @Controller
+@PropertySource("classpath:configs.properties")
 public class BannerController {
     @Autowired
     private BannerService bannerService;
     
     @GetMapping("/banners")
+    public String list1(Model model, Principal p,Map<String, String> params) {
+        model.addAttribute("banner", this.bannerService.getBanners(params));
+        return "banners";
+    }
+    @GetMapping("admin/banners")
     public String list(Model model, Principal p) {
         model.addAttribute("banner", new Banner());
-        return "banners";
+        return "bannersetting";
     }
-    @GetMapping("/banners/{id}")
+    @GetMapping("admin/banners/{id}")
     public String update(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("banner", this.bannerService.getBannerById(id));
-        return "banners";
+        return "bannersetting";
     }
-     @PostMapping("/banners")
+     @PostMapping("admin/banners")
     public String add(@ModelAttribute(value = "banner") @Valid Banner b,
             BindingResult rs) {
         if (!rs.hasErrors()) {
@@ -45,7 +53,7 @@ public class BannerController {
             }
         }
 
-        return "banners";
+        return "bannersetting";
     }
     
 }
