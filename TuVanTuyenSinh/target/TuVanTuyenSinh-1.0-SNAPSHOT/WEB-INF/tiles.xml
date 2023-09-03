@@ -43,4 +43,9 @@
     <put-attribute name="content"
                        value="/WEB-INF/pages/settings.jsp" />
     </definition> 
+     <definition name="school" extends="baseLayout">
+    <put-attribute name="title" value="Thông tin trường" />
+    <put-attribute name="content"
+                       value="/WEB-INF/pages/school.jsp" />
+    </definition> 
 </tiles-definitions>

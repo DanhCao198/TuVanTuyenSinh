@@ -55,7 +55,6 @@
                             <a class="dropdown-item" href="#">Văn Bằng 2</a>
                             <a class="dropdown-item" href="#">Liên Thông</a>
                             <a class="dropdown-item" href="#">Cao học</a>
-
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -69,15 +68,15 @@
                             <a class="dropdown-item" href="#">Xã hội học</a>
                         </div>
                     </li>
-
+                      <li class="nav-link"><a href="<c:url value='/school'/>" class="nav-link">Giới thiệu</a></li>
                 </ul>
-            </div>
+            </div>     
             <ul class="navbar-nav ml-auto">
                 <c:choose>
                     <c:when test="${pageContext.request.userPrincipal.name != null}">
                         <li class="nav-item">
                             <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
-                                <a class="nav-link" href="<c:url value='/admin/settings/' />">Quản lý bài đăng</a>
+                                <a class="nav-link" href="<c:url value='/admin/settings/' />">Quản lý</a>
                             </c:if>
                         </li>
                         <li class="nav-item">

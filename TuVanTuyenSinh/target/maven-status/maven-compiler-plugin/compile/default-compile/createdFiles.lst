@@ -1,5 +1,6 @@
 com\tqh\service\impl\PostServiceImpl.class
 com\tqh\configs\SpringSecurityConfig.class
+com\tqh\controllers\SchoolController.class
 com\tqh\pojo\Banner.class
 com\tqh\repository\impl\BannerRepositoryImpl.class
 com\tqh\configs\SecurityWebApplicationInitializer.class
@@ -10,6 +11,7 @@ com\tqh\repository\impl\RoleUserRepositoryImpl.class
 com\tqh\pojo\RoleUser.class
 com\tqh\configs\WebAppContextConfig.class
 com\tqh\controllers\UserController.class
+com\tqh\service\impl\SchoolServiceImpl.class
 com\tqh\configs\HibernateConfig.class
 com\tqh\controllers\BannerController.class
 com\tqh\pojo\School_.class
@@ -32,17 +34,20 @@ com\tqh\service\PostService.class
 com\tqh\pojo\Post_.class
 com\tqh\repository\RoleUserRepository.class
 com\tqh\pojo\StaticClass.class
+com\tqh\repository\SchoolRepository.class
 com\tqh\repository\impl\AdmissionRepositoryImpl.class
 com\tqh\pojo\Faculty_.class
 com\tqh\service\impl\RoleUserServiceImpl.class
 com\tqh\formatter\AdmissionFormatter.class
 com\tqh\pojo\Users.class
+com\tqh\repository\BenmarkRepository.class
 com\tqh\pojo\RoleUser_.class
 com\tqh\service\BannerService.class
 com\tqh\repository\BannerRepository.class
 com\tqh\configs\TilesConfigs.class
 com\tqh\service\AdmissionService.class
 com\tqh\pojo\Faculty.class
+com\tqh\service\BenmarkService.class
 com\tqh\pojo\Admission.class
 com\tqh\repository\PostRepository.class
 com\tqh\service\UserService.class
@@ -50,7 +55,11 @@ com\tqh\repository\impl\FacultyRepositoryImpl.class
 com\tqh\service\impl\AdmissionServiceImpl.class
 com\tqh\service\impl\UserServiceImpl.class
 com\tqh\service\RoleUserService.class
+com\tqh\repository\impl\SchoolRepositoryImpl.class
 com\tqh\service\impl\FacultyServiceImpl.class
 com\tqh\repository\impl\PostRepositoryImpl.class
 com\tqh\service\FacultyService.class
+com\tqh\service\impl\BenmarkServiceImpl.class
+com\tqh\service\SchoolService.class
 com\tqh\pojo\Benmarks.class
+com\tqh\repository\impl\BenmarkRepositoryImpl.class
