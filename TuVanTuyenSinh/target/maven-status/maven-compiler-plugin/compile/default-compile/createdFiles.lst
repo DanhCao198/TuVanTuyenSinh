@@ -10,6 +10,7 @@ com\tqh\pojo\Users_.class
 com\tqh\repository\impl\RoleUserRepositoryImpl.class
 com\tqh\pojo\RoleUser.class
 com\tqh\configs\WebAppContextConfig.class
+com\tqh\controllers\BenmarkController.class
 com\tqh\controllers\UserController.class
 com\tqh\service\impl\SchoolServiceImpl.class
 com\tqh\configs\HibernateConfig.class

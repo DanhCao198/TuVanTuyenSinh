@@ -14,7 +14,7 @@
             <div class="col-md-8 order-md-last">
                 <div class="row">
                     <div class="col-md-6 text-center">
-                        <a class="navbar-brand" href="">Cổng thông tin <br>Tư Vấn Tuyển Sinh</br></a>
+                        <a class="navbar-brand" href="<c:url value='/'/>">CỔNG THÔNG TIN TƯ VẤN TUYỂN SINH</br>ĐẠI HỌC MỞ THÀNH PHỐ HỒ CHÍ MINH</a>
                     </div>
                     <div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
                         <form action="#" class="searchform order-lg-last">
@@ -50,25 +50,20 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hệ</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="#">Hệ Chính Quy</a>
-                            <a class="dropdown-item" href="#">Hệ Đào Tạo Từ Xa</a>
-                            <a class="dropdown-item" href="#">Văn Bằng 2</a>
-                            <a class="dropdown-item" href="#">Liên Thông</a>
-                            <a class="dropdown-item" href="#">Cao học</a>
+                            <c:forEach items="${admission}" var="ds">
+                                 <a class="dropdown-item" href="#">${ds.typeoftraining}</a>
+                            </c:forEach>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Khoa</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="#">Công nghệ thông tin</a>
-                            <a class="dropdown-item" href="#">Xây dựng</a>
-                            <a class="dropdown-item" href="#">Tài chính ngân hàng</a>
-                            <a class="dropdown-item" href="#">Quản trị kinh doanh</a>
-                            <a class="dropdown-item" href="#">Ngôn ngữ</a>
-                            <a class="dropdown-item" href="#">Xã hội học</a>
+                            <c:forEach items="${faculty}" var="ds">
+                                 <a class="dropdown-item" href="${ds.website}">${ds.facultyname}</a>
+                            </c:forEach>
                         </div>
                     </li>
-                      <li class="nav-link"><a href="<c:url value='/school'/>" class="nav-link">Giới thiệu</a></li>
+                      <li class="nav-item active"><a href="<c:url value='/school'/>" class="nav-link">Giới thiệu</a></li>
                 </ul>
             </div>     
             <ul class="navbar-nav ml-auto">

@@ -7,6 +7,7 @@ package com.tqh.controllers;
 import com.tqh.pojo.School;
 import com.tqh.service.SchoolService;
 import java.security.Principal;
+import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,25 +28,30 @@ public class SchoolController {
     private SchoolService schoolService;
     
     @GetMapping("/school")
+    public String list1(Model model, Principal p,Map<String, String> params) {
+        model.addAttribute("school",this.schoolService.getSchool(params));
+        return "school";
+    }
+    @GetMapping("/admin/school")
     public String list(Model model, Principal p) {
         model.addAttribute("school", new School());
-        return "school";
+        return "schoolsetting";
     }
-    @GetMapping("/school/{id}")
+
+    @GetMapping("/admin/school/{id}")
     public String update(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("school", this.schoolService.getSchoolById(id));
-        return "school";
+        return "schoolsetting";
     }
-     @PostMapping("/school")
-    public String add(@ModelAttribute(value = "school") @Valid School b,
+
+    @PostMapping("/admin/school")
+    public String add(@ModelAttribute(value = "school") @Valid School p,
             BindingResult rs) {
         if (!rs.hasErrors()) {
-            if (schoolService.addOrUpdateSChool(b) == true) {
+            if (schoolService.addOrUpdateSChool(p) == true) {
                 return "redirect:/";
             }
         }
-
-        return "banners";
+        return "schoolsetting";
     }
-    
 }

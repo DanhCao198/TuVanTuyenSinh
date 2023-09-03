@@ -145,7 +145,7 @@ CREATE TABLE `faculty` (
 
 LOCK TABLES `faculty` WRITE;
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
-INSERT INTO `faculty` VALUES (1,'Công nghệ thông tin','it.ou.edu.vn',NULL),(2,'Xây Dựng','ou.edu.vn',NULL),(3,'Ngôn Ngữ','ou.edu.vn',NULL),(4,'Tài Chính Ngân Hàng','ou.edu.vn',NULL),(5,'Quản Trị Kinh Doanh','ou.edu.vn',NULL),(6,'Xã Hội Học','ou.edu.vn',NULL);
+INSERT INTO `faculty` VALUES (1,'Công nghệ thông tin','it',NULL),(2,'Xây Dựng','xd',NULL),(3,'Ngôn Ngữ','nn',NULL),(4,'Tài Chính Ngân Hàng','tcnh',NULL),(5,'Quản Trị Kinh Doanh','qtkd',NULL),(6,'Xã Hội Học','xh',NULL);
 /*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,7 +172,7 @@ CREATE TABLE `post` (
   CONSTRAINT `admission_idAdmission` FOREIGN KEY (`admission_idadmission`) REFERENCES `admission` (`idadmission`),
   CONSTRAINT `faculty_idFaculty` FOREIGN KEY (`faculty_idfaculty`) REFERENCES `faculty` (`idfaculty`),
   CONSTRAINT `users_idusers` FOREIGN KEY (`users_idusers`) REFERENCES `users` (`idusers`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +181,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (4,'abc','abc','abc',NULL,10,1,1),(5,'abcde','qưeqwqqqwe','báo',NULL,10,3,3),(6,'abcdef','chó huy','báo',NULL,10,3,3),(8,'con chó Huy 2','hfaksjdhgka','Thông báo tuyển sinh',NULL,10,1,1);
+INSERT INTO `post` VALUES (4,'Đây là bài làm của Nguyễn Cao Danh và Trần Quang Huy','bú khá nhiều nguồn','abc','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693671342/uyuder3o25balarrhdqp.jpg',10,1,5),(18,'Tuyển sinh năm 2024','Trường đề xuất ....','Thông báo tuyển sinh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693648015/jbmu4leoaozhvinijkd0.png',10,1,5),(19,'Chuyển địa chỉ 3','Chuyển tới Nhà Bè 3','địa chỉ mới 2','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693671365/d9ni1am2sdp7vqomzo4d.png',10,6,5),(21,'Khuya quá còn nhiều môn','Cứu với 1234','Cứu','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674729/nnnn5d8jciwig1bbiz7z.png',13,6,5),(25,'abcde','qưqwqwq\r</br>a\r</br>a\r</br>a','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693753716/grtg24plroelzmcrhhj1.jpg',10,6,5);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,10 +217,12 @@ DROP TABLE IF EXISTS `school`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `school` (
-  `idschool` int NOT NULL,
+  `idschool` int NOT NULL AUTO_INCREMENT,
   `description` longtext NOT NULL,
+  `tieuDe` longtext,
+  `imageSchool` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idschool`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -229,7 +231,7 @@ CREATE TABLE `school` (
 
 LOCK TABLES `school` WRITE;
 /*!40000 ALTER TABLE `school` DISABLE KEYS */;
-INSERT INTO `school` VALUES (1,'abc');
+INSERT INTO `school` VALUES (9,'Trường Đại học Mở Thành phố Hồ Chí Minh, ban đầu được thành lập với cái tên \"Viện Đào tạo Mở Rộng\". Vào ngày 15 tháng 6 năm 1990, trường đã trở thành một phần của hệ thống cán bộ quản lý, đại học trung học chuyên nghiệp và dạy nghề. Sau đó, vào năm 1993, trường đã được nâng cấp thành Đại học Mở, phục vụ đào tạo từ xa và phát triển dân tộc khu vực.\r</br>Với cam kết về chất lượng đào tạo và mục tiêu trở thành một trong những trường đại học hàng đầu ở Việt Nam, chúng tôi không ngừng phấn đấu để phát triển kiến thức và hỗ trợ cộng đồng. Trong hành trình của chúng tôi, hoạt động đào tạo từ xa và phát triển bền vững luôn là ưu tiên hàng đầu.\r</br>Năm 2006, trường Đại học Mở Thành phố Hồ Chí Minh đã thành công trong việc tự chủ về tài chính, đánh dấu bước ngoặt quan trọng trong sự phát triển của chúng tôi. Với mục tiêu và định hướng phát triển rõ ràng, chúng tôi tự tin vào tương lai sáng lạng của trường.','Trường Đại Học Mở Thành Phố Hồ Chí Minh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693754036/eilphpgtxuhgowgflmld.jpg');
 /*!40000 ALTER TABLE `school` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,13 +255,13 @@ CREATE TABLE `users` (
   `role_user_id_roleuser` int DEFAULT NULL,
   `banner_idbanner` int DEFAULT NULL,
   PRIMARY KEY (`idusers`),
-  KEY `fk_users_school1_idx` (`school_idschool`),
   KEY `fk_users_role_user1_idx` (`role_user_id_roleuser`),
   KEY `fk_users_banner1_idx` (`banner_idbanner`),
+  KEY `school_idschool_idx` (`school_idschool`),
+  CONSTRAINT `fk_school_idschool` FOREIGN KEY (`school_idschool`) REFERENCES `school` (`idschool`),
   CONSTRAINT `fk_users_banner` FOREIGN KEY (`banner_idbanner`) REFERENCES `banner` (`idbanner`),
-  CONSTRAINT `fk_users_role_user` FOREIGN KEY (`role_user_id_roleuser`) REFERENCES `role_user` (`id_roleuser`),
-  CONSTRAINT `fk_users_school` FOREIGN KEY (`school_idschool`) REFERENCES `school` (`idschool`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `fk_users_role_user` FOREIGN KEY (`role_user_id_roleuser`) REFERENCES `role_user` (`id_roleuser`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,7 +270,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (10,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693565580/voezzit4zcpw9qm4lwld.jpg','admin','$2a$10$ttgAIqaB5kQQSDABONOgT.J2TqaMqCMWeuKHGgFI3kqUYoHhhZT7S',NULL,NULL,NULL,1,NULL),(11,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693570758/yf9pcqgz41ozoik1pwuu.png','testuser','$2a$10$tmk29hLfVJO.yixKHJodB.KmStM4NVd3SakAg.ksWwgYQyamaRcF2',NULL,NULL,NULL,2,NULL),(12,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693643496/onuye3osums8b4qrgy9g.jpg','testuser1','$2a$10$G87HV7lWiFwmQwmjeFM.MujSKfGKEnCa5LH.vkZWEOBIP8TOWeDBm',NULL,NULL,NULL,2,NULL);
+INSERT INTO `users` VALUES (10,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693565580/voezzit4zcpw9qm4lwld.jpg','admin','$2a$10$ttgAIqaB5kQQSDABONOgT.J2TqaMqCMWeuKHGgFI3kqUYoHhhZT7S',NULL,NULL,NULL,1,NULL),(11,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693570758/yf9pcqgz41ozoik1pwuu.png','testuser','$2a$10$tmk29hLfVJO.yixKHJodB.KmStM4NVd3SakAg.ksWwgYQyamaRcF2',NULL,NULL,NULL,2,NULL),(12,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693643496/onuye3osums8b4qrgy9g.jpg','testuser1','$2a$10$G87HV7lWiFwmQwmjeFM.MujSKfGKEnCa5LH.vkZWEOBIP8TOWeDBm',NULL,NULL,NULL,2,NULL),(13,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674643/co2wtxilujlfg8rgqzr8.png','admin1','$2a$10$RI8lu48ptQS14pqjx9J82.Rv38g/cjD8mRoW3TeMV.bDRiYt6E9qW',NULL,NULL,NULL,1,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -281,4 +283,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-02 15:54:20
+-- Dump completed on 2023-09-03 22:16:42

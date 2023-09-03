@@ -67,10 +67,13 @@ public class SchoolRepositoryImpl implements SchoolRepository{
     @Override
     public boolean addOrUpdateSChool(School b) {
         Session s = this.factory.getObject().getCurrentSession();
+        
         try {
             if (b.getIdschool()== null) {
+                b.setDescription(b.getDescription().replace("\n", "</br>"));
                 s.save(b);
             } else {
+                b.setDescription(b.getDescription().replace("\n", "</br>"));
                 s.update(b);
             }
 

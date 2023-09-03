@@ -4,7 +4,10 @@
  */
 package com.tqh.controllers;
 
+import com.tqh.pojo.Post;
 import com.tqh.pojo.StaticClass;
+import com.tqh.service.AdmissionService;
+import com.tqh.service.FacultyService;
 import com.tqh.service.PostService;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +34,19 @@ public class IndexController {
     private PostService postService;
     @Autowired
     private Environment env;
+    @Autowired
+    private FacultyService facultyService;
+    @Autowired
+    private AdmissionService admissionService;
 
     @ModelAttribute
     public void commonAttr(Model model) {
         if (StaticClass.users != null) {
             model.addAttribute("user", StaticClass.users);
         }
+        model.addAttribute("faculty", this.facultyService.getFaculties());
+        model.addAttribute("admission", this.admissionService.getAdmissions());
+    
     }
 
     @GetMapping("/admin/settings/")

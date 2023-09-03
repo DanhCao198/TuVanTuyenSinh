@@ -5,7 +5,17 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<section class="container">
-    <h1 class="text-center text-info mt-1">TRƯỜNG ĐẠI HỌC MỞ THÀNH PHỐ HỒ CHÍ MINH</h1>
-</section>
+<c:forEach items="${school}" var="ds">
+    <div class="intro-section">
+        <div class="container">
+            <div class="intro-text">
+                <h1>${ds.tieuDe}</h1>
+                <p style="word-wrap:break-word;">${ds.description}<p>
+                    <img src="${ds.imageSchool}" width="500px" height="300px" alt="alt"/>
+            </div>
+        </div>
+    </div>
+    <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
+    <a href="<c:url value="/admin/school/${ds.idschool}" />" class="btn btn-success">Cập nhật</a>
+    </c:if>
+</c:forEach>

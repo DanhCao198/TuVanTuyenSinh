@@ -26,7 +26,7 @@ public class BenmarkServiceImpl implements BenmarkService{
 
     @Override
     public List<Benmarks> getBenMarks(Map<String, String> params) {
-       return this.benmarkRepo.getMarks(params);
+       return this.benmarkRepo.getBenMarks(params);
     }
 
     @Override

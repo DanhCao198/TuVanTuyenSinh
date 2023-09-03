@@ -52,5 +52,6 @@ D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\Sch
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\SchoolService.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\impl\AdmissionServiceImpl.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\configs\SpringSecurityConfig.java
+D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\BenmarkController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\SchoolController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\impl\UserRepositoryImpl.java

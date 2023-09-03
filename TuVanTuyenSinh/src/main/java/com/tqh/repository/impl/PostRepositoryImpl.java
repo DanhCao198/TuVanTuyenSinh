@@ -69,9 +69,11 @@ public class PostRepositoryImpl implements PostRepository {
     @Override
     public boolean addOrUpdatePost(Post p) {
         Session s = this.factory.getObject().getCurrentSession();
+        p.setPostinformation(p.getPostinformation().replace("\n", "</br>"));
         try {
             if (p.getIdpost() == null) {
                 p.setUsersIdusers(StaticClass.users);
+                
                 s.save(p);
             } else {
                 p.setUsersIdusers(StaticClass.users);
