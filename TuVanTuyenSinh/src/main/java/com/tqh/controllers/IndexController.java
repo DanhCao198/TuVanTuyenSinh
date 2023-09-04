@@ -4,9 +4,9 @@
  */
 package com.tqh.controllers;
 
-import com.tqh.pojo.Post;
 import com.tqh.pojo.StaticClass;
 import com.tqh.service.AdmissionService;
+import com.tqh.service.BannerService;
 import com.tqh.service.FacultyService;
 import com.tqh.service.PostService;
 import java.util.Map;
@@ -38,15 +38,16 @@ public class IndexController {
     private FacultyService facultyService;
     @Autowired
     private AdmissionService admissionService;
+    @Autowired
+    private BannerService bannerService;
 
     @ModelAttribute
-    public void commonAttr(Model model) {
+    public void commonAttr(Model model, @RequestParam Map<String, String> params) {
         if (StaticClass.users != null) {
             model.addAttribute("user", StaticClass.users);
+            model.addAttribute("faculty", this.facultyService.getFalcuties(params));
+            model.addAttribute("admission", this.admissionService.getAdmissions());
         }
-        model.addAttribute("faculty", this.facultyService.getFaculties());
-        model.addAttribute("admission", this.admissionService.getAdmissions());
-    
     }
 
     @GetMapping("/admin/settings/")
@@ -55,8 +56,16 @@ public class IndexController {
         return "settings";
     }
 
+    @GetMapping("/admin/bannersetting/")
+    public String AdminSettings1(Model model, @RequestParam Map<String, String> params) {
+        model.addAttribute("banner", this.bannerService.getBanners(params));
+        return "bannersetting";
+    }
+
     @RequestMapping("/")
     public String index(Model model, @RequestParam Map<String, String> params) {
+        model.addAttribute("banner", this.bannerService.getBanners(params));
+        model.addAttribute("posts", this.postService.getPosts(params));
         return "index";
     }
 }

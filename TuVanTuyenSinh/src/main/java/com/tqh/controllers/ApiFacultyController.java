@@ -1,0 +1,58 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.tqh.controllers;
+
+import com.tqh.pojo.Faculty;
+import com.tqh.service.FacultyService;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ *
+ * @author HP
+ */
+@RestController
+@RequestMapping("/api")
+public class ApiFacultyController {
+
+    @Autowired
+    private FacultyService facultyService;
+    
+    @DeleteMapping("/faculty/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable(value = "id") int id) {
+        this.facultyService.deleteFalcuty(id);
+    }
+    
+    @RequestMapping("/faculty/")
+   @CrossOrigin
+    public ResponseEntity<java.util.List<Faculty>> list(@RequestParam Map<String, String> params) {
+        return new ResponseEntity<>(this.facultyService.getFalcuties(params), HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/faculty", consumes = {
+        MediaType.MULTIPART_FORM_DATA_VALUE,
+        MediaType.APPLICATION_JSON_VALUE
+    })
+    @ResponseStatus(HttpStatus.CREATED)
+    public void add(@RequestParam Map<String, String> params) {
+        Faculty p = new Faculty();
+        p.getFacultyname();
+        p.getWebsite();
+        p.getIntrovideo();
+        this.facultyService.addOrUpdateFaculty(p);
+    }
+}

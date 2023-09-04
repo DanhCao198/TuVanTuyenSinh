@@ -40,14 +40,12 @@ public class PostController {
     @GetMapping("/posts")
     public String list(Model model, Principal p) {
         model.addAttribute("post", new Post());
-      
         return "posts";
     }
 
     @GetMapping("/posts/{id}")
     public String update(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("post", this.postService.getPostById(id));
-        
         return "posts";
     }
 

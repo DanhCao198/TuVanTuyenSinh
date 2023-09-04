@@ -1,44 +1,30 @@
 <%-- 
-    Document   : AdminSettings
-    Created on : Sep 1, 2023, 4:46:45 PM
-    Author     : HP
+    Document   : Post
+    Created on : Aug 31, 2023, 5:17:09 PM
+    Author     : Admin
 --%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<h1 class="text-center text-info mt-1">Quản lý hình ảnh banners</h1>
+<c:url value="/admin/banners" var="action" />
+<form:form method="post" action="${action}" modelAttribute="banner" enctype="multipart/form-data">
+    <form:errors path="*" element="div" cssClass="alert alert-danger" />
+    <form:hidden path="idbanner" />
+    <form:hidden path="image" />
+     <div class="form-floating mt-3 mb-3">
+        <form:input type="file" class="form-control"
+                    path="file" id="image" name="image"/>
+        <label for="image">Chọn hình</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+        <button class="btn btn-info" type="submit">
+            <c:choose>
+                <c:when test="${banner.idbanner == null}">Thêm</c:when>
+                <c:otherwise>Cập nhật</c:otherwise>
+            </c:choose>
+        </button>
+    </div>
 
-<section class="container">
-    <h1 class="text-center text-info mt-1">BANNERS</h1>
-    <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
-        <section class="container">
-            <div class="text-right mb-3">
-                <a href="<c:url value='/admin/banners' />" class="btn btn-info">Thêm ảnh banner</a>
-            </div>
-        </section>
-    </c:if>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>Hình ảnh</th>
-                <th>Người thêm</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${banner}" var="ds">
-                <tr>
-                    <td>${ds.idbanner}</td>
-                    <td><img src="${ds.image}" width="50px" height="50px"/></td>
-                    <td>${ds.usersIdusers.firstName} ${ds.usersIdusers.lastName}</td>
-                    <td>  
-                        <c:url value="/api/banners/${ds.idbanner}" var="apiDel" />
-                        <a href="<c:url value="/admin/banners/${ds.idbanner}" />" class="btn btn-success">Cập nhật</a>
-                        <button class="btn btn-danger" onclick="delPost('${apiDel}', ${ds.idbanner})">Xóa</button>
-                    </td>
-                </tr>   
-            </c:forEach>
-        </tbody>
-    </table>
-</section>
-
-<script src="<c:url value="/assets/js/main1.js" />"></script>
+</form:form>

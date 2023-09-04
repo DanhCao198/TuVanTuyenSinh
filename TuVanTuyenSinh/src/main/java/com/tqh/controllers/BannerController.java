@@ -18,33 +18,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
  * @author Admin
  */
+@RequestMapping("/admin")
 @Controller
 @PropertySource("classpath:configs.properties")
 public class BannerController {
     @Autowired
     private BannerService bannerService;
-    
     @GetMapping("/banners")
-    public String list1(Model model, Principal p,Map<String, String> params) {
-        model.addAttribute("banner", this.bannerService.getBanners(params));
-        return "banners";
-    }
-    @GetMapping("admin/banners")
     public String list(Model model, Principal p) {
         model.addAttribute("banner", new Banner());
-        return "bannersetting";
+        return "banners";
     }
-    @GetMapping("admin/banners/{id}")
+    @GetMapping("/banners/{id}")
     public String update(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("banner", this.bannerService.getBannerById(id));
-        return "bannersetting";
+        return "banners";
     }
-     @PostMapping("admin/banners")
+     @PostMapping("/banners")
     public String add(@ModelAttribute(value = "banner") @Valid Banner b,
             BindingResult rs) {
         if (!rs.hasErrors()) {
@@ -53,7 +49,7 @@ public class BannerController {
             }
         }
 
-        return "bannersetting";
+        return "banners";
     }
     
 }

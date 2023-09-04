@@ -53,7 +53,7 @@ CREATE TABLE `banner` (
   PRIMARY KEY (`idbanner`),
   KEY `fk_banner_users1_idx` (`users_idusers`),
   CONSTRAINT `fk_banner_users1` FOREIGN KEY (`users_idusers`) REFERENCES `users` (`idusers`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `banner` (
 
 LOCK TABLES `banner` WRITE;
 /*!40000 ALTER TABLE `banner` DISABLE KEYS */;
-INSERT INTO `banner` VALUES (8,'https://res.cloudinary.com/dev7q6f9g/image/upload/v1693768375/evyn0fulrfzl9xrozfuj.jpg',10),(9,'https://res.cloudinary.com/dev7q6f9g/image/upload/v1693768467/cacghxxwpbzyx0uufdij.png',10),(10,'https://res.cloudinary.com/dev7q6f9g/image/upload/v1693768480/nychzn6f4o6nvmkbthdf.jpg',10);
+INSERT INTO `banner` VALUES (12,'https://res.cloudinary.com/dev7q6f9g/image/upload/v1693809708/tjp2pjsos5gq76uq7l0u.png',10),(13,'https://res.cloudinary.com/dev7q6f9g/image/upload/v1693809762/aclirrc53gzlk5hukzze.png',10),(14,'https://res.cloudinary.com/dev7q6f9g/image/upload/v1693809773/mkss9antuu9hbp380ejn.png',10);
 /*!40000 ALTER TABLE `banner` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,7 +148,7 @@ CREATE TABLE `faculty` (
 
 LOCK TABLES `faculty` WRITE;
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
-INSERT INTO `faculty` VALUES (1,'Công nghệ thông tin','it',NULL),(2,'Xây Dựng','xd',NULL),(3,'Ngôn Ngữ','nn',NULL),(4,'Tài Chính Ngân Hàng','tcnh',NULL),(5,'Quản Trị Kinh Doanh','qtkd',NULL),(6,'Xã Hội Học','xh',NULL);
+INSERT INTO `faculty` VALUES (1,'Công nghệ thông tin','https://tuyensinh.ou.edu.vn/',NULL),(2,'Xây Dựng','xd',NULL),(3,'Ngôn Ngữ','nn',NULL),(4,'Tài Chính Ngân Hàng','tcnh',NULL),(5,'Quản Trị Kinh Doanh','qtkd',NULL),(6,'Xã Hội Học','xh',NULL);
 /*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +175,7 @@ CREATE TABLE `post` (
   CONSTRAINT `admission_idAdmission` FOREIGN KEY (`admission_idadmission`) REFERENCES `admission` (`idadmission`),
   CONSTRAINT `faculty_idFaculty` FOREIGN KEY (`faculty_idfaculty`) REFERENCES `faculty` (`idfaculty`),
   CONSTRAINT `users_idusers` FOREIGN KEY (`users_idusers`) REFERENCES `users` (`idusers`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (4,'Đây là bài làm của Nguyễn Cao Danh và Trần Quang Huy','bú khá nhiều nguồn','abc','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693671342/uyuder3o25balarrhdqp.jpg',10,1,5),(18,'Tuyển sinh năm 2024','Trường đề xuất ....','Thông báo tuyển sinh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693648015/jbmu4leoaozhvinijkd0.png',10,1,5),(19,'Chuyển địa chỉ 3','Chuyển tới Nhà Bè 3','địa chỉ mới 2','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693671365/d9ni1am2sdp7vqomzo4d.png',10,6,5),(21,'Khuya quá còn nhiều môn','Cứu với 1234','Cứu','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674729/nnnn5d8jciwig1bbiz7z.png',13,6,5),(25,'abcde','qưqwqwq\r</br>a\r</br>a\r</br>a','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693753716/grtg24plroelzmcrhhj1.jpg',10,6,5),(26,'trời ơi cứu tui','aaaaaa\r</br>aaa\r</br>aaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693768427/nbxzpvkb24ldxfxe6jrc.jpg',10,6,5);
+INSERT INTO `post` VALUES (4,'Đây là bài làm của Nguyễn Cao Danh và Trần Quang Huy','bú khá nhiều nguồn','abc','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693671342/uyuder3o25balarrhdqp.jpg',10,1,5),(18,'Tuyển sinh năm 2024','Trường đề xuất ....','Thông báo tuyển sinh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,3),(19,'Chuyển địa chỉ 3','Chuyển tới Nhà Bè 3','địa chỉ mới 2','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806832/sajyi6cexvgsg1su70nn.jpg',10,6,2),(21,'Khuya quá còn nhiều môn','Cứu với 1234','Cứu','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806882/mux1rfiwaesdf5ixtxtc.jpg',10,6,1),(25,'abcde','qưqwqwq\r</br></br>a\r</br></br>a\r</br></br>a','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806902/zk1lr6aszz4gjzdvyqs9.jpg',10,6,4),(26,'trời ơi cứu tui','aaaaaa\r</br>aaa\r</br>aaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693768427/nbxzpvkb24ldxfxe6jrc.jpg',10,6,5),(27,'abcde','qưeqewqeweqe','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693807289/ffmpmbgjt0ll8dfrks9b.jpg',10,6,5),(28,'đăng ổn đi mà','aaaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693810054/d5f7s4rft3lfk4thwdio.png',10,6,1),(29,'đăng bài 123','a\r</br>a\r</br>a','','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693815638/f2wu2okrvefcoxao3qqq.jpg',10,6,1),(30,'đăng bài 12334','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693815721/fvkgvlgzncglmrmhri06.jpg',10,1,2),(31,'con chó Huy 21231232','jkvhdslfskfhaSDHfsahdfkn/asdjkfklsdfk;asnfd\r</br>slkdhaodhsa;dkga\r</br>oaishcs;oaughas\r</br>aklhcf;óah\r</br>','Cứu','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693819160/ocembur1paki7dypngc0.jpg',10,6,4);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,4 +283,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-04  2:17:00
+-- Dump completed on 2023-09-04 17:25:37

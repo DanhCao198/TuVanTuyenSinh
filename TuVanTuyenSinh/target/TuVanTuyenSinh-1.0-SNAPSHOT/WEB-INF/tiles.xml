@@ -73,4 +73,19 @@
     <put-attribute name="content"
                        value="/WEB-INF/pages/bannersetting.jsp" />
     </definition>
+    <definition name="postdetail" extends="baseLayout">
+    <put-attribute name="title" value="content" />
+    <put-attribute name="content"
+                       value="/WEB-INF/pages/postdetail.jsp" />
+    </definition>
+    <definition name="faculty" extends="baseLayout">
+    <put-attribute name="title" value="Quản lý Khoa" />
+    <put-attribute name="content"
+                       value="/WEB-INF/pages/faculty.jsp" />
+    </definition>
+    <definition name="facultysetting" extends="baseLayout">
+    <put-attribute name="title" value="Quản lý Khoa" />
+    <put-attribute name="content"
+                       value="/WEB-INF/pages/facultysetting.jsp" />
+    </definition>
 </tiles-definitions>

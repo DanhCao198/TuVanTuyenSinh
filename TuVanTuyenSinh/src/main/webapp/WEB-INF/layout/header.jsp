@@ -48,7 +48,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hệ</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <c:forEach items="${admission}" var="ds">
-                                <a class="dropdown-item" href="#">${ds.typeoftraining}</a>
+                                <a class="dropdown-item" href="#${ds.idadmission}">${ds.typeoftraining}</a>
                             </c:forEach>
                         </div>
                     </li>
@@ -70,10 +70,13 @@
                         <li class="nav-item">
                             <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
                             <li class="nav-item">
+                                <a class="nav-link" href="<c:url value='/admin/facultysetting/' />">Quản lý khoa</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="<c:url value='/admin/settings/' />">Quản lý</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<c:url value='/banners/' />">Banners</a>
+                                <a class="nav-link" href="<c:url value='/admin/bannersetting/' />">Banners</a>
                             </li>
                         </c:if>
                         <li class="nav-item">

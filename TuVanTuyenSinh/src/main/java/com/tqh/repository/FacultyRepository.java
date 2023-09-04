@@ -6,12 +6,21 @@ package com.tqh.repository;
 
 import com.tqh.pojo.Faculty;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author HP
  */
-public interface  FacultyRepository {
-    List<Faculty> getFalcuties();
+public interface FacultyRepository {
+
+    List<Faculty> getFalcuties(Map<String, String> params);
+
     Faculty getFacultyById(int id);
+
+    Long countFaculty();
+
+    boolean addOrUpdateFaculty(Faculty p);
+
+    boolean deleteFalcuty(int id);
 }

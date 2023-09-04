@@ -50,7 +50,6 @@ public class BannerRepositoryImpl implements BannerRepository {
             if (page != null && !page.isEmpty()) {
                 int p = Integer.parseInt(page);
                 int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
-
                 query.setMaxResults(pageSize);
                 query.setFirstResult((p - 1) * pageSize);
             }

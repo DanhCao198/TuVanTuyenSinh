@@ -21,6 +21,7 @@ D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\pojo\Banner.ja
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\impl\BenmarkRepositoryImpl.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\pojo\StaticClass.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\IndexController.java
+D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\PostDetailController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\impl\PostServiceImpl.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\configs\TilesConfigs.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\configs\WebAppContextConfig.java
@@ -47,6 +48,7 @@ D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\Fac
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\UserController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\formatter\FacultyFormatter.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\impl\FacultyRepositoryImpl.java
+D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\FacultyController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\BannerController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\ApiBannerController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\ApiPostController.java
@@ -55,5 +57,6 @@ D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\School
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\impl\AdmissionServiceImpl.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\configs\SpringSecurityConfig.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\BenmarkController.java
+D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\ApiFacultyController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\SchoolController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\impl\UserRepositoryImpl.java

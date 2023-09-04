@@ -7,7 +7,9 @@ package com.tqh.repository.impl;
 import com.tqh.pojo.Faculty;
 import com.tqh.repository.FacultyRepository;
 import java.util.List;
+import java.util.Map;
 import javax.persistence.Query;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -20,13 +22,14 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class FacultyRepositoryImpl implements FacultyRepository{
+public class FacultyRepositoryImpl implements FacultyRepository {
+
     @Autowired
     private LocalSessionFactoryBean factory;
 
     @Override
-    public List<Faculty> getFalcuties() {
-         Session s = this.factory.getObject().getCurrentSession();
+    public List<Faculty> getFalcuties(Map<String, String> params) {
+        Session s = this.factory.getObject().getCurrentSession();
         Query q = s.createQuery("FROM Faculty");
         return q.getResultList();
     }
@@ -36,5 +39,40 @@ public class FacultyRepositoryImpl implements FacultyRepository{
         Session s = this.factory.getObject().getCurrentSession();
         return s.get(Faculty.class, id);
     }
-    
+
+    @Override
+    public Long countFaculty() {
+        Session s = this.factory.getObject().getCurrentSession();
+        Query q = s.createQuery("SELECT Count(*) FROM Falcuty");
+        return Long.parseLong(q.getSingleResult().toString());
+    }
+
+    @Override
+    public boolean addOrUpdateFaculty(Faculty p) {
+        Session s = this.factory.getObject().getCurrentSession();
+        try {
+            if (p.getIdfaculty() == null) {
+                s.save(p);
+            } else {
+                s.update(p);
+            }
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteFalcuty(int id) {
+        Session session = this.factory.getObject().getCurrentSession();
+        Faculty p = this.getFacultyById(id);
+        try {
+            session.delete(p);
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
 }

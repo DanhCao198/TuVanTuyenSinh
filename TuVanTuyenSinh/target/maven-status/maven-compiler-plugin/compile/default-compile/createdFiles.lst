@@ -17,6 +17,7 @@ com\tqh\controllers\UserController.class
 com\tqh\service\impl\SchoolServiceImpl.class
 com\tqh\configs\HibernateConfig.class
 com\tqh\controllers\BannerController.class
+com\tqh\controllers\FacultyController.class
 com\tqh\pojo\School_.class
 com\tqh\pojo\Comment.class
 com\tqh\pojo\Comment_.class
@@ -39,6 +40,7 @@ com\tqh\repository\RoleUserRepository.class
 com\tqh\pojo\StaticClass.class
 com\tqh\repository\SchoolRepository.class
 com\tqh\repository\impl\AdmissionRepositoryImpl.class
+com\tqh\controllers\ApiFacultyController.class
 com\tqh\pojo\Faculty_.class
 com\tqh\service\impl\RoleUserServiceImpl.class
 com\tqh\formatter\AdmissionFormatter.class
@@ -47,6 +49,7 @@ com\tqh\repository\BenmarkRepository.class
 com\tqh\pojo\RoleUser_.class
 com\tqh\service\BannerService.class
 com\tqh\repository\BannerRepository.class
+com\tqh\controllers\PostDetailController.class
 com\tqh\configs\TilesConfigs.class
 com\tqh\service\AdmissionService.class
 com\tqh\pojo\Faculty.class
