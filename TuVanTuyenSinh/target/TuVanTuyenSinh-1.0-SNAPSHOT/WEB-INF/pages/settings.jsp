@@ -6,6 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <section class="container">
     <h1 class="text-center text-info mt-1">QUẢN LÝ BÀI VIẾT</h1>
     <div class="text-right mb-3">

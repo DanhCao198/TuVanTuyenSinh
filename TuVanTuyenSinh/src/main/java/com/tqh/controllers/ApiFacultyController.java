@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -31,13 +33,13 @@ public class ApiFacultyController {
     @Autowired
     private FacultyService facultyService;
     
-    @DeleteMapping("/faculty/{id}")
+    @DeleteMapping("/faculties/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable(value = "id") int id) {
         this.facultyService.deleteFalcuty(id);
     }
     
-    @RequestMapping("/faculty/")
+    @RequestMapping("/faculties/")
    @CrossOrigin
     public ResponseEntity<java.util.List<Faculty>> list(@RequestParam Map<String, String> params) {
         return new ResponseEntity<>(this.facultyService.getFalcuties(params), HttpStatus.OK);
@@ -48,11 +50,14 @@ public class ApiFacultyController {
         MediaType.APPLICATION_JSON_VALUE
     })
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(@RequestParam Map<String, String> params) {
-        Faculty p = new Faculty();
-        p.getFacultyname();
-        p.getWebsite();
-        p.getIntrovideo();
-        this.facultyService.addOrUpdateFaculty(p);
+    public void add(@RequestParam Map<String, String> params,@RequestPart MultipartFile[] file) {
+        Faculty f = new Faculty();
+        f.getFacultyname();
+        f.getWebsite();
+        f.getIntrovideo();
+                if (file.length > 0) {
+            f.setFile(file[0]);
+        }
+        this.facultyService.addOrUpdateFaculty(f);
     }
 }

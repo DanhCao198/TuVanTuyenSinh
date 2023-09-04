@@ -12,7 +12,7 @@
     <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
         <section class="container">
             <div class="text-right mb-3">
-                <a href="<c:url value='/admin/faculty' />" class="btn btn-info">Thêm Khoa</a>
+                <a href="<c:url value='/admin/faculties' />" class="btn btn-info">Thêm Khoa</a>
             </div>
         </section>
     </c:if>
@@ -30,11 +30,11 @@
                 <tr>
                     <td>${ds.idfaculty}</td>
                     <td>${ds.facultyname}</td>
-                     <td>${ds.website}</td>
-                      <td>${ds.introvideo}</td>
+                    <td>${ds.website}</td>
+                    <td>${ds.introvideo}</td>
                     <td>  
-                        <c:url value="/api/faculty/${ds.idfaculty}" var="apiDel" />
-                        <a href="<c:url value="/admin/faculty/${ds.idfaculty}" />" class="btn btn-success">Cập nhật</a>
+                        <c:url value="/api/faculties/${ds.idfaculty}" var="apiDel" />
+                        <a href="<c:url value="/admin/faculties/${ds.idfaculty}"/>" class="btn btn-success">Cập nhật</a>
                         <button class="btn btn-danger" onclick="delPost('${apiDel}', ${ds.idfaculty})">Xóa</button>
                     </td>
                 </tr>   
@@ -42,3 +42,4 @@
         </tbody>
     </table>
 </section>
+<script src="<c:url value="/assets/js/main1.js" />"></script>

@@ -31,27 +31,27 @@ public class FacultyController {
     @Autowired
     private FacultyService facultyService;
 
-    @GetMapping("/faculty")
+    @GetMapping("/faculties")
     public String list(Model model, Principal p) {
         model.addAttribute("faculty", new Faculty());
-        return "faculty";
+        return "faculties";
     }
 
-    @GetMapping("/faculty/{id}")
+    @GetMapping("/faculties/{id}")
     public String update(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("faculty", this.facultyService.getFacultyById(id));
-        return "faculty";
+        return "faculties";
     }
 
-    @PostMapping("/faculty")
-    public String add(@ModelAttribute(value = "faculty") @Valid Faculty p,
+    @PostMapping("/faculties")
+    public String add(@ModelAttribute(value = "faculty") @Valid Faculty f,
             BindingResult rs) {
         if (!rs.hasErrors()) {
-            if (facultyService.addOrUpdateFaculty(p) == true) {
+            if (facultyService.addOrUpdateFaculty(f) == true) {
                 return "redirect:/";
             }
         }
-        return "faculty";
+        return "faculties";
     }
 
 }

@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <h1 class="text-center text-info mt-1">Quản lý hình ảnh banners</h1>
 <c:url value="/admin/banners" var="action" />
 <form:form method="post" action="${action}" modelAttribute="banner" enctype="multipart/form-data">

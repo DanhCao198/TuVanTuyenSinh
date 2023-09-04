@@ -78,10 +78,10 @@
     <put-attribute name="content"
                        value="/WEB-INF/pages/postdetail.jsp" />
     </definition>
-    <definition name="faculty" extends="baseLayout">
+    <definition name="faculties" extends="baseLayout">
     <put-attribute name="title" value="Quản lý Khoa" />
     <put-attribute name="content"
-                       value="/WEB-INF/pages/faculty.jsp" />
+                       value="/WEB-INF/pages/faculties.jsp" />
     </definition>
     <definition name="facultysetting" extends="baseLayout">
     <put-attribute name="title" value="Quản lý Khoa" />

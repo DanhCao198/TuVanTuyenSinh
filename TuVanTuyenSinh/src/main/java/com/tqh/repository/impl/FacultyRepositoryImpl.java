@@ -12,6 +12,8 @@ import javax.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,10 +24,13 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
+@PropertySource("classpath:configs.properties")
 public class FacultyRepositoryImpl implements FacultyRepository {
 
     @Autowired
     private LocalSessionFactoryBean factory;
+    @Autowired
+    private Environment env;
 
     @Override
     public List<Faculty> getFalcuties(Map<String, String> params) {
@@ -48,13 +53,13 @@ public class FacultyRepositoryImpl implements FacultyRepository {
     }
 
     @Override
-    public boolean addOrUpdateFaculty(Faculty p) {
+    public boolean addOrUpdateFaculty(Faculty f) {
         Session s = this.factory.getObject().getCurrentSession();
         try {
-            if (p.getIdfaculty() == null) {
-                s.save(p);
+            if (f.getIdfaculty() == null) {
+                s.save(f);
             } else {
-                s.update(p);
+                s.update(f);
             }
             return true;
         } catch (HibernateException ex) {

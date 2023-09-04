@@ -70,7 +70,7 @@ public class Post implements Serializable {
     @JoinColumn(name = "users_idusers", referencedColumnName = "idusers")
     @ManyToOne
     private Users usersIdusers;
-   @Transient
+    @Transient
     private MultipartFile file;
 
     public MultipartFile getFile() {

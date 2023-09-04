@@ -20,7 +20,7 @@ public interface FacultyRepository {
 
     Long countFaculty();
 
-    boolean addOrUpdateFaculty(Faculty p);
+    boolean addOrUpdateFaculty(Faculty f);
 
     boolean deleteFalcuty(int id);
 }
