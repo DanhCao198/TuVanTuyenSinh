@@ -3,6 +3,7 @@ com\tqh\configs\SpringSecurityConfig.class
 com\tqh\controllers\SchoolController.class
 com\tqh\pojo\Banner.class
 com\tqh\repository\impl\BannerRepositoryImpl.class
+com\tqh\repository\impl\CommentRepositoryImpl.class
 com\tqh\configs\SecurityWebApplicationInitializer.class
 com\tqh\configs\DispatcherServletInit.class
 com\tqh\controllers\ApiBannerController.class
@@ -19,6 +20,7 @@ com\tqh\configs\HibernateConfig.class
 com\tqh\controllers\BannerController.class
 com\tqh\controllers\FacultyController.class
 com\tqh\pojo\School_.class
+com\tqh\service\CommentService.class
 com\tqh\pojo\Comment.class
 com\tqh\pojo\Comment_.class
 com\tqh\repository\FacultyRepository.class
@@ -30,6 +32,7 @@ com\tqh\pojo\Admission_.class
 com\tqh\repository\UserRepository.class
 com\tqh\pojo\Banner_.class
 com\tqh\formatter\FacultyFormatter.class
+com\tqh\service\impl\CommentServiceImpl.class
 com\tqh\controllers\ApiPostController.class
 com\tqh\pojo\Benmarks_.class
 com\tqh\pojo\School.class
@@ -60,6 +63,7 @@ com\tqh\service\UserService.class
 com\tqh\repository\impl\FacultyRepositoryImpl.class
 com\tqh\service\impl\AdmissionServiceImpl.class
 com\tqh\service\impl\UserServiceImpl.class
+com\tqh\repository\CommentRepository.class
 com\tqh\service\RoleUserService.class
 com\tqh\repository\impl\SchoolRepositoryImpl.class
 com\tqh\service\impl\FacultyServiceImpl.class

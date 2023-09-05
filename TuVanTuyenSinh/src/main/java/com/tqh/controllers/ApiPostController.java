@@ -4,8 +4,10 @@
  */
 package com.tqh.controllers;
 
+import com.tqh.pojo.Comment;
 import com.tqh.pojo.Post;
 import com.tqh.service.AdmissionService;
+import com.tqh.service.CommentService;
 import com.tqh.service.FacultyService;
 import com.tqh.service.PostService;
 import java.util.List;
@@ -16,8 +18,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -39,6 +43,8 @@ public class ApiPostController {
     private FacultyService facultyService;
     @Autowired
     private AdmissionService admissionService;
+    @Autowired
+    private CommentService commentService;
 
     @DeleteMapping("/posts/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -66,5 +72,18 @@ public class ApiPostController {
         if (file.length > 0)
             p.setFile(file[0]);
         this.postService.addOrUpdatePost(p);
+    }
+    
+     
+    @GetMapping("/posts/{id}/comments/")
+    public ResponseEntity<List<Comment>> listComments(@PathVariable(value = "id") int id) {
+        return new ResponseEntity<>(this.commentService.getComments(id), HttpStatus.OK);
+    }
+    
+    @PostMapping(path="/comments/", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Comment> addComment(@RequestBody Comment comment) {
+        Comment c = this.commentService.addComment(comment);
+        
+        return new ResponseEntity<>(c, HttpStatus.CREATED);
     }
 }

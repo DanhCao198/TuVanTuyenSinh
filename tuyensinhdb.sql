@@ -92,7 +92,7 @@ CREATE TABLE `benmarks` (
 
 LOCK TABLES `benmarks` WRITE;
 /*!40000 ALTER TABLE `benmarks` DISABLE KEYS */;
-INSERT INTO `benmarks` VALUES (4,'2022',30,23,500,1),(5,'2022',19,24,500,2),(6,'2023',18,25,500,3),(7,'2023',17,26,500,4),(8,'2018',16,27,500,5),(9,'2019',16,27,500,6);
+INSERT INTO `benmarks` VALUES (4,'2022',30,23,500,1),(6,'2023',18,25,500,3),(9,'2019',16,27,500,6);
 /*!40000 ALTER TABLE `benmarks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,9 +105,10 @@ DROP TABLE IF EXISTS `comment`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comment` (
   `idcomment` int NOT NULL AUTO_INCREMENT,
-  `commentinformation` varchar(45) DEFAULT NULL,
+  `commentinformation` varchar(255) DEFAULT NULL,
   `post_idpost` int NOT NULL,
   `users_idusers` int NOT NULL,
+  `created_date` date DEFAULT NULL,
   PRIMARY KEY (`idcomment`),
   KEY `post_idPost_idx` (`post_idpost`),
   KEY `fk_comment_users1_idx` (`users_idusers`),
@@ -122,7 +123,7 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (1,'abc',4,11);
+INSERT INTO `comment` VALUES (1,'abc',4,11,NULL);
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,7 +140,7 @@ CREATE TABLE `faculty` (
   `website` varchar(45) DEFAULT NULL,
   `introvideo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idfaculty`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +149,7 @@ CREATE TABLE `faculty` (
 
 LOCK TABLES `faculty` WRITE;
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
-INSERT INTO `faculty` VALUES (1,'Công nghệ thông tin','https://tuyensinh.ou.edu.vn/',NULL),(2,'Xây Dựng','xd',NULL),(3,'Ngôn Ngữ','nn',NULL),(4,'Tài Chính Ngân Hàng','tcnh',NULL),(5,'Quản Trị Kinh Doanh','qtkd',NULL),(6,'Xã Hội Học','xh',NULL);
+INSERT INTO `faculty` VALUES (1,'Công nghệ thông tin','https://tuyensinh.xhh.edu.vn/',''),(3,'Ngôn Ngữ','nn',NULL),(6,'Xã Hội Học','xh',NULL),(7,'Xây dựng','https://tuyensinh.xd.edu.vn/','');
 /*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,4 +284,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-04 17:25:37
+-- Dump completed on 2023-09-05 12:00:11

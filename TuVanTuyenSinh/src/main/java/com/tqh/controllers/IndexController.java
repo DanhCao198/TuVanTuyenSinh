@@ -75,6 +75,10 @@ public class IndexController {
         model.addAttribute("banner", this.bannerService.getBanners(params));
         model.addAttribute("posts", this.postService.getPosts(params));
         model.addAttribute("faculty", this.facultyService.getFalcuties(params));
+        
+        int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
+        long count = this.postService.countPost();
+        model.addAttribute("counter", Math.ceil(count*1.0/pageSize));
         return "index";
     }
 }

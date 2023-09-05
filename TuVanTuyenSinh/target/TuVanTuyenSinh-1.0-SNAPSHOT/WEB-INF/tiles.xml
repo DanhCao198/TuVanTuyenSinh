@@ -34,58 +34,59 @@
                        value="/WEB-INF/pages/posts.jsp" />
     </definition>
     <definition name="banners" extends="baseLayout">
-    <put-attribute name="title" value="Quản lý hình ảnh" />
-    <put-attribute name="content"
+        <put-attribute name="title" value="Quản lý hình ảnh" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/banners.jsp" />
     </definition> 
-     <definition name="settings" extends="baseLayout">
-    <put-attribute name="title" value="Cài đặt chức năng" />
-    <put-attribute name="content"
+    <definition name="settings" extends="baseLayout">
+        <put-attribute name="title" value="Cài đặt chức năng" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/settings.jsp" />
     </definition> 
-     <definition name="school" extends="baseLayout">
-    <put-attribute name="title" value="Thông tin trường" />
-    <put-attribute name="content"
+    <definition name="school" extends="baseLayout">
+        <put-attribute name="title" value="Thông tin trường" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/school.jsp" />
     </definition> 
     <definition name="schoolsetting" extends="baseLayout">
-    <put-attribute name="title" value="Thông tin trường" />
-    <put-attribute name="content"
+        <put-attribute name="title" value="Thông tin trường" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/schoolsetting.jsp" />
     </definition>
     <definition name="benmarks" extends="baseLayout">
-    <put-attribute name="title" value="Điểm chuẩn" />
-    <put-attribute name="content"
+        <put-attribute name="title" value="Điểm chuẩn" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/benmarks.jsp" />
     </definition>
     <definition name="benmarksetting" extends="baseLayout">
-    <put-attribute name="title" value="Điểm chuẩn" />
-    <put-attribute name="content"
+        <put-attribute name="title" value="Điểm chuẩn" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/benmarksetting.jsp" />
     </definition>
     <definition name="banners" extends="baseLayout">
-    <put-attribute name="title" value="Quản lý banners" />
-    <put-attribute name="content"
+        <put-attribute name="title" value="Quản lý banners" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/banners.jsp" />
     </definition>
     <definition name="bannersetting" extends="baseLayout">
-    <put-attribute name="title" value="Quản lý banners" />
-    <put-attribute name="content"
+        <put-attribute name="title" value="Quản lý banners" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/bannersetting.jsp" />
     </definition>
     <definition name="postdetail" extends="baseLayout">
-    <put-attribute name="title" value="content" />
-    <put-attribute name="content"
+        <put-attribute name="title" value="content" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/postdetail.jsp" />
     </definition>
     <definition name="faculties" extends="baseLayout">
-    <put-attribute name="title" value="Quản lý Khoa" />
-    <put-attribute name="content"
+        <put-attribute name="title" value="Quản lý Khoa" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/faculties.jsp" />
     </definition>
     <definition name="facultysetting" extends="baseLayout">
-    <put-attribute name="title" value="Quản lý Khoa" />
-    <put-attribute name="content"
+        <put-attribute name="title" value="Quản lý Khoa" />
+        <put-attribute name="content"
                        value="/WEB-INF/pages/facultysetting.jsp" />
     </definition>
+       
 </tiles-definitions>

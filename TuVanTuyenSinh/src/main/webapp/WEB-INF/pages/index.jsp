@@ -31,6 +31,8 @@
         </div>
     </div>
 </div>
+
+
 <c:forEach items="${admission}" var="ds">
     <c:set var="trainingDisplayed" value="false" />
     <div class="container my-5">
@@ -41,8 +43,8 @@
                     <div class="col-md-6">
                         <div class="card mb-4">
                             <div class="card-body">
-                               <a href="<c:url value='/postdetail/${dsp.idpost}'/>">
-                                <h4 class="card-title fw-bold">${dsp.postName}</h4>
+                                <a href="<c:url value='/postdetail/${dsp.idpost}'/>">
+                                    <h4 class="card-title fw-bold">${dsp.postName}</h4>
                                 </a>
                             </div>
                         </div>
@@ -54,4 +56,4 @@
 </c:forEach>
 
 <!-- Add JavaScript to handle banner navigation -->
-  <script src="<c:url value="/assets/js/banner.js" />"></script>
+<script src="<c:url value="/assets/js/banner.js" />"></script>

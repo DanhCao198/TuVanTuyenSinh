@@ -5,6 +5,7 @@
 package com.tqh.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -31,6 +34,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Comment.findByIdcomment", query = "SELECT c FROM Comment c WHERE c.idcomment = :idcomment"),
     @NamedQuery(name = "Comment.findByCommentinformation", query = "SELECT c FROM Comment c WHERE c.commentinformation = :commentinformation")})
 public class Comment implements Serializable {
+
+    @Column(name = "created_date")
+    @Temporal(TemporalType.DATE)
+    private Date createdDate;
 
     @JoinColumn(name = "users_idusers", referencedColumnName = "idusers")
     @ManyToOne(optional = false)
@@ -144,6 +151,14 @@ public class Comment implements Serializable {
 
     public void setUsersIdusers(Users usersIdusers) {
         this.usersIdusers = usersIdusers;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
     
 }
