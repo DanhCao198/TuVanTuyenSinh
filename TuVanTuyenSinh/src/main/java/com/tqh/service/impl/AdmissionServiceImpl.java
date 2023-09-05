@@ -8,6 +8,7 @@ import com.tqh.pojo.Admission;
 import com.tqh.repository.AdmissionRepository;
 import com.tqh.service.AdmissionService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,8 @@ public class AdmissionServiceImpl implements AdmissionService{
     private AdmissionRepository admissionRepo;
     
     @Override
-    public List<Admission> getAdmissions() {
-        return this.admissionRepo.getAdmissions();
+    public List<Admission> getAdmissions(Map<String, String> params) {
+        return this.admissionRepo.getAdmissions(params);
     }
 
     @Override

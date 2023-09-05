@@ -78,6 +78,11 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/postdetail.jsp" />
     </definition>
+    <definition name="postlist" extends="baseLayout">
+        <put-attribute name="title" value="content" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/postlist.jsp" />
+    </definition>
     <definition name="faculties" extends="baseLayout">
         <put-attribute name="title" value="Quản lý Khoa" />
         <put-attribute name="content"

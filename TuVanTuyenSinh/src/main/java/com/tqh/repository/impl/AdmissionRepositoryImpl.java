@@ -7,6 +7,7 @@ package com.tqh.repository.impl;
 import com.tqh.pojo.Admission;
 import com.tqh.repository.AdmissionRepository;
 import java.util.List;
+import java.util.Map;
 import javax.persistence.Query;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class AdmissionRepositoryImpl implements AdmissionRepository{
     private LocalSessionFactoryBean factory;
     
     @Override
-    public List<Admission> getAdmissions(){
+    public List<Admission> getAdmissions(Map<String, String> params){
         Session s = this.factory.getObject().getCurrentSession();
         Query q = s.createQuery("FROM Admission");
         return q.getResultList();

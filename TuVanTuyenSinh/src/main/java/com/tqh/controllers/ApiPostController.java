@@ -76,7 +76,7 @@ public class ApiPostController {
     
      
     @GetMapping("/posts/{id}/comments/")
-    public ResponseEntity<List<Comment>> listComments(@PathVariable(value = "id") int id) {
+    public ResponseEntity<List<Comment>> listComments(@PathVariable(value = "idpost") int id) {
         return new ResponseEntity<>(this.commentService.getComments(id), HttpStatus.OK);
     }
     

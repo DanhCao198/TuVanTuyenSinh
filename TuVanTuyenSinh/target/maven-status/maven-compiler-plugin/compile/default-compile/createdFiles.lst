@@ -21,6 +21,8 @@ com\tqh\controllers\BannerController.class
 com\tqh\controllers\FacultyController.class
 com\tqh\pojo\School_.class
 com\tqh\service\CommentService.class
+com\tqh\filters\JwtAuthenticationTokenFilter.class
+com\tqh\filters\CustomAccessDeniedHandler.class
 com\tqh\pojo\Comment.class
 com\tqh\pojo\Comment_.class
 com\tqh\repository\FacultyRepository.class
@@ -37,10 +39,12 @@ com\tqh\controllers\ApiPostController.class
 com\tqh\pojo\Benmarks_.class
 com\tqh\pojo\School.class
 com\tqh\controllers\PostController.class
+com\tqh\controllers\PostListController.class
 com\tqh\service\PostService.class
 com\tqh\pojo\Post_.class
 com\tqh\repository\RoleUserRepository.class
 com\tqh\pojo\StaticClass.class
+com\tqh\configs\JwtSecurityConfig.class
 com\tqh\repository\SchoolRepository.class
 com\tqh\repository\impl\AdmissionRepositoryImpl.class
 com\tqh\controllers\ApiFacultyController.class
@@ -49,9 +53,11 @@ com\tqh\service\impl\RoleUserServiceImpl.class
 com\tqh\formatter\AdmissionFormatter.class
 com\tqh\pojo\Users.class
 com\tqh\repository\BenmarkRepository.class
+com\tqh\filters\RestAuthenticationEntryPoint.class
 com\tqh\pojo\RoleUser_.class
 com\tqh\service\BannerService.class
 com\tqh\repository\BannerRepository.class
+com\tqh\components\JwtService.class
 com\tqh\controllers\PostDetailController.class
 com\tqh\configs\TilesConfigs.class
 com\tqh\service\AdmissionService.class

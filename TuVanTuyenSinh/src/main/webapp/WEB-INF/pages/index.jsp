@@ -36,7 +36,9 @@
 <c:forEach items="${admission}" var="ds">
     <c:set var="trainingDisplayed" value="false" />
     <div class="container my-5">
-        <h3 class="text-primary"id=${ds.idadmission} >${ds.typeoftraining}</h3>
+        <a href="<c:url value='/postlist/${ds.idadmission}'/>">
+            <h3 class="text-primary"id=${ds.idadmission}>${ds.typeoftraining}</h3>
+        </a>
         <div class="row">
             <c:forEach items="${posts}" var="dsp">
                 <c:if test="${ds.typeoftraining==dsp.admissionIdadmission.typeoftraining}">

@@ -49,7 +49,8 @@ public class IndexController {
 
         }
             model.addAttribute("faculties", this.facultyService.getFalcuties(params));
-            model.addAttribute("admission", this.admissionService.getAdmissions());
+            model.addAttribute("admission", this.admissionService.getAdmissions(params));
+            model.addAttribute("posts",this.postService.getPosts(params));
     }
 
     @GetMapping("/admin/settings/")
@@ -75,7 +76,7 @@ public class IndexController {
         model.addAttribute("banner", this.bannerService.getBanners(params));
         model.addAttribute("posts", this.postService.getPosts(params));
         model.addAttribute("faculty", this.facultyService.getFalcuties(params));
-        
+        model.addAttribute("admission", this.admissionService.getAdmissions(params));
         int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
         long count = this.postService.countPost();
         model.addAttribute("counter", Math.ceil(count*1.0/pageSize));
