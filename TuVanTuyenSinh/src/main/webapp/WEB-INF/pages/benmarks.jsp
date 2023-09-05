@@ -34,11 +34,13 @@
                     <td>${ds.diemhocba}</td>
                     <td>${ds.diemdgnl}</td>
                     <td>${ds.year}</td>
-                    <td>  
-                        <c:url value="/api/benmarks/${ds.idbenmarks}" var="apiDel" />
-                        <a href="<c:url value="/admin/benmarks/${ds.idbenmarks}" />" class="btn btn-success">Cập nhật</a>
-                        <button class="btn btn-danger" onclick="delPost('${apiDel}', ${ds.idbenmarks})">Xóa</button>
-                    </td>
+                    <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
+                        <td>  
+                            <c:url value="/api/benmarks/${ds.idbenmarks}" var="apiDel" />
+                            <a href="<c:url value="/admin/benmarks/${ds.idbenmarks}" />" class="btn btn-success">Cập nhật</a>
+                            <button class="btn btn-danger" onclick="delPost('${apiDel}', ${ds.idbenmarks})">Xóa</button>
+                        </td>
+                    </c:if>
                 </tr>   
             </c:forEach>
         </tbody>

@@ -14,18 +14,26 @@
     <form:errors path="*" element="div" cssClass="alert alert-danger" />
     <form:hidden path="idfaculty" />
     <form:hidden path="introvideo"/>
-    
+
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
                     path="facultyname" id="ten" placeholder="Tên Khoa" />
         <label for="name">Tên khoa</label>
     </div>
-        <div class="form-floating mb-3 mt-3">
+    <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
                     path="website" id="web" placeholder="Website" />
         <label for="name">Website</label>
-        </div>
-        <div class="form-floating mb-3 mt-3">
+    </div>
+    <div class="form-floating mb-3 mt-3">
+        <form:textarea  rows="10" cols="148"
+                        path="gioiThieu" id="gioiThieu" placeholder="Giới thiệu Khoa" />
+    </div>
+    <div class="form-floating mb-3 mt-3">
+        <form:textarea  rows="10" cols="148"
+                        path="moTaCTDT" id="moTaCTDT" placeholder="Mô tả chương trình đào tạo" />
+    </div>
+    <div class="form-floating mb-3 mt-3">
         <form:input type="file" class="form-control" 
                     path="file" id="vid" placeholder="Video" />
         <label for="name">Video</label>

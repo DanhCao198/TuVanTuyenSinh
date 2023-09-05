@@ -56,7 +56,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Khoa</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <c:forEach items="${faculties}" var="ds">
-                                <a class="dropdown-item" href="${ds.website}">${ds.facultyname}</a>
+                                <a class="dropdown-item" href="<c:url value='/facultiesdetail/${ds.idfaculty}'/>">${ds.facultyname}</a>
                             </c:forEach>
                         </div>
                     </li>

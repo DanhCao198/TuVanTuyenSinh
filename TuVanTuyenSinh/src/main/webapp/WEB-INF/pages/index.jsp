@@ -37,7 +37,7 @@
     <c:set var="trainingDisplayed" value="false" />
     <div class="container my-5">
         <a href="<c:url value='/postlist/${ds.idadmission}'/>">
-            <h3 class="text-primary"id=${ds.idadmission}>${ds.typeoftraining}</h3>
+            <h3 class="card-title fw-bold"id=${ds.idadmission}>${ds.typeoftraining}</h3>
         </a>
         <div class="row">
             <c:forEach items="${posts}" var="dsp">
@@ -45,8 +45,8 @@
                     <div class="col-md-6">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <a href="<c:url value='/postdetail/${dsp.idpost}'/>">
-                                    <h4 class="card-title fw-bold">${dsp.postName}</h4>
+                                <a class="nav-item" href="<c:url value='/postdetail/${dsp.idpost}'/>">
+                                   <h4 class="nav-link">${dsp.postName}</h4>
                                 </a>
                             </div>
                         </div>

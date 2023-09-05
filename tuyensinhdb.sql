@@ -139,8 +139,10 @@ CREATE TABLE `faculty` (
   `facultyname` varchar(45) NOT NULL,
   `website` varchar(45) DEFAULT NULL,
   `introvideo` varchar(45) DEFAULT NULL,
+  `gioiThieu` longtext,
+  `moTaCTDT` longtext,
   PRIMARY KEY (`idfaculty`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +151,7 @@ CREATE TABLE `faculty` (
 
 LOCK TABLES `faculty` WRITE;
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
-INSERT INTO `faculty` VALUES (1,'Công nghệ thông tin','https://tuyensinh.xhh.edu.vn/',''),(3,'Ngôn Ngữ','nn',NULL),(6,'Xã Hội Học','xh',NULL),(7,'Xây dựng','https://tuyensinh.xd.edu.vn/','');
+INSERT INTO `faculty` VALUES (1,'Công nghệ thông tin','https://tuyensinh.xhh.edu.vn/','',NULL,NULL),(3,'Ngôn Ngữ','nn',NULL,NULL,NULL),(6,'Xã Hội Học','xh',NULL,NULL,NULL),(7,'Xây dựng','https://tuyensinh.xd.edu.vn/','',NULL,NULL),(9,'Du lịch','dulich.ou.edu.vn','','aaa','aaa'),(10,'Tài chính ngân hàng','tcng.ou.edu.vn','','aaa','aaa');
 /*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -284,4 +286,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-05 12:00:11
+-- Dump completed on 2023-09-05 22:29:39

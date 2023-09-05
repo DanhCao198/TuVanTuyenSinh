@@ -21,8 +21,11 @@
             <tr>
                 <th>id</th>
                 <th>Tên Khoa</th>
+                <th>Giới thiệu</th>
+                <th>Mô tả CTDT</th>
                 <th>Website</th>
                 <th>Video</th>
+
             </tr>
         </thead>
         <tbody>
@@ -30,6 +33,8 @@
                 <tr>
                     <td>${ds.idfaculty}</td>
                     <td>${ds.facultyname}</td>
+                    <td>${ds.gioiThieu}</td>
+                    <td>${ds.moTaCTDT}</td>
                     <td>${ds.website}</td>
                     <td>${ds.introvideo}</td>
                     <td>  

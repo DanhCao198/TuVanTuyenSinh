@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -38,6 +39,15 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Faculty.findByWebsite", query = "SELECT f FROM Faculty f WHERE f.website = :website"),
     @NamedQuery(name = "Faculty.findByIntrovideo", query = "SELECT f FROM Faculty f WHERE f.introvideo = :introvideo")})
 public class Faculty implements Serializable {
+
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "gioiThieu")
+    private String gioiThieu;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "moTaCTDT")
+    private String moTaCTDT;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -155,6 +165,22 @@ public class Faculty implements Serializable {
     @Override
     public String toString() {
         return "com.tqh.pojo.Faculty[ idfaculty=" + idfaculty + " ]";
+    }
+
+    public String getGioiThieu() {
+        return gioiThieu;
+    }
+
+    public void setGioiThieu(String gioiThieu) {
+        this.gioiThieu = gioiThieu;
+    }
+
+    public String getMoTaCTDT() {
+        return moTaCTDT;
+    }
+
+    public void setMoTaCTDT(String moTaCTDT) {
+        this.moTaCTDT = moTaCTDT;
     }
 
 

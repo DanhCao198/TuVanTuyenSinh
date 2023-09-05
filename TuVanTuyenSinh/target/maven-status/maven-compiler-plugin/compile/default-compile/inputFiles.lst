@@ -2,6 +2,7 @@ D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\configs\JwtSec
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\UserService.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\configs\HibernateConfig.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\configs\SecurityWebApplicationInitializer.java
+D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\controllers\FacultyDetailController.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\impl\AdmissionRepositoryImpl.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\repository\BannerRepository.java
 D:\LTJaVa\BTL\TuVanTuyenSinh\TuVanTuyenSinh\src\main\java\com\tqh\service\impl\BannerServiceImpl.java

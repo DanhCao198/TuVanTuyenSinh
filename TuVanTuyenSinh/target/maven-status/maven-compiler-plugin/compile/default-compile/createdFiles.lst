@@ -44,6 +44,7 @@ com\tqh\service\PostService.class
 com\tqh\pojo\Post_.class
 com\tqh\repository\RoleUserRepository.class
 com\tqh\pojo\StaticClass.class
+com\tqh\controllers\FacultyDetailController.class
 com\tqh\configs\JwtSecurityConfig.class
 com\tqh\repository\SchoolRepository.class
 com\tqh\repository\impl\AdmissionRepositoryImpl.class

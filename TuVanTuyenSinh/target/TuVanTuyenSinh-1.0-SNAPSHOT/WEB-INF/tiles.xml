@@ -93,5 +93,9 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/facultysetting.jsp" />
     </definition>
-       
+       <definition name="facultiesdetail" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý Khoa" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/facultiesdetail.jsp" />
+    </definition>
 </tiles-definitions>
