@@ -30,18 +30,13 @@ public class PostListController {
     @Autowired
     private Environment env;
 
-    @GetMapping("/postlist/{id}")
-    public String update(Model model, @PathVariable(value = "id") int id) {
+    @GetMapping("/postlist/{id}/")
+    public String update(Model model, @PathVariable(value = "id") int id, @RequestParam Map<String, String> params) {
         model.addAttribute("admissions", this.admissionService.getAdmissionById(id));
-        return "postlist";
-    }
-
-    @RequestMapping("/postlist")
-    public String index(Model model, @RequestParam Map<String, String> params) {
-        model.addAttribute("posts", this.postService.getPosts(params));
+        model.addAttribute("posts", this.postService.getPostsByAdmission(params, id));
 
         int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
-        long count = this.postService.countPost();
+        long count = this.postService.countPost(id);
         model.addAttribute("counter", Math.ceil(count * 1.0 / pageSize));
         return "postlist";
     }

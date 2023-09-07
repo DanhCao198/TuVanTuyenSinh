@@ -75,15 +75,15 @@ public class ApiPostController {
     }
     
      
-    @GetMapping("/posts/{id}/comments/")
-    public ResponseEntity<List<Comment>> listComments(@PathVariable(value = "idpost") int id) {
-        return new ResponseEntity<>(this.commentService.getComments(id), HttpStatus.OK);
-    }
-    
-    @PostMapping(path="/comments/", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Comment> addComment(@RequestBody Comment comment) {
-        Comment c = this.commentService.addComment(comment);
-        
-        return new ResponseEntity<>(c, HttpStatus.CREATED);
-    }
+//    @GetMapping("/posts/{id}/comments/")
+//    public ResponseEntity<List<Comment>> listComments(@PathVariable(value = "idpost") int id) {
+//        return new ResponseEntity<>(this.commentService.getComments(id), HttpStatus.OK);
+//    }
+//    
+//    @PostMapping(path="/comments/", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<Comment> addComment(@RequestBody Comment comment) {
+//        Comment c = this.commentService.addComment(comment);
+//        
+//        return new ResponseEntity<>(c, HttpStatus.CREATED);
+//    }
 }

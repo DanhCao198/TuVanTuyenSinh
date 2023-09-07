@@ -11,9 +11,9 @@
 
     <c:if test="${counter > 1}">
         <ul class="pagination mt-1">
-            <li class="page-item"><a class="page-link" href="<c:url value="/postlist" />">Tất cả</a></li>
+            <li class="page-item"><a class="page-link" href="<c:url value="/postlist/${admissions.idadmission}/" />">Tất cả</a></li>
                 <c:forEach begin="1" end="${counter}" var="i">
-                    <c:url value="/postlist" var="pageUrl">
+                    <c:url value="/postlist/${admissions.idadmission}/" var="pageUrl">
                         <c:param name="page" value="${i}"></c:param>
                     </c:url>
                 <li class="page-item"><a class="page-link" href="${pageUrl}">${i}</a></li>
@@ -34,10 +34,8 @@
                     </div>
                 </div>
             </c:if>
-
         </c:forEach>
     </div>
-
 </section>
 
 <script src="<c:url value="/assets/js/main1.js" />"></script>

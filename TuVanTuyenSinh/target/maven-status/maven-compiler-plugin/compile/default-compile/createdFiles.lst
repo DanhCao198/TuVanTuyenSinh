@@ -16,12 +16,14 @@ com\tqh\configs\WebAppContextConfig.class
 com\tqh\controllers\BenmarkController.class
 com\tqh\controllers\UserController.class
 com\tqh\service\impl\SchoolServiceImpl.class
+com\tqh\repository\impl\ReplyRepositoryImpl.class
 com\tqh\configs\HibernateConfig.class
 com\tqh\controllers\BannerController.class
 com\tqh\controllers\FacultyController.class
 com\tqh\pojo\School_.class
 com\tqh\service\CommentService.class
 com\tqh\filters\JwtAuthenticationTokenFilter.class
+com\tqh\service\impl\ReplyServiceImpl.class
 com\tqh\filters\CustomAccessDeniedHandler.class
 com\tqh\pojo\Comment.class
 com\tqh\pojo\Comment_.class
@@ -29,6 +31,7 @@ com\tqh\repository\FacultyRepository.class
 com\tqh\pojo\Post.class
 com\tqh\service\impl\BannerServiceImpl.class
 com\tqh\repository\AdmissionRepository.class
+com\tqh\service\ReplyService.class
 com\tqh\controllers\IndexController.class
 com\tqh\pojo\Admission_.class
 com\tqh\repository\UserRepository.class
@@ -55,6 +58,7 @@ com\tqh\formatter\AdmissionFormatter.class
 com\tqh\pojo\Users.class
 com\tqh\repository\BenmarkRepository.class
 com\tqh\filters\RestAuthenticationEntryPoint.class
+com\tqh\pojo\Reply.class
 com\tqh\pojo\RoleUser_.class
 com\tqh\service\BannerService.class
 com\tqh\repository\BannerRepository.class
@@ -70,7 +74,9 @@ com\tqh\service\UserService.class
 com\tqh\repository\impl\FacultyRepositoryImpl.class
 com\tqh\service\impl\AdmissionServiceImpl.class
 com\tqh\service\impl\UserServiceImpl.class
+com\tqh\pojo\Reply_.class
 com\tqh\repository\CommentRepository.class
+com\tqh\repository\ReplyRepository.class
 com\tqh\service\RoleUserService.class
 com\tqh\repository\impl\SchoolRepositoryImpl.class
 com\tqh\service\impl\FacultyServiceImpl.class

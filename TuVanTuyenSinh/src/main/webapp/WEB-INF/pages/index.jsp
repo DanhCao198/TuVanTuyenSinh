@@ -31,32 +31,33 @@
         </div>
     </div>
 </div>
+<a href="bannersetting.jsp"></a>
 
 
-<c:forEach items="${admission}" var="ds">
-    <c:set var="trainingDisplayed" value="false" />
+<c:forEach items="${admission}" var="ds" >
+   
     <div class="container my-5">
-        <a href="<c:url value='/postlist/${ds.idadmission}'/>">
-            <h3 class="card-title fw-bold"id=${ds.idadmission}>${ds.typeoftraining}</h3>
+        <a href="<c:url value='/postlist/${ds.idadmission}/'/>">
+            <h3 class="card-title fw-bold" id="${ds.idadmission}">${ds.typeoftraining}</h3>
         </a>
         <div class="row">
-            <c:forEach items="${posts}" var="dsp">
-                <c:if test="${ds.typeoftraining==dsp.admissionIdadmission.typeoftraining}">
+            <c:set var="postCount" value="0" />
+            <c:forEach items="${posts}" var="dsp" varStatus="loopStatus">
+                <c:if test="${ds.typeoftraining eq dsp.admissionIdadmission.typeoftraining && postCount lt 5}">
                     <div class="col-md-6">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <a class="nav-item" href="<c:url value='/postdetail/${dsp.idpost}'/>">
-                                   <h4 class="nav-link">${dsp.postName}</h4>
+                                    <h4 class="nav-link">${dsp.postName}</h4>
                                 </a>
                             </div>
                         </div>
                     </div>
+                    <c:set var="postCount" value="${postCount + 1}" />
                 </c:if>
             </c:forEach>
         </div>
     </div>
 </c:forEach>
-
-
 <!-- Add JavaScript to handle banner navigation -->
 <script src="<c:url value="/assets/js/banner.js" />"></script>

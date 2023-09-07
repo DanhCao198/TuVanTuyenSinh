@@ -45,6 +45,9 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Users.findByUserRole", query = "SELECT u FROM Users u WHERE u.userRole = :userRole")})
 public class Users implements Serializable {
 
+    @OneToMany(mappedBy = "fkreplyUserid")
+    private Set<Reply> replySet;
+
     @OneToMany(mappedBy = "usersIdusers")
     private Set<Post> postSet;
     @OneToMany(mappedBy = "usersIdusers")
@@ -244,6 +247,15 @@ public class Users implements Serializable {
 
     public void setCommentSet(Set<Comment> commentSet) {
         this.commentSet = commentSet;
+    }
+
+    @XmlTransient
+    public Set<Reply> getReplySet() {
+        return replySet;
+    }
+
+    public void setReplySet(Set<Reply> replySet) {
+        this.replySet = replySet;
     }
     
 }

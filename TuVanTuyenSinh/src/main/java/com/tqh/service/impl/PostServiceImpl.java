@@ -35,8 +35,8 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public Long countPost() {
-        return this.postRepo.countPost();
+    public Long countPost(int id) {
+        return this.postRepo.countPost(id);
     }
 
     @Override
@@ -60,6 +60,16 @@ public class PostServiceImpl implements PostService{
     @Override
     public boolean deletePost(int idpost) {
         return this.postRepo.deletePost(idpost);
+    }
+
+    @Override
+    public Long countPost() {
+        return this.postRepo.countPost();
+    }
+
+    @Override
+    public List<Post> getPostsByAdmission(Map<String, String> params, int id) {
+        return this.postRepo.getPostsByAdmission(params,id);
     }
     
 }

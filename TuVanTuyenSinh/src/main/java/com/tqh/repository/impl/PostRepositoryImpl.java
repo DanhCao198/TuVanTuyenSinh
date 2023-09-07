@@ -60,10 +60,16 @@ public class PostRepositoryImpl implements PostRepository {
     }
 
     @Override
-    public Long countPost() {
-        Session s = this.factory.getObject().getCurrentSession();
-        Query q = s.createQuery("SELECT Count(*) FROM Post");
-        return Long.parseLong(q.getSingleResult().toString());
+    public Long countPost(int id) {
+        Session session = this.factory.getObject().getCurrentSession();
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Post> q = b.createQuery(Post.class);
+        Root root = q.from(Post.class);
+        q.select(root);
+        q.where(b.equal(root.get("admissionIdadmission"), id));
+        Query query = session.createQuery(q);
+
+        return Long.valueOf(query.getResultList().size());
     }
 
     @Override
@@ -72,7 +78,7 @@ public class PostRepositoryImpl implements PostRepository {
         p.setPostinformation(p.getPostinformation().replace("\n", "</br>"));
         try {
             if (p.getIdpost() == null) {
-                p.setUsersIdusers(StaticClass.users);               
+                p.setUsersIdusers(StaticClass.users);
                 s.save(p);
             } else {
                 p.setUsersIdusers(StaticClass.users);
@@ -103,5 +109,35 @@ public class PostRepositoryImpl implements PostRepository {
             ex.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public Long countPost() {
+        Session s = this.factory.getObject().getCurrentSession();
+        Query q = s.createQuery("SELECT Count(*) FROM Post");
+        return Long.parseLong(q.getSingleResult().toString());
+    }
+
+    @Override
+    public List<Post> getPostsByAdmission(Map<String, String> params, int id) {
+        Session session = this.factory.getObject().getCurrentSession();
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Post> q = b.createQuery(Post.class);
+        Root root = q.from(Post.class);
+        q.select(root);
+        q.where(b.equal(root.get("admissionIdadmission"), id));
+        Query query = session.createQuery(q);
+
+        if (params != null) {
+            String page = params.get("page");
+            if (page != null && !page.isEmpty()) {
+                int p = Integer.parseInt(page);
+                int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
+
+                query.setMaxResults(pageSize);
+                query.setFirstResult((p - 1) * pageSize);
+            }
+        }
+        return query.getResultList();
     }
 }

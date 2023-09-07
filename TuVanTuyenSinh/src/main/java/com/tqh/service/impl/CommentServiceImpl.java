@@ -5,12 +5,14 @@
 package com.tqh.service.impl;
 
 import com.tqh.pojo.Comment;
+import com.tqh.pojo.Post;
 import com.tqh.pojo.Users;
 import com.tqh.repository.CommentRepository;
 import com.tqh.repository.UserRepository;
 import com.tqh.service.CommentService;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,18 +31,23 @@ public class CommentServiceImpl implements CommentService {
     private UserRepository userRepo;
 
     @Override
-    public List<Comment> getComments(int postId) {
-       return this.commentRepo.getComments(postId);
+    public List<Comment> getComments(Map<String, String> params) {
+       return this.commentRepo.getComments(params);
     }
 
     @Override
-    public Comment addComment(Comment c) {
-        c.setCreatedDate(new Date());
+    public boolean addComment(Comment c,Post p) {
+//        c.setCreatedDate(new Date());
+//        
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        Users u = this.userRepo.getUserByUsername(authentication.getName());
+//        c.setUsersIdusers(u);
         
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Users u = this.userRepo.getUserByUsername(authentication.getName());
-        c.setUsersIdusers(u);
-        
-        return this.commentRepo.addComment(c);
+        return this.commentRepo.addComment(c,p);
+    }
+
+    @Override
+    public Comment getCommentById(int id) {
+        return this.commentRepo.getCommentById(id);
     }
 }

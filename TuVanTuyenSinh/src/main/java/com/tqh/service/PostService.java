@@ -14,6 +14,8 @@ import java.util.Map;
  */
 public interface PostService {
     List<Post> getPosts(Map<String, String> params);
+    List<Post> getPostsByAdmission(Map<String, String> params,int id);
+    Long countPost(int id);
     Long countPost();
     boolean addOrUpdatePost(Post p);
     Post getPostById(int id);
