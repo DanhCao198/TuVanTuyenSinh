@@ -11,9 +11,11 @@ import com.tqh.service.AdmissionService;
 import com.tqh.service.FacultyService;
 import com.tqh.service.PostService;
 import java.security.Principal;
+import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -38,6 +41,8 @@ public class PostController {
     private FacultyService facultyService;
     @Autowired
     private AdmissionService admissionService;
+    @Autowired
+    private Environment env;
 
     @GetMapping("/posts")
     public String list(Model model, Principal p) {
@@ -62,4 +67,12 @@ public class PostController {
         return "posts";
     }
 
+    @RequestMapping("/posts")
+    public String listpost(Model model, @RequestParam Map<String, String> params) {
+        model.addAttribute("dspost", this.postService.getPosts(params));
+        int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
+        long count = this.postService.countPost();
+        model.addAttribute("counter", Math.ceil(count * 1.0 / pageSize));
+        return "posts";
+    }
 }

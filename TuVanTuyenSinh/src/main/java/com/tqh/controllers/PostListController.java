@@ -2,7 +2,6 @@ package com.tqh.controllers;
 
 import com.tqh.service.AdmissionService;
 import com.tqh.service.PostService;
-import java.security.Principal;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -28,6 +27,8 @@ public class PostListController {
     private AdmissionService admissionService;
     @Autowired
     private PostService postService;
+    @Autowired
+    private Environment env;
 
     @GetMapping("/postlist/{id}")
     public String update(Model model, @PathVariable(value = "id") int id) {
@@ -35,4 +36,13 @@ public class PostListController {
         return "postlist";
     }
 
+    @RequestMapping("/postlist")
+    public String index(Model model, @RequestParam Map<String, String> params) {
+        model.addAttribute("posts", this.postService.getPosts(params));
+
+        int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
+        long count = this.postService.countPost();
+        model.addAttribute("counter", Math.ceil(count * 1.0 / pageSize));
+        return "postlist";
+    }
 }

@@ -57,5 +57,6 @@
     </div>
 </c:forEach>
 
+
 <!-- Add JavaScript to handle banner navigation -->
 <script src="<c:url value="/assets/js/banner.js" />"></script>

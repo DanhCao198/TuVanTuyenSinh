@@ -40,7 +40,6 @@ public class IndexController {
     private AdmissionService admissionService;
     @Autowired
     private BannerService bannerService;
-    
 
     @ModelAttribute
     public void commonAttr(Model model, @RequestParam Map<String, String> params) {
@@ -48,9 +47,10 @@ public class IndexController {
             model.addAttribute("user", StaticClass.users);
 
         }
-            model.addAttribute("faculties", this.facultyService.getFalcuties(params));
-            model.addAttribute("admission", this.admissionService.getAdmissions(params));
-            model.addAttribute("posts",this.postService.getPosts(params));
+        model.addAttribute("faculties", this.facultyService.getFalcuties(params));
+        model.addAttribute("admission", this.admissionService.getAdmissions(params));
+        model.addAttribute("posts", this.postService.getPosts(params));
+        model.addAttribute("banner", this.bannerService.getBanners(params));
     }
 
     @GetMapping("/admin/settings/")
@@ -64,22 +64,19 @@ public class IndexController {
         model.addAttribute("banner", this.bannerService.getBanners(params));
         return "bannersetting";
     }
-    
+
     @GetMapping("/admin/facultysetting/")
-    public String AdminSetting2(Model model, @RequestParam Map<String, String> params){
+    public String AdminSetting2(Model model, @RequestParam Map<String, String> params) {
         model.addAttribute("faculty", this.facultyService.getFalcuties(params));
         return "facultysetting";
     }
-    
+
     @RequestMapping("/")
     public String index(Model model, @RequestParam Map<String, String> params) {
-        model.addAttribute("banner", this.bannerService.getBanners(params));
         model.addAttribute("posts", this.postService.getPosts(params));
-        model.addAttribute("faculty", this.facultyService.getFalcuties(params));
-        model.addAttribute("admission", this.admissionService.getAdmissions(params));
         int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
         long count = this.postService.countPost();
-        model.addAttribute("counter", Math.ceil(count*1.0/pageSize));
+        model.addAttribute("counter", Math.ceil(count * 1.0 / pageSize));
         return "index";
     }
 }
