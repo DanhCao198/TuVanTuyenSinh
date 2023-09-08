@@ -2,6 +2,9 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="card mb-4">
+    <div class="text-right mb-3">
+        <a href="<c:url value='/questionlist/${post.idpost}/' />" class="btn btn-info">Danh sách câu hỏi</a>
+    </div>
     <section class="container">
         <h1 class="row d-flex justify-content-center">${post.postName}</h1>
         <h5 class="text-sm-right" style="text-decoration: none; color: black;">${post.posttype}</h5>

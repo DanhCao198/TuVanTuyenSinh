@@ -50,4 +50,9 @@ public class CommentServiceImpl implements CommentService {
     public Comment getCommentById(int id) {
         return this.commentRepo.getCommentById(id);
     }
+
+    @Override
+    public Long countComment(int id) {
+        return this.commentRepo.countComment(id);
+    }
 }

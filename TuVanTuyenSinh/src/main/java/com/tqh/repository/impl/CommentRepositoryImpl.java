@@ -46,10 +46,10 @@ public class CommentRepositoryImpl implements CommentRepository {
         Query query = session.createQuery(q);
 
         if (params != null) {
-            String page = params.get("page");
+            String page = params.get("page2");
             if (page != null && !page.isEmpty()) {
                 int p = Integer.parseInt(page);
-                int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
+                int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE_2"));
 
                 query.setMaxResults(pageSize);
                 query.setFirstResult((p - 1) * pageSize);
@@ -78,5 +78,18 @@ public class CommentRepositoryImpl implements CommentRepository {
     public Comment getCommentById(int id) {
          Session session = this.factory.getObject().getCurrentSession();
         return session.get(Comment.class, id);
+    }
+
+    @Override
+    public Long countComment(int id) {
+        Session session = this.factory.getObject().getCurrentSession();
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Comment> q = b.createQuery(Comment.class);
+        Root root = q.from(Comment.class);
+        q.select(root);
+        q.where(b.equal(root.get("postIdpost"), id));
+        Query query = session.createQuery(q);
+        
+        return Long.valueOf(query.getResultList().size());
     }
 }

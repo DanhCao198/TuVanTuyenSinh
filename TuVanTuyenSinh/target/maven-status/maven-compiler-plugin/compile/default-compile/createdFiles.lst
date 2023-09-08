@@ -31,6 +31,7 @@ com\tqh\repository\FacultyRepository.class
 com\tqh\pojo\Post.class
 com\tqh\service\impl\BannerServiceImpl.class
 com\tqh\repository\AdmissionRepository.class
+com\tqh\controllers\QuestionListController.class
 com\tqh\service\ReplyService.class
 com\tqh\controllers\IndexController.class
 com\tqh\pojo\Admission_.class

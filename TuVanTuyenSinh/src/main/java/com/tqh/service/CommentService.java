@@ -19,5 +19,7 @@ public interface CommentService {
 
     Comment getCommentById(int id);
 
+    Long countComment( int id);
+
     boolean addComment(Comment c, Post p);
 }

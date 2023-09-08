@@ -74,12 +74,12 @@
                        value="/WEB-INF/pages/bannersetting.jsp" />
     </definition>
     <definition name="postdetail" extends="baseLayout">
-        <put-attribute name="title" value="content" />
+        <put-attribute name="title" value="Nội dung bài viết" />
         <put-attribute name="content"
                        value="/WEB-INF/pages/postdetail.jsp" />
     </definition>
     <definition name="postlist" extends="baseLayout">
-        <put-attribute name="title" value="content" />
+        <put-attribute name="title" value="Danh sách bài viết" />
         <put-attribute name="content"
                        value="/WEB-INF/pages/postlist.jsp" />
     </definition>
@@ -97,5 +97,10 @@
         <put-attribute name="title" value="Quản lý Khoa" />
         <put-attribute name="content"
                        value="/WEB-INF/pages/facultiesdetail.jsp" />
+    </definition>
+    <definition name="questionlist" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý question" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/questionlist.jsp" />
     </definition>
 </tiles-definitions>

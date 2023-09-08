@@ -16,6 +16,10 @@ import java.util.Map;
 public interface CommentRepository {
 
     List<Comment> getComments(Map<String, String> params);
+
     Comment getCommentById(int id);
+
+    Long countComment(int id);
+
     boolean addComment(Comment c, Post p);
 }
