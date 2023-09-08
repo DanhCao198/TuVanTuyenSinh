@@ -27,10 +27,11 @@
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <a href="<c:url value='/postdetail/${dsp.idpost}'/>">
-                                <h4 class="card-title fw-bold">${dsp.postName}</h4>
-                            </a>
-                        </div>
+                                <h5 class="nav-link text-sm-left" style="text-decoration: none; color: black;">${dsp.posttype}</h5>
+                                <a class="nav-item" href="<c:url value='/postdetail/${dsp.idpost}'/>">
+                                    <h2 class="nav-link">${dsp.postName}</h2>
+                                </a>
+                            </div>
                     </div>
                 </div>
             </c:if>

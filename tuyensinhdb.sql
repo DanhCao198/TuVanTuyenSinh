@@ -35,7 +35,7 @@ CREATE TABLE `admission` (
 
 LOCK TABLES `admission` WRITE;
 /*!40000 ALTER TABLE `admission` DISABLE KEYS */;
-INSERT INTO `admission` VALUES (1,'Văn bằng 2'),(2,'Đào Tạo Từ Xa'),(3,'Liên Thông'),(4,'Cao Học'),(5,'Đại Trà');
+INSERT INTO `admission` VALUES (1,'Chính quy'),(2,'Đào Tạo Từ Xa'),(3,'Liên Thông'),(4,'Cao Học'),(5,'Văn bằng 2');
 /*!40000 ALTER TABLE `admission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ CREATE TABLE `comment` (
   KEY `fk_comment_users1_idx` (`users_idusers`),
   CONSTRAINT `fk_comment_users1` FOREIGN KEY (`users_idusers`) REFERENCES `users` (`idusers`),
   CONSTRAINT `post_idPost` FOREIGN KEY (`post_idpost`) REFERENCES `post` (`idpost`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (1,'abc',4,11,NULL),(2,'văn bằng 2',21,10,'2023-09-07'),(3,'asaa',21,10,'2023-09-07'),(4,'aaaaaaaa',21,10,'2023-09-07'),(5,'bbbbbb',21,10,'2023-09-07');
+INSERT INTO `comment` VALUES (2,'văn bằng 2',21,10,'2023-09-07'),(3,'asaa',21,10,'2023-09-07'),(4,'aaaaaaaa',21,10,'2023-09-07'),(5,'bbbbbb',21,10,'2023-09-07'),(6,'alo 1234',28,10,'2023-09-08');
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +178,7 @@ CREATE TABLE `post` (
   CONSTRAINT `admission_idAdmission` FOREIGN KEY (`admission_idadmission`) REFERENCES `admission` (`idadmission`),
   CONSTRAINT `faculty_idFaculty` FOREIGN KEY (`faculty_idfaculty`) REFERENCES `faculty` (`idfaculty`),
   CONSTRAINT `users_idusers` FOREIGN KEY (`users_idusers`) REFERENCES `users` (`idusers`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,7 +187,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (4,'Đây là bài làm của Nguyễn Cao Danh và Trần Quang Huy','bú khá nhiều nguồn','abc','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693671342/uyuder3o25balarrhdqp.jpg',10,1,5),(18,'Tuyển sinh năm 2024','Trường đề xuất ....','Thông báo tuyển sinh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,3),(19,'Chuyển địa chỉ 3','Chuyển tới Nhà Bè 3','địa chỉ mới 2','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806832/sajyi6cexvgsg1su70nn.jpg',10,6,2),(21,'vb100','Cứu với 1234','Cứu','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806882/mux1rfiwaesdf5ixtxtc.jpg',10,6,1),(25,'abcde','qưqwqwq\r</br></br>a\r</br></br>a\r</br></br>a','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806902/zk1lr6aszz4gjzdvyqs9.jpg',10,6,4),(26,'trời ơi cứu tui','aaaaaa\r</br>aaa\r</br>aaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693768427/nbxzpvkb24ldxfxe6jrc.jpg',10,6,5),(27,'abcde','qưeqewqeweqe','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693807289/ffmpmbgjt0ll8dfrks9b.jpg',10,6,5),(28,'đăng ổn đi mà','aaaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693810054/d5f7s4rft3lfk4thwdio.png',10,6,1),(29,'đăng bài 123','a\r</br>a\r</br>a','','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693815638/f2wu2okrvefcoxao3qqq.jpg',10,6,1),(30,'đăng bài 12334','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693815721/fvkgvlgzncglmrmhri06.jpg',10,1,2),(31,'con chó Huy 21231232','jkvhdslfskfhaSDHfsahdfkn/asdjkfklsdfk;asnfd\r</br>slkdhaodhsa;dkga\r</br>oaishcs;oaughas\r</br>aklhcf;óah\r</br>','Cứu','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693819160/ocembur1paki7dypngc0.jpg',10,6,4),(32,'vb3','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(33,'vb3','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(34,'vb5','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(35,'vb7','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(36,'vb9','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(37,'vb10','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(38,'vb11','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(39,'vb12','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(40,'vb13','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(41,'vb13','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(42,'vb13','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(43,'vb13','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(44,'vb13','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(45,'vb13','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(46,'vb13','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(47,'vb13','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(48,'vb13','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(49,'vb13','aaaa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694101575/axqxxjixozxjvoh4dqp3.png',10,10,1),(50,'đừng lỗi','aa','báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694107129/rrga7bhozvsef0towc4e.png',10,10,1);
+INSERT INTO `post` VALUES (4,'Đề án tuyển sinh 2022-2023','đây là nội dung','Thông báo tuyển sinh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,1,5),(18,'Tuyển sinh năm 2024','Trường đề xuất ....','Thông báo tuyển sinh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,3),(19,'Chuyển địa chỉ 3','Chuyển tới Nhà Bè 3','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,2),(21,'vb100','1234','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,1),(25,'abcde','qưqwqwq\r</br></br>a\r</br></br>a\r</br></br>a','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,4),(26,'a1234','aaaaaa\r</br>aaa\r</br>aaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,5),(27,'abcde','qưeqewqeweqe','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,5),(28,'Hợp tác','aaaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,1),(29,'đăng bài 123','a\r</br>a\r</br>a','Thông báo livestream','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,1),(30,'đăng bài 12334','aaaa','Thông báo livestream','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693815721/fvkgvlgzncglmrmhri06.jpg',10,1,2),(31,'Chúc mừng 123','jkvhdslfskfhaSDHfsahdfkn/asdjkfklsdfk;asnfd\r</br>slkdhaodhsa;dkga\r</br>oaishcs;oaughas\r</br>aklhcf;óah\r</br>','Thông báo livestream','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,6,4),(32,'vb3','aaaa','Thông báo livestream','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(33,'vb3','aaaa','Thông báo livestream','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(34,'vb5','aaaa','Thông báo livestream','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(35,'vb7','aaaa','Thông báo livestream','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(36,'vb9','aaaa','Thông báo livestream','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(37,'vb10','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(38,'vb11','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(39,'vb12','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(40,'vb14','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(41,'vb15','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(42,'vb16','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(44,'vb18','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(45,'vb19','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(46,'vb20','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(47,'vb21','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(48,'vb22','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(49,'vb23','aaaa','Thông báo','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693806861/aurmbmeqsxnc1bhf7kpg.jpg',10,10,1),(51,'Chào mừng tân sinh viên','Chào mừng tân sinh viên','Thông báo tuyển sinh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694165358/z5ryddfaytatpxzrvgdk.jpg',10,1,1);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -218,7 +218,7 @@ CREATE TABLE `reply` (
 
 LOCK TABLES `reply` WRITE;
 /*!40000 ALTER TABLE `reply` DISABLE KEYS */;
-INSERT INTO `reply` VALUES (1,'rep 1',2,NULL,13),(2,'rep 2',2,NULL,13),(4,'rep 3',2,'2023-09-07',10),(5,'rep 4',3,'2023-09-07',10),(6,'rep 5',3,'2023-09-07',10),(7,'rep 6',3,'2023-09-07',10);
+INSERT INTO `reply` VALUES (4,'rep 3',2,'2023-09-07',10),(5,'rep 4',3,'2023-09-07',10),(6,'rep 5',3,'2023-09-07',10),(7,'rep 6',3,'2023-09-07',10);
 /*!40000 ALTER TABLE `reply` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -295,7 +295,7 @@ CREATE TABLE `users` (
   KEY `school_idschool_idx` (`school_idschool`),
   CONSTRAINT `fk_school_idschool` FOREIGN KEY (`school_idschool`) REFERENCES `school` (`idschool`),
   CONSTRAINT `fk_users_role_user` FOREIGN KEY (`role_user_id_roleuser`) REFERENCES `role_user` (`id_roleuser`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -304,7 +304,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (10,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693565580/voezzit4zcpw9qm4lwld.jpg','admin','$2a$10$ttgAIqaB5kQQSDABONOgT.J2TqaMqCMWeuKHGgFI3kqUYoHhhZT7S',NULL,NULL,NULL,1),(11,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693570758/yf9pcqgz41ozoik1pwuu.png','testuser','$2a$10$tmk29hLfVJO.yixKHJodB.KmStM4NVd3SakAg.ksWwgYQyamaRcF2',NULL,NULL,NULL,2),(12,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693643496/onuye3osums8b4qrgy9g.jpg','testuser1','$2a$10$G87HV7lWiFwmQwmjeFM.MujSKfGKEnCa5LH.vkZWEOBIP8TOWeDBm',NULL,NULL,NULL,2),(13,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674643/co2wtxilujlfg8rgqzr8.png','admin1','$2a$10$RI8lu48ptQS14pqjx9J82.Rv38g/cjD8mRoW3TeMV.bDRiYt6E9qW',NULL,NULL,NULL,1);
+INSERT INTO `users` VALUES (10,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693565580/voezzit4zcpw9qm4lwld.jpg','admin','$2a$10$ttgAIqaB5kQQSDABONOgT.J2TqaMqCMWeuKHGgFI3kqUYoHhhZT7S',NULL,NULL,NULL,1),(11,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693570758/yf9pcqgz41ozoik1pwuu.png','testuser','$2a$10$tmk29hLfVJO.yixKHJodB.KmStM4NVd3SakAg.ksWwgYQyamaRcF2',NULL,NULL,NULL,2),(12,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693643496/onuye3osums8b4qrgy9g.jpg','testuser1','$2a$10$G87HV7lWiFwmQwmjeFM.MujSKfGKEnCa5LH.vkZWEOBIP8TOWeDBm',NULL,NULL,NULL,2),(13,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674643/co2wtxilujlfg8rgqzr8.png','admin1','$2a$10$RI8lu48ptQS14pqjx9J82.Rv38g/cjD8mRoW3TeMV.bDRiYt6E9qW',NULL,NULL,NULL,1),(14,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694165675/rekoewi3o7woj1ayyz4e.png','admin3','$2a$10$oG2IIGz5Fpaal.MqA3BZzO2x6LEETqG7xu1dQrBARGeeoTKtalPjG',NULL,NULL,NULL,1),(15,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694165864/oaetvtnfrjfrf0emhojk.png','tuvan1','$2a$10$Tcu/6AMwtDAFT1akZHRx3OrYWYqEpsnn5Mm6GWCz7JARipLGTIbXq',NULL,NULL,NULL,3),(16,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694166083/mdlzlpfhktcaltctiqmd.png','tuvan2','$2a$10$7gZEPJcoLzVKHncOMOmI5Obp.GM491nNdEprJbcaE5Enx3CkIkPl6',NULL,NULL,NULL,2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -317,4 +317,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-08  0:49:56
+-- Dump completed on 2023-09-08 16:43:22

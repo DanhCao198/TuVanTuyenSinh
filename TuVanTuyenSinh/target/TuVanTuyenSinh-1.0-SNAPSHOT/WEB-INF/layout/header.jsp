@@ -14,7 +14,7 @@
             <div class="col-md-8 order-md-last">
                 <div class="row">
                     <div class="col-md-6 text-center">
-                        <a class="navbar-brand" href="<c:url value='/'/>">CỔNG THÔNG TIN TƯ VẤN TUYỂN SINH</br>ĐẠI HỌC MỞ THÀNH PHỐ HỒ CHÍ MINH</a>
+                        <a class="navbar-brand" href="<c:url value='/'/>">CỔNG THÔNG TIN TƯ VẤN TUYỂN SINH</a>
                     </div>
                     <div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
                         <form action="#" class="searchform order-lg-last">
@@ -29,7 +29,7 @@
             <div class="col-md-4 d-flex">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
-                        <img src="https://res.cloudinary.com/dev7q6f9g/image/upload/v1693319387/norzb2fl19qkalnqtmn5.png" width="60px" height="40px"/>
+                        <img src="https://res.cloudinary.com/dev7q6f9g/image/upload/v1694165864/oaetvtnfrjfrf0emhojk.png"/>
                     </p>
                 </div>
             </div>

@@ -38,7 +38,7 @@
    
     <div class="container my-5">
         <a href="<c:url value='/postlist/${ds.idadmission}/'/>">
-            <h3 class="card-title fw-bold" id="${ds.idadmission}">${ds.typeoftraining}</h3>
+            <h3 class="card-title text-dark fw-bold" id="${ds.idadmission}">${ds.typeoftraining}</h3>
         </a>
         <div class="row">
             <c:set var="postCount" value="0" />
@@ -47,8 +47,9 @@
                     <div class="col-md-6">
                         <div class="card mb-4">
                             <div class="card-body">
+                                <h5 class="nav-link text-sm-left" style="text-decoration: none; color: black;">${dsp.posttype}</h5>
                                 <a class="nav-item" href="<c:url value='/postdetail/${dsp.idpost}'/>">
-                                    <h4 class="nav-link">${dsp.postName}</h4>
+                                    <h2 class="nav-link">${dsp.postName}</h2>
                                 </a>
                             </div>
                         </div>
