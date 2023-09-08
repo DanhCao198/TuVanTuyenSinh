@@ -8,6 +8,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.tqh.formatter.AdmissionFormatter;
 import com.tqh.formatter.FacultyFormatter;
+import java.util.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +18,11 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -91,6 +96,40 @@ public class WebAppContextConfig implements WebMvcConfigurer {
                 = new CommonsMultipartResolver();
         resolver.setDefaultEncoding("UTF-8");
         return resolver;
+    }
+@Bean
+    public JavaMailSender getJavaMailSender() {
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost(this.env.getProperty("spring.mail.host"));
+        mailSender.setPort(Integer.parseInt(this.env.getProperty("spring.mail.port")));
+
+        mailSender.setUsername(this.env.getProperty("spring.mail.username"));
+        mailSender.setPassword(this.env.getProperty("spring.mail.password"));
+
+        Properties props = mailSender.getJavaMailProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.auth", this.env.getProperty("spring.mail.properties.mail.smtp.auth"));
+        props.put("mail.smtp.starttls.enable", this.env.getProperty("spring.mail.properties.mail.smtp.starttls.enable"));
+        props.put("mail.debug", "true");
+
+        return mailSender;
+    }
+
+    @Bean
+    public SimpleMailMessage templateSimpleMessage() {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setText(
+                "This is the test email template for your email:\n%s\n");
+        return message;
+    }
+
+    @Bean
+    public FreeMarkerConfigurationFactoryBean getFreeMarkerConfiguration() {
+        FreeMarkerConfigurationFactoryBean freeMarkerFactoryBean = new FreeMarkerConfigurationFactoryBean();
+        freeMarkerFactoryBean.setTemplateLoaderPaths("classpath:/templates");
+        freeMarkerFactoryBean.setPreferFileSystemAccess(true);
+        freeMarkerFactoryBean.setDefaultEncoding("UTF-8");
+        return freeMarkerFactoryBean;
     }
 
     @Bean
