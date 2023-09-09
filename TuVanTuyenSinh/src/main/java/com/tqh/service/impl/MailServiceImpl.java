@@ -61,7 +61,7 @@ public class MailServiceImpl implements MailService{
             }
         }
         String home = System.getProperty("user.home");
-        final String username = "2051010035@ou.edu.vn";//change accordingly
+        final String username = "2051010035danh@ou.edu.vn";//change accordingly
         final String password = "caodanhpro123";//change accordingly
 
         // Assuming you are sending email through relay.jangosmtp.net
