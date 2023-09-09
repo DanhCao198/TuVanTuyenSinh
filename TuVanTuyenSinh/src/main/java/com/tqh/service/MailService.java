@@ -4,20 +4,12 @@
  */
 package com.tqh.service;
 
-import java.util.ArrayList;
-import java.util.Map;
+import javax.mail.internet.InternetAddress;
 
 /**
  *
  * @author HP
  */
 public interface MailService {
-
-    void sendSimpleMessage(String fileNameTMP, ArrayList<String> emailsTMP);
-
-    void sendHtmlMessage(String to, String subject, String htmlBody);
-
-    void sendEmail(String to, String subject, Map<String, Object> model);
-
-    String geFreeMarkerTemplateContent(Map<String, Object> model);
+    void sendHtmlMessage(InternetAddress[] to, String subject, String htmlBody);
 }

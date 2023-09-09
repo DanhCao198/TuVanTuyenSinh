@@ -6,6 +6,7 @@ package com.tqh.repository;
 
 import com.tqh.pojo.Comment;
 import com.tqh.pojo.Post;
+import com.tqh.pojo.Users;
 import java.util.List;
 import java.util.Map;
 
@@ -22,4 +23,7 @@ public interface CommentRepository {
     Long countComment(int id);
 
     boolean addComment(Comment c, Post p);
+
+    List<Users> getU();
+    
 }

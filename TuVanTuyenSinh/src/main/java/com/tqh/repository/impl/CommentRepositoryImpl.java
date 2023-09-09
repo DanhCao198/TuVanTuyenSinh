@@ -6,14 +6,23 @@ package com.tqh.repository.impl;
 
 import com.tqh.pojo.Comment;
 import com.tqh.pojo.Post;
+import com.tqh.pojo.RoleUser;
 import com.tqh.pojo.StaticClass;
+import com.tqh.pojo.Users;
 import com.tqh.repository.CommentRepository;
+import com.tqh.service.MailService;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -32,12 +41,15 @@ import org.springframework.transaction.annotation.Transactional;
 public class CommentRepositoryImpl implements CommentRepository {
 
     @Autowired
+    private MailService mailService;
+    @Autowired
     private LocalSessionFactoryBean factory;
-@Autowired
+    @Autowired
     private Environment env;
+
     @Override
     public List<Comment> getComments(Map<String, String> params) {
-         Session session = this.factory.getObject().getCurrentSession();
+        Session session = this.factory.getObject().getCurrentSession();
         CriteriaBuilder b = session.getCriteriaBuilder();
         CriteriaQuery<Comment> q = b.createQuery(Comment.class);
         Root root = q.from(Comment.class);
@@ -60,13 +72,36 @@ public class CommentRepositoryImpl implements CommentRepository {
     }
 
     @Override
-    public boolean addComment(Comment c,Post p) {
-      Session s = this.factory.getObject().getCurrentSession();
+    public boolean addComment(Comment c, Post p) {
+        Session s = this.factory.getObject().getCurrentSession();
         try {
+
             c.setUsersIdusers(StaticClass.users);
             c.setPostIdpost(p);
             c.setCreatedDate(new Date());
             s.save(c);
+
+            if (StaticClass.users.getRoleUserIdRoleuser().getName().equals("ROLE_USER")) {
+                ArrayList<String> emails = new ArrayList<String>();
+                for (Users u : getU()) {
+                    emails.add(u.getEmail());
+                }
+                InternetAddress dests[] = new InternetAddress[emails.size()];
+                for (int i = 0; i < emails.size(); i++) {
+
+                    try {
+                        dests[i] = new InternetAddress(emails.get(i).trim().toLowerCase());
+                    } catch (AddressException ex) {
+                        Logger.getLogger(CommentRepositoryImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+                this.mailService.sendHtmlMessage(dests, "HELLO", "<p>Có câu hỏi mới"
+                        + " của bài viết: " + p.getPostName() + " <br/>Có mã: " + p.getIdpost()
+                        + "<br/>Nội dung câu hỏi: " + c.getCommentinformation() + " <br/>Của người dùng: " + StaticClass.users.getUsername()
+                        + "<br/>Vào lúc: " + c.getCreatedDate() + "</p>");
+            }
+
             return true;
         } catch (HibernateException ex) {
             ex.printStackTrace();
@@ -76,7 +111,7 @@ public class CommentRepositoryImpl implements CommentRepository {
 
     @Override
     public Comment getCommentById(int id) {
-         Session session = this.factory.getObject().getCurrentSession();
+        Session session = this.factory.getObject().getCurrentSession();
         return session.get(Comment.class, id);
     }
 
@@ -89,7 +124,26 @@ public class CommentRepositoryImpl implements CommentRepository {
         q.select(root);
         q.where(b.equal(root.get("postIdpost"), id));
         Query query = session.createQuery(q);
-        
+
         return Long.valueOf(query.getResultList().size());
+    }
+
+    @Override
+    public List<Users> getU() {
+        Session session = this.factory.getObject().getCurrentSession();
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Users> q = b.createQuery(Users.class);
+        Root root = q.from(Users.class);
+        Root root1 = q.from(RoleUser.class);
+        q.select(root);
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(b.equal(root.get("roleUserIdRoleuser"), root1.get("idRoleuser")));
+        predicates.add(b.equal(root1.get("name"), "ROLE_TUVAN"));
+//        q.where(b.equal(root.get("roleUserIdRoleuser"), root1.get("idRoleuser")));
+//        q.where(b.equal(root1.get("name"), "ROLE_TUVAN"));
+        q.where(predicates.toArray(Predicate[]::new));
+        Query query = session.createQuery(q);
+
+        return query.getResultList();
     }
 }
