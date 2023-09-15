@@ -15,7 +15,7 @@
     <div class="form-floating mb-3 mt-3">
         <form:select class="form-select" id="facultyIdfaculty" name="facultyIdfaculty" 
                      path="facultyIdfaculty">
-            <c:forEach items="${faculty}" var="fa">
+            <c:forEach items="${faculties}" var="fa">
                 <c:choose>
                     <c:when test="${fa.idfaculty == post.facultyIdfaculty.idfaculty}">
                         <option value="${fa.idfaculty}" selected>${fa.facultyname}</option>
@@ -52,7 +52,7 @@
     <div class="form-floating mb-3 mt-3">
         <button class="btn btn-info" type="submit">
             <c:choose>
-                <c:when test="${school.idschool == null}">Thêm</c:when>
+                <c:when test="${benmarks.idbenmarks == null}">Thêm</c:when>
                 <c:otherwise>Cập nhật</c:otherwise>
             </c:choose>
         </button>

@@ -30,7 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
  *
  * @author Admin
  */
-@Service("userDetailsService")
+@Service("userDetailsService")  
 public class UserServiceImpl implements UserService {
 
     @Autowired

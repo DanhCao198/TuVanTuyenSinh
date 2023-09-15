@@ -37,6 +37,11 @@
         <label for="lastname">Tên</label>
     </div>
     <div class="form-floating mt-3 mb-3">
+        <form:input type="text" class="form-control"
+                    path="email" id="email" placeholder="Nhập email...." name="email"/>
+        <label for="email">Email</label>
+    </div>
+    <div class="form-floating mt-3 mb-3">
         <form:input type="file" class="form-control"
                     path="file" id="avatar" name="avatar"/>
         <label for="avatar">Chọn avatar</label>
