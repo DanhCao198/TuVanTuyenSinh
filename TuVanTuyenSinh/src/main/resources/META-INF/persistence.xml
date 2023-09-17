@@ -15,6 +15,8 @@
     <class>com.tqh.pojo.School_1</class>
     <class>com.tqh.pojo.RoleUser</class>
     <class>com.tqh.pojo.Reply</class>
+    <class>com.tqh.pojo.Livestreams</class>
+    <class>com.tqh.pojo.Majors</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tuyensinh?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

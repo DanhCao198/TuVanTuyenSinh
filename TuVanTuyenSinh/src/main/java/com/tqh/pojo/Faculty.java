@@ -37,17 +37,9 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Faculty.findByIdfaculty", query = "SELECT f FROM Faculty f WHERE f.idfaculty = :idfaculty"),
     @NamedQuery(name = "Faculty.findByFacultyname", query = "SELECT f FROM Faculty f WHERE f.facultyname = :facultyname"),
     @NamedQuery(name = "Faculty.findByWebsite", query = "SELECT f FROM Faculty f WHERE f.website = :website"),
-    @NamedQuery(name = "Faculty.findByIntrovideo", query = "SELECT f FROM Faculty f WHERE f.introvideo = :introvideo")})
+    @NamedQuery(name = "Faculty.findByIntrovideo", query = "SELECT f FROM Faculty f WHERE f.introvideo = :introvideo"),
+    @NamedQuery(name = "Faculty.findByHocPhi", query = "SELECT f FROM Faculty f WHERE f.hocPhi = :hocPhi")})
 public class Faculty implements Serializable {
-
-    @Lob
-    @Size(max = 2147483647)
-    @Column(name = "gioiThieu")
-    private String gioiThieu;
-    @Lob
-    @Size(max = 2147483647)
-    @Column(name = "moTaCTDT")
-    private String moTaCTDT;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -66,8 +58,18 @@ public class Faculty implements Serializable {
     @Size(max = 45)
     @Column(name = "introvideo")
     private String introvideo;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "gioiThieu")
+    private String gioiThieu;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "moTaCTDT")
+    private String moTaCTDT;
+    @Column(name = "hocPhi")
+    private Integer hocPhi;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "facultyIdfaculty")
-    private Set<Benmarks> benmarksSet;
+    private Set<Majors> majorsSet;
     @OneToMany(mappedBy = "facultyIdfaculty")
     private Set<Post> postSet;
     @Transient
@@ -80,6 +82,7 @@ public class Faculty implements Serializable {
     public void setFile(MultipartFile file) {
         this.file = file;
     }
+
     public Faculty() {
     }
 
@@ -124,13 +127,37 @@ public class Faculty implements Serializable {
         this.introvideo = introvideo;
     }
 
-    @XmlTransient
-    public Set<Benmarks> getBenmarksSet() {
-        return benmarksSet;
+    public String getGioiThieu() {
+        return gioiThieu;
     }
 
-    public void setBenmarksSet(Set<Benmarks> benmarksSet) {
-        this.benmarksSet = benmarksSet;
+    public void setGioiThieu(String gioiThieu) {
+        this.gioiThieu = gioiThieu;
+    }
+
+    public String getMoTaCTDT() {
+        return moTaCTDT;
+    }
+
+    public void setMoTaCTDT(String moTaCTDT) {
+        this.moTaCTDT = moTaCTDT;
+    }
+
+    public Integer getHocPhi() {
+        return hocPhi;
+    }
+
+    public void setHocPhi(Integer hocPhi) {
+        this.hocPhi = hocPhi;
+    }
+
+    @XmlTransient
+    public Set<Majors> getMajorsSet() {
+        return majorsSet;
+    }
+
+    public void setMajorsSet(Set<Majors> majorsSet) {
+        this.majorsSet = majorsSet;
     }
 
     @XmlTransient
@@ -167,22 +194,4 @@ public class Faculty implements Serializable {
         return "com.tqh.pojo.Faculty[ idfaculty=" + idfaculty + " ]";
     }
 
-    public String getGioiThieu() {
-        return gioiThieu;
-    }
-
-    public void setGioiThieu(String gioiThieu) {
-        this.gioiThieu = gioiThieu;
-    }
-
-    public String getMoTaCTDT() {
-        return moTaCTDT;
-    }
-
-    public void setMoTaCTDT(String moTaCTDT) {
-        this.moTaCTDT = moTaCTDT;
-    }
-
-
-    
 }

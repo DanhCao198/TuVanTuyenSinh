@@ -5,23 +5,22 @@
 package com.tqh.pojo;
 
 import java.io.Serializable;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -36,9 +35,6 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "School.findByIdschool", query = "SELECT s FROM School s WHERE s.idschool = :idschool"),
     @NamedQuery(name = "School.findByImageSchool", query = "SELECT s FROM School s WHERE s.imageSchool = :imageSchool")})
 public class School implements Serializable {
-
-    @OneToMany(mappedBy = "schoolIdschool")
-    private Set<Users> usersSet;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -59,7 +55,10 @@ public class School implements Serializable {
     @Size(max = 255)
     @Column(name = "imageSchool")
     private String imageSchool;
- @Transient
+    @JoinColumn(name = "users_idusers", referencedColumnName = "idusers")
+    @ManyToOne(optional = false)
+    private Users usersIdusers;
+    @Transient
     private MultipartFile file;
 
     public MultipartFile getFile() {
@@ -69,6 +68,7 @@ public class School implements Serializable {
     public void setFile(MultipartFile file) {
         this.file = file;
     }
+
     public School() {
     }
 
@@ -113,6 +113,14 @@ public class School implements Serializable {
         this.imageSchool = imageSchool;
     }
 
+    public Users getUsersIdusers() {
+        return usersIdusers;
+    }
+
+    public void setUsersIdusers(Users usersIdusers) {
+        this.usersIdusers = usersIdusers;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -138,13 +146,4 @@ public class School implements Serializable {
         return "com.tqh.pojo.School[ idschool=" + idschool + " ]";
     }
 
-    @XmlTransient
-    public Set<Users> getUsersSet() {
-        return usersSet;
-    }
-
-    public void setUsersSet(Set<Users> usersSet) {
-        this.usersSet = usersSet;
-    }
-    
 }

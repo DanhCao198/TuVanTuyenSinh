@@ -5,9 +5,9 @@
 package com.tqh.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +20,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -37,11 +39,9 @@ import org.springframework.web.multipart.MultipartFile;
 @NamedQueries({
     @NamedQuery(name = "Post.findAll", query = "SELECT p FROM Post p"),
     @NamedQuery(name = "Post.findByIdpost", query = "SELECT p FROM Post p WHERE p.idpost = :idpost"),
-    @NamedQuery(name = "Post.findByPostImg", query = "SELECT p FROM Post p WHERE p.postImg = :postImg")})
+    @NamedQuery(name = "Post.findByPostImg", query = "SELECT p FROM Post p WHERE p.postImg = :postImg"),
+    @NamedQuery(name = "Post.findByCreatedDate", query = "SELECT p FROM Post p WHERE p.createdDate = :createdDate")})
 public class Post implements Serializable {
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "postIdpost")
-    private Set<Comment> commentSet;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -68,6 +68,9 @@ public class Post implements Serializable {
     @Size(max = 255)
     @Column(name = "postImg")
     private String postImg;
+    @Column(name = "createdDate")
+    @Temporal(TemporalType.DATE)
+    private Date createdDate;
     @JoinColumn(name = "admission_idadmission", referencedColumnName = "idadmission")
     @ManyToOne
     private Admission admissionIdadmission;
@@ -77,6 +80,8 @@ public class Post implements Serializable {
     @JoinColumn(name = "users_idusers", referencedColumnName = "idusers")
     @ManyToOne
     private Users usersIdusers;
+    @OneToMany(mappedBy = "postIdpost")
+    private Set<Comment> commentSet;
     @Transient
     private MultipartFile file;
 
@@ -141,6 +146,14 @@ public class Post implements Serializable {
         this.postImg = postImg;
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
     public Admission getAdmissionIdadmission() {
         return admissionIdadmission;
     }
@@ -163,6 +176,15 @@ public class Post implements Serializable {
 
     public void setUsersIdusers(Users usersIdusers) {
         this.usersIdusers = usersIdusers;
+    }
+
+    @XmlTransient
+    public Set<Comment> getCommentSet() {
+        return commentSet;
+    }
+
+    public void setCommentSet(Set<Comment> commentSet) {
+        this.commentSet = commentSet;
     }
 
     @Override
@@ -188,15 +210,6 @@ public class Post implements Serializable {
     @Override
     public String toString() {
         return "com.tqh.pojo.Post[ idpost=" + idpost + " ]";
-    }
-
-    @XmlTransient
-    public Set<Comment> getCommentSet() {
-        return commentSet;
-    }
-
-    public void setCommentSet(Set<Comment> commentSet) {
-        this.commentSet = commentSet;
     }
 
 }

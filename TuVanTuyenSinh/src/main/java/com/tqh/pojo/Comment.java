@@ -39,9 +39,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Comment.findByCreatedDate", query = "SELECT c FROM Comment c WHERE c.createdDate = :createdDate")})
 public class Comment implements Serializable {
 
-    @OneToMany(mappedBy = "fkreplyCommentid")
-    private Set<Reply> replySet;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,8 +51,16 @@ public class Comment implements Serializable {
     @Column(name = "created_date")
     @Temporal(TemporalType.DATE)
     private Date createdDate;
+    @OneToMany(mappedBy = "commentIdcomment")
+    private Set<Comment> commentSet;
+    @JoinColumn(name = "comment_idcomment", referencedColumnName = "idcomment")
+    @ManyToOne
+    private Comment commentIdcomment;
+    @JoinColumn(name = "livestreams_idlivestreams", referencedColumnName = "idlivestreams")
+    @ManyToOne
+    private Livestreams livestreamsIdlivestreams;
     @JoinColumn(name = "post_idpost", referencedColumnName = "idpost")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Post postIdpost;
     @JoinColumn(name = "users_idusers", referencedColumnName = "idusers")
     @ManyToOne(optional = false)
@@ -90,6 +95,31 @@ public class Comment implements Serializable {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    @XmlTransient
+    public Set<Comment> getCommentSet() {
+        return commentSet;
+    }
+
+    public void setCommentSet(Set<Comment> commentSet) {
+        this.commentSet = commentSet;
+    }
+
+    public Comment getCommentIdcomment() {
+        return commentIdcomment;
+    }
+
+    public void setCommentIdcomment(Comment commentIdcomment) {
+        this.commentIdcomment = commentIdcomment;
+    }
+
+    public Livestreams getLivestreamsIdlivestreams() {
+        return livestreamsIdlivestreams;
+    }
+
+    public void setLivestreamsIdlivestreams(Livestreams livestreamsIdlivestreams) {
+        this.livestreamsIdlivestreams = livestreamsIdlivestreams;
     }
 
     public Post getPostIdpost() {
@@ -131,15 +161,6 @@ public class Comment implements Serializable {
     @Override
     public String toString() {
         return "com.tqh.pojo.Comment[ idcomment=" + idcomment + " ]";
-    }
-
-    @XmlTransient
-    public Set<Reply> getReplySet() {
-        return replySet;
-    }
-
-    public void setReplySet(Set<Reply> replySet) {
-        this.replySet = replySet;
     }
     
 }

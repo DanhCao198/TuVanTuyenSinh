@@ -4,11 +4,9 @@
  */
 package com.tqh.repository.impl;
 
-import com.tqh.pojo.Comment;
-import com.tqh.pojo.Reply;
-import com.tqh.pojo.StaticClass;
-import com.tqh.repository.ReplyRepository;
-import java.util.Date;
+
+import com.tqh.pojo.Majors;
+import com.tqh.repository.MajorRepository;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.Query;
@@ -18,6 +16,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
@@ -29,18 +28,20 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class ReplyRepositoryImpl implements ReplyRepository{
-@Autowired
-    private Environment env;
+@PropertySource("classpath:configs.properties")
+public class MajorRepositoryImpl implements MajorRepository {
 
     @Autowired
     private LocalSessionFactoryBean factory;
+    @Autowired
+    private Environment env;
+
     @Override
-    public List<Reply> getReply(Map<String, String> params) {
+    public List<Majors> getMajors(Map<String, String> params) {
         Session session = this.factory.getObject().getCurrentSession();
         CriteriaBuilder b = session.getCriteriaBuilder();
-        CriteriaQuery<Reply> q = b.createQuery(Reply.class);
-        Root root = q.from(Reply.class);
+        CriteriaQuery<Majors> q = b.createQuery(Majors.class);
+        Root root = q.from(Majors.class);
         q.select(root);
 
         Query query = session.createQuery(q);
@@ -56,22 +57,54 @@ public class ReplyRepositoryImpl implements ReplyRepository{
             }
         }
         return query.getResultList();
-
     }
 
     @Override
-    public boolean addReply(Comment c, Reply r) {
-         Session s = this.factory.getObject().getCurrentSession();
+    public Long countMajors(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Long countMajors() {
+        Session s = this.factory.getObject().getCurrentSession();
+        Query q = s.createQuery("SELECT Count(*) FROM Majors");
+        return Long.parseLong(q.getSingleResult().toString());
+    }
+
+    @Override
+    public boolean addOrUpdateMajors(Majors p) {
+        Session s = this.factory.getObject().getCurrentSession();
         try {
-            r.setFkreplyUserid(StaticClass.users);
-            r.setFkreplyCommentid(c);
-            r.setCreatedDate(new Date());
-            s.save(r);
+            if (p.getIdmajors() == null) {
+                s.save(p);
+            } else {
+                s.update(p);
+            }
+
             return true;
         } catch (HibernateException ex) {
             ex.printStackTrace();
             return false;
         }
     }
-    
+
+    @Override
+    public Majors getMajorsById(int id) {
+        Session session = this.factory.getObject().getCurrentSession();
+        return session.get(Majors.class, id);
+    }
+
+    @Override
+    public boolean deleteMajors(int id) {
+        Session session = this.factory.getObject().getCurrentSession();
+        Majors p = this.getMajorsById(id);
+        try {
+            session.delete(p);
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
 }

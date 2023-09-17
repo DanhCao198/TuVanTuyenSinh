@@ -59,7 +59,7 @@ public class ApiBenmarkController {
         p.setDiemhocba(Double.NaN);
         p.setDiemdgnl(Double.NaN);
         p.setYear(params.get("year"));
-        p.setFacultyIdfaculty(this.facultyService.getFacultyById(Integer.parseInt(params.get("facultyid"))));
+//        p.setMajorsIdmajors(this.facultyService.getFacultyById(Integer.parseInt(params.get("facultyid"))));
         this.benmarkService.addOrUpdateBenmarks(p);
     }
 }

@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService {
         u.setEmail(params.get("email"));
         u.setUsername(params.get("username"));
         u.setPassword(this.passwordEncoder.encode(params.get("password")));
-        u.setUserRole("ROLE_USER");
+        u.getActive();
         u.setRoleUserIdRoleuser(this.roleRepo.getRoleUserById(2));
         if (!avatar.isEmpty()) {
             try {

@@ -4,8 +4,7 @@
  */
 package com.tqh.repository;
 
-import com.tqh.pojo.Comment;
-import com.tqh.pojo.Reply;
+import com.tqh.pojo.Majors;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +12,11 @@ import java.util.Map;
  *
  * @author HP
  */
-public interface ReplyRepository {
-    List<Reply> getReply(Map<String, String> params);
-    boolean addReply(Comment c, Reply r);
+public interface MajorRepository {
+    List<Majors> getMajors(Map<String, String> params);
+    Long countMajors(int id);
+    Long countMajors();
+    boolean addOrUpdateMajors(Majors p);
+    Majors getMajorsById(int id);
+    boolean deleteMajors(int id);
 }

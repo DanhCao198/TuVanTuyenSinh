@@ -56,6 +56,7 @@ public class Banner implements Serializable {
     public void setFile(MultipartFile file) {
         this.file = file;
     }
+
     public Banner() {
     }
 
@@ -111,5 +112,5 @@ public class Banner implements Serializable {
     public String toString() {
         return "com.tqh.pojo.Banner[ idbanner=" + idbanner + " ]";
     }
-    
+
 }

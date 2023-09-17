@@ -51,9 +51,9 @@ public class Benmarks implements Serializable {
     private Double diemthpt;
     @Column(name = "diemdgnl")
     private Double diemdgnl;
-    @JoinColumn(name = "faculty_idfaculty", referencedColumnName = "idfaculty")
+    @JoinColumn(name = "majors_idmajors", referencedColumnName = "idmajors")
     @ManyToOne(optional = false)
-    private Faculty facultyIdfaculty;
+    private Majors majorsIdmajors;
 
     public Benmarks() {
     }
@@ -102,12 +102,12 @@ public class Benmarks implements Serializable {
         this.diemdgnl = diemdgnl;
     }
 
-    public Faculty getFacultyIdfaculty() {
-        return facultyIdfaculty;
+    public Majors getMajorsIdmajors() {
+        return majorsIdmajors;
     }
 
-    public void setFacultyIdfaculty(Faculty facultyIdfaculty) {
-        this.facultyIdfaculty = facultyIdfaculty;
+    public void setMajorsIdmajors(Majors majorsIdmajors) {
+        this.majorsIdmajors = majorsIdmajors;
     }
 
     @Override
