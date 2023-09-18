@@ -42,8 +42,6 @@ public class PostDetailController {
         model.addAttribute("comment", this.commentService.getComments(params));
         model.addAttribute("post", this.postService.getPostById(id));
         model.addAttribute("comments", new Comment());
-//        model.addAttribute("reply", this.replyService.getReply(params));
-//        model.addAttribute("addreply", new Reply());
         return "postdetail";
     }
 
@@ -59,17 +57,4 @@ public class PostDetailController {
         }
         return "postdetail";
     }
-
-//    @PostMapping("/comment/{id}/reply/{postid}/post")
-//    public String addrep(@PathVariable(value = "id") int id, @PathVariable(value = "postid") int idpost,
-//            @ModelAttribute(value = "addreply") @Valid Reply p,
-//            BindingResult rs) {
-//        Comment c = this.commentService.getCommentById(id);
-//        if (!rs.hasErrors()) {
-//            if (replyService.addReply(c, p) == true) {
-//                return "redirect:/postdetail/" + idpost;
-//            }
-//        }
-//        return "postdetail";
-//    }
 }

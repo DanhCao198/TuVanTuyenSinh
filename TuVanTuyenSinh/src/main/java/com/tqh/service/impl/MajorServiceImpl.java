@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  * @author HP
  */
 @Service
-public class MajorService implements com.tqh.service.MajorService {
+public class MajorServiceImpl implements com.tqh.service.MajorService {
 
     @Autowired
     private MajorRepository majorRepo;
