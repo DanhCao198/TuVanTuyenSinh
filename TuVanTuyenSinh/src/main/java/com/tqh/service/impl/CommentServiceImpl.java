@@ -5,6 +5,7 @@
 package com.tqh.service.impl;
 
 import com.tqh.pojo.Comment;
+import com.tqh.pojo.Livestreams;
 import com.tqh.pojo.Post;
 import com.tqh.pojo.Users;
 import com.tqh.repository.CommentRepository;
@@ -54,5 +55,10 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Long countComment(int id) {
         return this.commentRepo.countComment(id);
+    }
+
+    @Override
+    public boolean addCommentLivestream(Comment c, Livestreams l) {
+        return this.commentRepo.addCommentLivestream(c, l);
     }
 }

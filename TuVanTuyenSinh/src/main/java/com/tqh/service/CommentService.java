@@ -5,6 +5,7 @@
 package com.tqh.service;
 
 import com.tqh.pojo.Comment;
+import com.tqh.pojo.Livestreams;
 import com.tqh.pojo.Post;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,9 @@ public interface CommentService {
 
     Comment getCommentById(int id);
 
-    Long countComment( int id);
+    Long countComment(int id);
 
     boolean addComment(Comment c, Post p);
+
+    boolean addCommentLivestream(Comment c, Livestreams l);
 }

@@ -5,6 +5,7 @@
 package com.tqh.repository.impl;
 
 import com.tqh.pojo.Comment;
+import com.tqh.pojo.Livestreams;
 import com.tqh.pojo.Post;
 import com.tqh.pojo.RoleUser;
 import com.tqh.pojo.StaticClass;
@@ -145,5 +146,43 @@ public class CommentRepositoryImpl implements CommentRepository {
         Query query = session.createQuery(q);
 
         return query.getResultList();
+    }
+
+    @Override
+    public boolean addCommentLivestream(Comment c, Livestreams l) {
+        Session s = this.factory.getObject().getCurrentSession();
+        try {
+
+            c.setUsersIdusers(StaticClass.users);
+            c.setLivestreamsIdlivestreams(l);
+            c.setCreatedDate(new Date());
+            s.save(c);
+
+            if (StaticClass.users.getRoleUserIdRoleuser().getName().equals("ROLE_USER")) {
+                ArrayList<String> emails = new ArrayList<String>();
+                for (Users u : getU()) {
+                    emails.add(u.getEmail());
+                }
+                InternetAddress dests[] = new InternetAddress[emails.size()];
+                for (int i = 0; i < emails.size(); i++) {
+
+                    try {
+                        dests[i] = new InternetAddress(emails.get(i).trim().toLowerCase());
+                    } catch (AddressException ex) {
+                        Logger.getLogger(CommentRepositoryImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+                this.mailService.sendHtmlMessage(dests, "HELLO", "<p>Có câu hỏi mới"
+                        + " của bài viết: " + l.getTitle() + " <br/>Có mã: " + l.getIdlivestreams()
+                        + "<br/>Nội dung câu hỏi: " + c.getCommentinformation() + " <br/>Của người dùng: " + StaticClass.users.getUsername()
+                        + "<br/>Vào lúc: " + c.getCreatedDate() + "</p>");
+            }
+
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 }

@@ -5,6 +5,7 @@
 package com.tqh.repository;
 
 import com.tqh.pojo.Comment;
+import com.tqh.pojo.Livestreams;
 import com.tqh.pojo.Post;
 import com.tqh.pojo.Users;
 import java.util.List;
@@ -24,6 +25,8 @@ public interface CommentRepository {
 
     boolean addComment(Comment c, Post p);
 
+    boolean addCommentLivestream(Comment c, Livestreams l);
+
     List<Users> getU();
-    
+
 }
