@@ -14,6 +14,10 @@
             <div class="text-right mb-3">
                 <a href="<c:url value='/admin/faculties' />" class="btn btn-info">Thêm Khoa</a>
             </div>
+            <div class="text-right mb-3 " small-search-box>
+                <input type="text" id="searchInput" class="form-control" name ="kw" placeholder="Tìm kiếm...">
+                <button class="btn btn-info" onclick="searchPosts()">Tìm kiếm</button>
+            </div> 
         </section>
     </c:if>
     <table class="table table-bordered">

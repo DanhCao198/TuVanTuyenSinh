@@ -6,7 +6,7 @@
 <tiles-definitions>
     <definition name="baseLayout"
                 template="/WEB-INF/layout/base.jsp">
-        <put-attribute name="title" value="" />
+        <put-attribute name="title" value="" />     
         <put-attribute name="header"
                        value="/WEB-INF/layout/header.jsp" />
         <put-attribute name="content" value="" />
@@ -93,7 +93,7 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/facultysetting.jsp" />
     </definition>
-       <definition name="facultiesdetail" extends="baseLayout">
+    <definition name="facultiesdetail" extends="baseLayout">
         <put-attribute name="title" value="Quản lý Khoa" />
         <put-attribute name="content"
                        value="/WEB-INF/pages/facultiesdetail.jsp" />

@@ -9,9 +9,15 @@
 
 <section class="container">
     <h1 class="text-center text-info mt-1">QUẢN LÝ BÀI VIẾT</h1>
-    <div class="text-right mb-3">
-        <a href="<c:url value='/admin/posts' />" class="btn btn-info">Đăng bài</a>
-    </div>
+    <section class="container">
+        <div class="text-right mb-3">
+            <a href="<c:url value='/admin/posts' />" class="btn btn-info">Đăng bài</a>
+        </div>
+        <div class="text-right mb-3 " small-search-box>
+            <input type="text" id="searchInput" class="form-control" name ="kw" placeholder="Tìm kiếm...">
+            <button class="btn btn-info" onclick="searchPosts()">Tìm kiếm</button>
+        </div>
+    </section>
 
     <c:if test="${counter > 1}">
         <ul class="pagination mt-1">

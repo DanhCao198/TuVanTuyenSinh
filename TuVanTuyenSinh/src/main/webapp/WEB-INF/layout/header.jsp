@@ -4,23 +4,29 @@
     Author     : Admin
 --%>
 
-
+<style>
+    #user-avatar {
+        width: 60px; /* Điều chỉnh kích thước avatar */
+        height: 60px;
+        border-radius: 50%; /* Biến avatar thành hình tròn */
+    }
+</style>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<c:url value="/" var="action" />
 <section class="mb-3 mt-3">
     <div class="">
         <div class="row justify-content-between">
             <div class="col-md-8 order-md-last">
                 <div class="row">
                     <div class="col-md-6 text-center">
-                        <a class="navbar-brand" href="<c:url value='/'/>">CỔNG THÔNG TIN TƯ VẤN TUYỂN SINH</a>
+                        <a class="navbar-brand" href="${action}">CỔNG THÔNG TIN TƯ VẤN TUYỂN SINH</a>
                     </div>
                     <div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
-                        <form action="#" class="searchform order-lg-last">
+                        <form class="searchform order-lg-last" action="${action}">
                             <div class="form-group d-flex">
-                                <input type="text" class="form-control pl-3" placeholder="Search">
-                                <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
+                                <input type="text" class="form-control pl-3" name="kw" placeholder="Tìm kiếm theo hệ đào tạo..">
+                                <button type="submit" class="form-control search">Tìm</button>
                             </div>
                         </form>
                     </div>
@@ -42,7 +48,7 @@
                 <span class="fa fa-bars"></span> Menu
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav m-auto">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active"><a href="<c:url value='/'/>" class="nav-link">Trang Chủ</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hệ</a>
@@ -60,35 +66,54 @@
                             </c:forEach>
                         </div>
                     </li>
-                    <li class="nav-item "><a href="<c:url value='/school'/>" class="nav-link">Giới thiệu</a></li>
-                    <li class="nav-item "><a href="<c:url value='/benmarks'/>" class="nav-link">Điểm chuẩn</a></li>
+                    <li class="nav-item"><a href="<c:url value='/school'/>" class="nav-link">Giới thiệu</a></li>
+                    <li class="nav-item"><a href="<c:url value='/benmarks'/>" class="nav-link">Điểm chuẩn</a></li>
                 </ul>
-            </div>     
+            </div>
             <ul class="navbar-nav ml-auto">
                 <c:choose>
                     <c:when test="${pageContext.request.userPrincipal.name != null}">
                         <li class="nav-item">
-                            <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
-                            <li class="nav-item">
-                                <a class="nav-link" href="<c:url value='/admin/facultysetting/' />">Quản lý khoa</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<c:url value='/admin/settings/' />">Quản lý</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<c:url value='/admin/bannersetting/' />">Banners</a>
-                            </li>
-                        </c:if>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<c:url value='/' />">
-                                <c:if test="${user!=null}">
-                                    <img src="${user.avatar}" width="30px" height="20px"/>
-                                </c:if>
-                                ${pageContext.request.userPrincipal.name}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" margin="10px" href="<c:url value='/logout' />">Đăng Xuất</a>
+                            <div id="avatar-notification-container" style="display: flex; align-items: center;">
+                                <span class="notification-icon" style="font-size: 30px; color: #fff;">
+                                    <i class="fa fa-bell"></i>
+                                </span>
+                                <div id="notification-dropdown-container" style="position: relative; margin-left: 10px;">
+                                    <a class="nav-link" href="#" id="notification-dropdown-link">
+                                        Hiển thị thông báo
+                                    </a>
+                                    <div class="dropdown-menu" id="notification-dropdown" aria-labelledby="notification-dropdown-link" style="position: absolute; right: auto; left: 0; top: 100%; min-width: 200px;">
+                                        <!-- Nội dung thông báo sẽ được đưa vào đây -->
+                                    </div>
+                                </div>
+                                <div id="avatar-container" class="dropdown" style="position: relative; margin-left: 10px;">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" id="avatar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="avatar" style="position: relative;">
+                                            <c:if test="${user != null}">
+                                                <img src="${user.avatar}" width="60px" height="60px" id="user-avatar" />
+                                            </c:if>
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="avatar-dropdown" style="position: absolute; right: auto; left: -50px; top: 100%; min-width: 100px;">
+                                        <c:if test="${user != null}">
+                                            <div class="username">${pageContext.request.userPrincipal.name}</div>
+                                            <hr class="username-separator" />
+
+                                        </c:if>
+                                        <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
+                                            <div class="role">Quản lý</div>
+                                            <a class="dropdown-item" href="<c:url value='/admin/facultysetting/' />">Quản lý khoa</a>
+                                            <a class="dropdown-item" href="<c:url value='/admin/settings/' />">Quản lý bài viết</a>
+                                            <a class="dropdown-item" href="<c:url value='/admin/bannersetting/' />">Quản lý Banners</a>
+                                            <a class="dropdown-item" href="<c:url value='/admin/userssetting/' />">Quản lý người dùng</a>
+                                        </c:if>
+                                        <hr class="logout-separator" />
+                                        <div class="logout"><a class="dropdown-item" href="<c:url value='/logout' />">Đăng Xuất</a></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </li>
                     </c:when>
                     <c:otherwise>
@@ -105,3 +130,38 @@
     </nav>
     <!-- END nav -->
 </section>
+<script>
+    $(document).ready(function () {
+        $("#avatar-dropdown").click(function (e) {
+            e.preventDefault();
+
+
+            $("#avatar-container").toggleClass("show");
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+    $("#notification-dropdown").hide();
+            $("#notification-icon").click(function(event) {
+    event.stopPropagation();
+            $.ajax({
+            url: "/get-notifications",
+                    method: "GET",
+                    success: function(data) {
+
+                    $("#notification-dropdown").html(data);
+                            $("#notification-dropdown").show();
+                    }
+            });
+    });
+            $(document).click(function() {
+    $("#notification-dropdown").hide();
+    });
+            $("#notification-dropdown-container").click(function(event) {
+    event.stopPropagation();
+    });
+    });
+    };
+    );
+</script>

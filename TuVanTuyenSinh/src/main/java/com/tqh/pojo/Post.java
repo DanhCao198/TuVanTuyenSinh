@@ -50,15 +50,15 @@ public class Post implements Serializable {
     @Column(name = "idpost")
     private Integer idpost;
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{post.name.notNull}")
     @Lob
-    @Size(min = 1, max = 2147483647)
+    @Size(min = 1, max = 2147483647, message = "{post.name.lenErr}")
     @Column(name = "postName")
     private String postName;
     @Basic(optional = false)
     @NotNull
     @Lob
-    @Size(min = 1, max = 2147483647)
+    @Size(min = 1, max = 2147483647, message = "{post.desc.lenErr}")
     @Column(name = "postinformation")
     private String postinformation;
     @Lob

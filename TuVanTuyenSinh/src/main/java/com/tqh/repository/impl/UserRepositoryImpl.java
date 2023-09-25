@@ -8,6 +8,11 @@ import com.tqh.controllers.IndexController;
 import com.tqh.pojo.Users;
 import com.tqh.repository.RoleUserRepository;
 import com.tqh.repository.UserRepository;
+import java.util.List;
+import java.util.Map;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -97,5 +102,33 @@ public class UserRepositoryImpl implements UserRepository {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public List<Users> getUsers(Map<String, String> params) {
+         Session session = this.factory.getObject().getCurrentSession();
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Users> q = b.createQuery(Users.class);
+        Root root = q.from(Users.class);
+        q.select(root);
+
+        javax.persistence.Query query = session.createQuery(q);
+        if (params != null) {
+            String page = params.get("page");
+            if (page != null && !page.isEmpty()) {
+                int p = Integer.parseInt(page);
+                int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
+                query.setMaxResults(pageSize);
+                query.setFirstResult((p - 1) * pageSize);
+            }
+        }
+
+        return query.getResultList();
+    }
+
+    @Override
+    public Users getUserByLogin(int id) {
+        Session s = this.factory.getObject().getCurrentSession();
+        return s.get(Users.class, id);
     }
 }

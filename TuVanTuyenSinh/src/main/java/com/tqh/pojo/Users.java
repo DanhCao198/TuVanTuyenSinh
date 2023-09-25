@@ -61,12 +61,12 @@ public class Users implements Serializable {
     @Column(name = "avatar")
     private String avatar;
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{users.username.notNull}")
     @Size(min = 1, max = 45)
     @Column(name = "username")
     private String username;
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{users.password.notNull}")
     @Size(min = 1, max = 255)
     @Column(name = "password")
     private String password;

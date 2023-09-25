@@ -9,6 +9,7 @@ import com.tqh.service.AdmissionService;
 import com.tqh.service.BannerService;
 import com.tqh.service.FacultyService;
 import com.tqh.service.PostService;
+import com.tqh.service.UserService;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -40,6 +41,8 @@ public class IndexController {
     private AdmissionService admissionService;
     @Autowired
     private BannerService bannerService;
+    @Autowired
+    private UserService userService;
 
     @ModelAttribute
     public void commonAttr(Model model, @RequestParam Map<String, String> params) {
@@ -70,6 +73,12 @@ public class IndexController {
         model.addAttribute("faculty", this.facultyService.getFalcuties(params));
         return "facultysetting";
     }
+//    @GetMapping("/admin/userssettings/")
+//    public String AdminSetting3(Model model, @RequestParam Map<String, String> params) {
+//        model.addAttribute("user", this.userService.getUsers(params));
+//        return "userssettings";
+//    }
+//    
 
     @RequestMapping("/")
     public String index(Model model, @RequestParam Map<String, String> params) {

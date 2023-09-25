@@ -12,7 +12,7 @@
 
 <h1 class="text-center text-info mt-1">Đăng ký</h1>
 <c:url value="/register" var="action" />
-<form:form method="post" action="${action}" modelAttribute="user" enctype="multipart/form-data">
+<form:form method="post" action="${action}" onsubmit="return validateForm();" modelAttribute="user" enctype="multipart/form-data">
     <form:errors path="*" element="div" cssClass="alert alert-danger" />
     <form:hidden path="avatar" />
     <form:hidden path="idusers" />
@@ -25,6 +25,11 @@
         <form:input type="password" class="form-control" 
                     path="password" id="pwd" placeholder="Nhập mật khẩu..." name="password"/>
         <label for="pwd">Mật khẩu</label>
+    </div>
+    <div class="form-floating mt-3 mb-3">
+        <form:input type="password" class="form-control" 
+                    path="password" id="confirmPwd" placeholder="Nhập lại mật khẩu..." name="password"/>
+        <label for="confirmPwd">Nhập lại mật khẩu</label>
     </div>
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control"
@@ -50,3 +55,15 @@
         <input type="submit" value="Đăng ký" class="btn btn-danger" />
     </div>
 </form:form>
+<script>
+    function validateForm() {
+        var password = document.getElementById("pwd").value;
+        var confirmPassword = document.getElementById("confirmPwd").value;
+
+        if (password !== confirmPassword) {
+            alert("Mật khẩu và nhập lại mật khẩu không trùng khớp!");
+            return false;
+        }
+        return true;
+    }
+</script>

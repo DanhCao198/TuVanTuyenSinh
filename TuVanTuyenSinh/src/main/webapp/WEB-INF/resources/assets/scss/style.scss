@@ -286,3 +286,17 @@ h1, h2, h3, h4, h5,
 		border-color: $black;
 	}
 }
+.sidebar {
+    float: right; /* Đặt thanh sidebar nằm bên phải */
+    width: 250px; /* Đặt chiều rộng của thanh sidebar */
+    background-color: #f4f4f4; /* Đặt màu nền của thanh sidebar */
+    padding: 20px; /* Đặt khoảng cách đệm bên trong thanh sidebar */
+    /* Thêm các thuộc tính CSS khác cho thanh sidebar theo nhu cầu của bạn */
+}
+.sidebar ul {
+    list-style: none; /* Loại bỏ dấu chấm trước danh sách */
+    padding: 0;
+}
+.sidebar li {
+    margin-bottom: 10px; /* Đặt khoảng cách giữa các mục danh sách */
+}
