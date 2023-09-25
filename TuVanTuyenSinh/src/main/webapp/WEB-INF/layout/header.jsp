@@ -87,14 +87,14 @@
                                     </div>
                                 </div>
                                 <div id="avatar-container" class="dropdown" style="position: relative; margin-left: 10px;">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" id="avatar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="" href="#" role="button" id="avatar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="avatar" style="position: relative;">
                                             <c:if test="${user != null}">
                                                 <img src="${user.avatar}" width="60px" height="60px" id="user-avatar" />
                                             </c:if>
                                         </div>
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="avatar-dropdown" style="position: absolute; right: auto; left: -50px; top: 100%; min-width: 100px;">
+                                    <div class="dropdown-menu" aria-labelledby="avatar-dropdown" style="position: absolute; right: auto; left: -24px; top: 100%; min-width: 100px;">
                                         <c:if test="${user != null}">
                                             <div class="username">${pageContext.request.userPrincipal.name}</div>
                                             <hr class="username-separator" />
@@ -105,7 +105,7 @@
                                             <a class="dropdown-item" href="<c:url value='/admin/facultysetting/' />">Quản lý khoa</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/settings/' />">Quản lý bài viết</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/bannersetting/' />">Quản lý Banners</a>
-                                            <a class="dropdown-item" href="<c:url value='/admin/userssetting/' />">Quản lý người dùng</a>
+                                            <a class="dropdown-item" href="<c:url value='/admin/userssetting/' />">Quản lý người <br>dùng</br></a>
                                         </c:if>
                                         <hr class="logout-separator" />
                                         <div class="logout"><a class="dropdown-item" href="<c:url value='/logout' />">Đăng Xuất</a></div>
