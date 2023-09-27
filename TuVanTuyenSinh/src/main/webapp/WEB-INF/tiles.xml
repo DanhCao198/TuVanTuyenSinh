@@ -103,4 +103,9 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/questionlist.jsp" />
     </definition>
+        <definition name="lienhe" extends="baseLayout">
+        <put-attribute name="title" value="Liên hệ" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/lienhe.jsp" />
+    </definition>
 </tiles-definitions>

@@ -7,7 +7,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<style>
+    .section_subs {
+        background-color: black;
+        padding: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
 
+    .section_subs * {
+        color: white;
+    }
+
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -98,7 +109,7 @@
                     </div>
                 </div>
                 <div id="w-4_footer">
-                    <button type="button" class="btn btn-primary m-btn-regsubs waves-effect waves-light" onclick="do_submit_widget_form_4();return false;">
+                    <button type="button" class=" btn btn-primary m-btn-regsubs waves-effect waves-light"  onclick="do_submit_widget_form_4();return false;">
                         Đăng ký nhận thông tin
                     </button>
                 </div>
