@@ -20,6 +20,7 @@
         <thead>
             <tr>
                 <th>Khoa</th>
+                <th>Ngành</th>
                 <th>Điểm Thi THPT</th>
                 <th>Điểm Học Bạ</th>
                 <th>Điểm DGNL</th>
@@ -29,7 +30,8 @@
         <tbody>
             <c:forEach items="${benmarks}" var="ds">
                 <tr>
-                    <td>${ds.facultyIdfaculty.facultyname}</td>
+                    <td>${ds.majorsIdmajors.facultyIdfaculty.facultyname}</td>
+                    <td>${ds.majorsIdmajors.majorname}</td>
                     <td>${ds.diemthpt}</td>
                     <td>${ds.diemhocba}</td>
                     <td>${ds.diemdgnl}</td>

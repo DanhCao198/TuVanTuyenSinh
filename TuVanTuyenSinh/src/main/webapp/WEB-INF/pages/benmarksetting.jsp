@@ -13,21 +13,20 @@
     <form:errors path="*" element="div" cssClass="alert alert-danger" />
     <form:hidden path="idbenmarks" />
     <div class="form-floating mb-3 mt-3">
-        <form:select class="form-select" id="facultyIdfaculty" name="facultyIdfaculty" 
-                     path="facultyIdfaculty">
-            <c:forEach items="${faculties}" var="fa">
+        <form:select class="form-select" id="majorsIdmajors" name="majorsIdmajors" 
+                     path="majorsIdmajors">
+            <c:forEach items="${major}" var="fa">
                 <c:choose>
-                    <c:when test="${fa.idfaculty == post.facultyIdfaculty.idfaculty}">
-                        <option value="${fa.idfaculty}" selected>${fa.facultyname}</option>
+                    <c:when test="${fa.idmajors == benmarks.majorsIdmajors.idmajors}">
+                        <option value="${fa.idmajors}" selected>${fa.majorname}</option>
                     </c:when>
                     <c:otherwise>
-                        <option value="${fa.idfaculty}" selected>${fa.facultyname}</option>
+                        <option value="${fa.idmajors}" selected>${fa.majorname}</option>
                     </c:otherwise>
                 </c:choose>
-
             </c:forEach>
         </form:select>
-        <label for="des">Khoa</label>
+        <label for="des">Ngành</label>
     </div>
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
@@ -36,17 +35,17 @@
     </div>
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
-                        path="diemhocba" id="diemhocba" placeholder="Điểm học bạ" />
+                    path="diemhocba" id="diemhocba" placeholder="Điểm học bạ" />
         <label for="name">Điểm học bạ</label>
     </div>
-   <div class="form-floating mb-3 mt-3">
+    <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
                     path="diemdgnl" id="diemdgnl" placeholder="Điểm DGNL" />
         <label for="name">Điểm DGNL</label>
     </div>
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
-                        path="year" id="year" placeholder="Năm" />
+                    path="year" id="year" placeholder="Năm" />
         <label for="name">Năm</label>
     </div>
     <div class="form-floating mb-3 mt-3">

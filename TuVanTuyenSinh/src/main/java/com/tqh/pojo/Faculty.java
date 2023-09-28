@@ -55,7 +55,8 @@ public class Faculty implements Serializable {
     @Size(max = 45)
     @Column(name = "website")
     private String website;
-    @Size(max = 45)
+    @Lob
+    @Size(max = 2147483647)
     @Column(name = "introvideo")
     private String introvideo;
     @Lob

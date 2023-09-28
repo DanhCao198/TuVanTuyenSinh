@@ -8,6 +8,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.tqh.formatter.AdmissionFormatter;
 import com.tqh.formatter.FacultyFormatter;
+import com.tqh.formatter.MajorFormatter;
 import java.util.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -61,6 +62,7 @@ public class WebAppContextConfig implements WebMvcConfigurer {
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(new FacultyFormatter());
         registry.addFormatter(new AdmissionFormatter());
+        registry.addFormatter(new MajorFormatter());
     }
 
     @Override

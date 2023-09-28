@@ -7,7 +7,9 @@ package com.tqh.controllers;
 import com.tqh.pojo.StaticClass;
 import com.tqh.service.AdmissionService;
 import com.tqh.service.BannerService;
+import com.tqh.service.BenmarkService;
 import com.tqh.service.FacultyService;
+import com.tqh.service.MajorService;
 import com.tqh.service.PostService;
 import com.tqh.service.UserService;
 import java.util.Map;
@@ -43,6 +45,10 @@ public class IndexController {
     private BannerService bannerService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private MajorService majorService;
+    @Autowired
+    private BenmarkService benmarkService;
 
     @ModelAttribute
     public void commonAttr(Model model, @RequestParam Map<String, String> params) {
@@ -53,6 +59,7 @@ public class IndexController {
         model.addAttribute("faculties", this.facultyService.getFalcuties(params));
         model.addAttribute("admission", this.admissionService.getAdmissions(params));
         model.addAttribute("posts", this.postService.getPosts(params));
+        model.addAttribute("major", this.majorService.getMajors(params));
         model.addAttribute("banner", this.bannerService.getBanners(params));
     }
 
@@ -64,7 +71,7 @@ public class IndexController {
 
     @GetMapping("/admin/bannersetting/")
     public String AdminSettings1(Model model, @RequestParam Map<String, String> params) {
-        model.addAttribute("banner", this.bannerService.getBanners(params));
+        model.addAttribute("banners", this.bannerService.getBanners(params));
         return "bannersetting";
     }
 
@@ -72,6 +79,11 @@ public class IndexController {
     public String AdminSetting2(Model model, @RequestParam Map<String, String> params) {
         model.addAttribute("faculty", this.facultyService.getFalcuties(params));
         return "facultysetting";
+    }
+     @GetMapping("/admin/benmarksetting/")
+    public String AdminSettings3(Model model, @RequestParam Map<String, String> params) {
+        model.addAttribute("benmarks", this.benmarkService.getBenMarks(params));
+        return "benmarksetting";
     }
 //    @GetMapping("/admin/userssettings/")
 //    public String AdminSetting3(Model model, @RequestParam Map<String, String> params) {

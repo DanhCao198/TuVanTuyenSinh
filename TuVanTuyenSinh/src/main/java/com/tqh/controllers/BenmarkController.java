@@ -7,6 +7,7 @@ package com.tqh.controllers;
 import com.tqh.pojo.Benmarks;
 import com.tqh.service.BenmarkService;
 import com.tqh.service.FacultyService;
+import com.tqh.service.MajorService;
 import java.security.Principal;
 import java.util.Map;
 import javax.validation.Valid;
@@ -31,10 +32,10 @@ public class BenmarkController {
     @Autowired
     private BenmarkService benmarkService;
     @Autowired
-    private FacultyService facultyService;
+    private MajorService majorService;
 
     @GetMapping("/benmarks")
-    public String list1(Model model, Principal p,Map<String, String> params) {
+    public String list1(Model model, Principal p, Map<String, String> params) {
         model.addAttribute("benmarks", this.benmarkService.getBenMarks(params));
         return "benmarks";
     }
