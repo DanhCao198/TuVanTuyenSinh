@@ -30,19 +30,19 @@ public class MajorController {
      @Autowired
     private MajorService majorService;
 
-    @GetMapping("/major")
+    @GetMapping("/majors")
     public String list(Model model, Principal p) {
         model.addAttribute("major", new Majors());
-        return "major";
+        return "majors";
     }
 
-    @GetMapping("/major/{id}")
+    @GetMapping("/majors/{id}")
     public String update(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("major", this.majorService.getMajorsById(id));
-        return "major";
+        return "majors";
     }
 
-    @PostMapping("/major")
+    @PostMapping("/majors")
     public String add(@ModelAttribute(value = "major") @Valid Majors f,
             BindingResult rs) {
         if (!rs.hasErrors()) {
@@ -50,6 +50,6 @@ public class MajorController {
                 return "redirect:/";
             }
         }
-        return "major";
+        return "majors";
     }
 }

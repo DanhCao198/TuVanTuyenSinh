@@ -104,6 +104,7 @@
                                         <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
                                             <div class="role">Quản lý</div>
                                             <a class="dropdown-item" href="<c:url value='/admin/facultysetting/' />">Quản lý khoa</a>
+                                            <a class="dropdown-item" href="<c:url value='/admin/majorsetting/' />">Quản lý ngành</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/settings/' />">Quản lý bài viết</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/bannersetting/' />">Quản lý Banners</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/userssetting/' />">Quản lý người <br>dùng</br></a>

@@ -59,7 +59,7 @@ public class IndexController {
         model.addAttribute("faculties", this.facultyService.getFalcuties(params));
         model.addAttribute("admission", this.admissionService.getAdmissions(params));
         model.addAttribute("posts", this.postService.getPosts(params));
-        model.addAttribute("major", this.majorService.getMajors(params));
+        model.addAttribute("majors", this.majorService.getMajors(params));
         model.addAttribute("banner", this.bannerService.getBanners(params));
     }
 
@@ -79,6 +79,11 @@ public class IndexController {
     public String AdminSetting2(Model model, @RequestParam Map<String, String> params) {
         model.addAttribute("faculty", this.facultyService.getFalcuties(params));
         return "facultysetting";
+    }
+      @GetMapping("/admin/majorsetting/")
+    public String AdminSettings4(Model model, @RequestParam Map<String, String> params) {
+        model.addAttribute("major", this.majorService.getMajors(params));
+        return "majorsetting";
     }
      @GetMapping("/admin/benmarksetting/")
     public String AdminSettings3(Model model, @RequestParam Map<String, String> params) {

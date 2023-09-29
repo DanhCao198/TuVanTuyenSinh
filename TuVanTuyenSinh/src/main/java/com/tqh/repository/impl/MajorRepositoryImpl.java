@@ -4,7 +4,6 @@
  */
 package com.tqh.repository.impl;
 
-
 import com.tqh.pojo.Majors;
 import com.tqh.repository.MajorRepository;
 import java.util.List;
@@ -73,14 +72,13 @@ public class MajorRepositoryImpl implements MajorRepository {
 
     @Override
     public boolean addOrUpdateMajors(Majors p) {
-        Session s = this.factory.getObject().getCurrentSession();
+         Session s = this.factory.getObject().getCurrentSession();
         try {
             if (p.getIdmajors() == null) {
                 s.save(p);
             } else {
                 s.update(p);
             }
-
             return true;
         } catch (HibernateException ex) {
             ex.printStackTrace();

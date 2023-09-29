@@ -108,4 +108,14 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/lienhe.jsp" />
     </definition>
+      <definition name="majors" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý chuyên ngành" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/majors.jsp" />
+    </definition>
+    <definition name="majorsetting" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý chuyên ngành" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/majorsetting.jsp" />
+    </definition>
 </tiles-definitions>
