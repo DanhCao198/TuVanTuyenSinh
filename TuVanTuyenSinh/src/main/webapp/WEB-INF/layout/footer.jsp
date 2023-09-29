@@ -125,10 +125,6 @@
 
             </div>
         </section>
-
-
-
-
         <section class="">
             <div class="container text-center text-md-start mt-5">
                 <!-- Grid row -->
@@ -198,7 +194,7 @@
                         <p><i class="fa fa-home mr-3"></i> Việt Nam, VN</p>
                         <p><i class="fa fa-envelope mr-3"></i> huy@gmail.com</p>
                         <p><i class="fa fa-phone mr-3"></i> 0938842106</p>
-                        <p><i class="fa fa-print mr-3"></i> 123456789</p>
+                        <p><i class="fa fa-print mr-3"></i> 0334507930/p>
                     </div>
                     <!-- Grid column -->
                 </div>

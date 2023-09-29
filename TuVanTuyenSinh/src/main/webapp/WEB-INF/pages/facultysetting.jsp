@@ -23,10 +23,10 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>id</th>
+                <th>Mã Khoa</th>
                 <th>Tên Khoa</th>
                 <th>Giới thiệu</th>
-                <th>Mô tả CTDT</th>
+                <th>Chương trình đạo tào</th>
                 <th>Website</th>
                 <th>Video</th>
 

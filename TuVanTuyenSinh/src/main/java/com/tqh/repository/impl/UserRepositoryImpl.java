@@ -77,13 +77,11 @@ public class UserRepositoryImpl implements UserRepository {
                     user.setRoleUserIdRoleuser(this.roleRepo.getRoleUserById(2));
                     user.setPassword(this.passEncoder.encode(user.getPassword()));
                     s.save(user);
-
                 }
             } else {
                 user.setPassword(this.passEncoder.encode(user.getPassword()));
                 s.update(user);
             }
-
             return true;
         } catch (HibernateException ex) {
             ex.printStackTrace();
@@ -106,7 +104,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<Users> getUsers(Map<String, String> params) {
-         Session session = this.factory.getObject().getCurrentSession();
+        Session session = this.factory.getObject().getCurrentSession();
         CriteriaBuilder b = session.getCriteriaBuilder();
         CriteriaQuery<Users> q = b.createQuery(Users.class);
         Root root = q.from(Users.class);
@@ -122,7 +120,6 @@ public class UserRepositoryImpl implements UserRepository {
                 query.setFirstResult((p - 1) * pageSize);
             }
         }
-
         return query.getResultList();
     }
 

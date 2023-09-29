@@ -22,7 +22,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>id</th>
+                <th>Mã Chuyên Ngành</th>
                 <th>Khoa</th>
                 <th>Chuyên Ngành</th>
             </tr>

@@ -26,12 +26,12 @@
                 </c:choose>
             </c:forEach>
         </form:select>
-        <label for="des">Ngành</label>
+        <label for="des">Chuyên Ngành</label>
     </div>
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
                     path="diemthpt" id="diemthpt" placeholder="Điểm thpt" />
-        <label for="name">Điểm thpt</label>
+        <label for="name">Điểm Thi Trung Học Phổ Thông</label>
     </div>
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
@@ -41,7 +41,7 @@
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
                     path="diemdgnl" id="diemdgnl" placeholder="Điểm DGNL" />
-        <label for="name">Điểm DGNL</label>
+        <label for="name">Điểm Đánh Giá Năng Lực</label>
     </div>
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
