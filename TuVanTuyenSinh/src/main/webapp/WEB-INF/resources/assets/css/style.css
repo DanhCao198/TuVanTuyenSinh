@@ -10715,3 +10715,27 @@ a[data-toggle="collapse"] {
     left: 0;
     z-index: 9999;
 }
+#user-avatar {
+    width: 60px; /* Điều chỉnh kích thước avatar */
+    height: 60px;
+    border-radius: 50%; /* Biến avatar thành hình tròn */
+}
+.management-icon {
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.management-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    min-width: 200px;
+    display: none;
+}
+.management-menu a:hover {
+    color: red; 
+    text-decoration: underline;
+}

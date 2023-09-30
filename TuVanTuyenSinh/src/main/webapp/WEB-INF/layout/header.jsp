@@ -3,14 +3,6 @@
     Created on : Jul 29, 2023, 7:47:28 AM
     Author     : Admin
 --%>
-
-<style>
-    #user-avatar {
-        width: 60px; /* Điều chỉnh kích thước avatar */
-        height: 60px;
-        border-radius: 50%; /* Biến avatar thành hình tròn */
-    }
-</style>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/" var="action" />
@@ -76,15 +68,25 @@
                     <c:when test="${pageContext.request.userPrincipal.name != null}">
                         <li class="nav-item">
                             <div id="avatar-notification-container" style="display: flex; align-items: center;">
-                                <span class="notification-icon" style="font-size: 30px; color: #fff;">
+                                <span id="notification-icon" class="notification-icon" style="font-size: 30px; color: #FFFFFF;">
                                     <i class="fa fa-bell"></i>
                                 </span>
-                                <div id="notification-dropdown-container" style="position: relative; margin-left: 10px;">
-                                    <a class="nav-link" href="#" id="notification-dropdown-link">
-                                        Hiển thị thông báo
-                                    </a>
+                                <div id="notification-dropdown-container" style="position: relative; margin-left: 10px;">                                    
                                     <div class="dropdown-menu" id="notification-dropdown" aria-labelledby="notification-dropdown-link" style="position: absolute; right: auto; left: 0; top: 100%; min-width: 200px;">
                                         <!-- Nội dung thông báo sẽ được đưa vào đây -->
+                                    </div>
+                                </div>
+                                <div id="management-icon-container" style="display: flex; align-items: center;">
+                                    <div class="management-icon" onclick="toggleManagementMenu()">
+                                        <i class="fa fa-bars"></i>
+                                    </div>
+                                    <div id="management-menu" class="management-menu" style="display: none;">
+                                        <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
+                                            <a class="dropdown-item" href="<c:url value='/admin/facultysetting/' />">Quản lý khoa</a>
+                                            <a class="dropdown-item" href="<c:url value='/admin/settings/' />">Quản lý bài viết</a>
+                                            <a class="dropdown-item" href="<c:url value='/admin/bannersetting/' />">Quản lý Banners</a>
+                                            <a class="dropdown-item" href="<c:url value='/admin/userssetting/' />">Quản lý người dùng</a>
+                                        </c:if>
                                     </div>
                                 </div>
                                 <div id="avatar-container" class="dropdown" style="position: relative; margin-left: 10px;">
@@ -101,15 +103,6 @@
                                             <hr class="username-separator" />
 
                                         </c:if>
-                                        <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
-                                            <div class="role">Quản lý</div>
-                                            <a class="dropdown-item" href="<c:url value='/admin/facultysetting/' />">Quản lý khoa</a>
-                                            <a class="dropdown-item" href="<c:url value='/admin/majorsetting/' />">Quản lý ngành</a>
-                                            <a class="dropdown-item" href="<c:url value='/admin/settings/' />">Quản lý bài viết</a>
-                                            <a class="dropdown-item" href="<c:url value='/admin/bannersetting/' />">Quản lý Banners</a>
-                                            <a class="dropdown-item" href="<c:url value='/admin/userssetting/' />">Quản lý người <br>dùng</br></a>
-                                        </c:if>
-                                        <hr class="logout-separator" />
                                         <div class="logout"><a class="dropdown-item" href="<c:url value='/logout' />">Đăng Xuất</a></div>
 
                                     </div>
@@ -143,27 +136,38 @@
     });
 </script>
 <script>
-    $(document).ready(function() {
-    $("#notification-dropdown").hide();
-            $("#notification-icon").click(function(event) {
-    event.stopPropagation();
+    $(document).ready(function () {
+        $("#notification-dropdown").hide();
+        $("#notification-icon").click(function (event) {
+            event.stopPropagation();
             $.ajax({
-            url: "/get-notifications",
-                    method: "GET",
-                    success: function(data) {
-
+                url: "/get-notifications",
+                method: "GET",
+                success: function (data) {
                     $("#notification-dropdown").html(data);
-                            $("#notification-dropdown").show();
-                    }
+                    $("#notification-dropdown").show();
+                }
             });
+        });
+        $(document).click(function () {
+            $("#notification-dropdown").hide();
+        });
+        $("#notification-dropdown-container").click(function (event) {
+            event.stopPropagation();
+        });
     });
-            $(document).click(function() {
-    $("#notification-dropdown").hide();
-    });
-            $("#notification-dropdown-container").click(function(event) {
-    event.stopPropagation();
-    });
-    });
-    };
-    );
 </script>
+
+
+<script>
+    function toggleManagementMenu() {
+        var managementMenu = document.getElementById("management-menu");
+        if (managementMenu.style.display === "none") {
+            managementMenu.style.display = "block";
+        } else {
+            managementMenu.style.display = "none";
+        }
+    }
+</script>
+
+
