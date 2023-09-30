@@ -33,13 +33,11 @@ public class LivestreamListController {
     @Autowired
     private Environment env;
 
-    @GetMapping("/livestreamlist/{id}/")
-    public String update(Model model, @PathVariable(value = "id") int id, @RequestParam Map<String, String> params) {
-        model.addAttribute("admissions", this.admissionService.getAdmissionById(id));
-        model.addAttribute("livestreams", this.livestreamService.getLivestreamsByAdmission(params, id));
-
+    @GetMapping("/livestreamlist/")
+    public String update(Model model, @RequestParam Map<String, String> params) {
+        model.addAttribute("livestreams", this.livestreamService.getLiveStreams(params));
         int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
-        long count = this.livestreamService.countLivestreams(id);
+        long count = this.livestreamService.countLivestreams();
         model.addAttribute("counter", Math.ceil(count * 1.0 / pageSize));
         return "livestreamlist";
     }

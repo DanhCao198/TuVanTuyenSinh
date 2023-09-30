@@ -43,8 +43,6 @@
     </div>
 </div>
 <a href="bannersetting.jsp"></a>
-
-
 <c:forEach items="${admission}" var="ds" >  
     <div class="container my-5">
         <a href="<c:url value='/postlist/${ds.idadmission}/'/>">

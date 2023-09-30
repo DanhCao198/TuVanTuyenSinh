@@ -103,12 +103,12 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/questionlist.jsp" />
     </definition>
-        <definition name="lienhe" extends="baseLayout">
+    <definition name="lienhe" extends="baseLayout">
         <put-attribute name="title" value="Liên hệ" />
         <put-attribute name="content"
                        value="/WEB-INF/pages/lienhe.jsp" />
     </definition>
-      <definition name="majors" extends="baseLayout">
+    <definition name="majors" extends="baseLayout">
         <put-attribute name="title" value="Quản lý chuyên ngành" />
         <put-attribute name="content"
                        value="/WEB-INF/pages/majors.jsp" />
@@ -117,5 +117,25 @@
         <put-attribute name="title" value="Quản lý chuyên ngành" />
         <put-attribute name="content"
                        value="/WEB-INF/pages/majorsetting.jsp" />
+    </definition>
+    <definition name="livestreamdetail" extends="baseLayout">
+        <put-attribute name="title" value="Thông báo livestream" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/livestreamdetail.jsp" />
+    </definition>
+    <definition name="livestreamlist" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý livestream" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/livestreamlist.jsp" />
+    </definition>
+    <definition name="livestreams" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý livestream" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/livestreams.jsp" />
+    </definition>
+    <definition name="livestreamsetting" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý livestream" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/livestreamsetting.jsp" />
     </definition>
 </tiles-definitions>

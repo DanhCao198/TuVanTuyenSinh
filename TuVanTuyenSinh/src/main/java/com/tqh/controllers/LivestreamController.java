@@ -42,19 +42,19 @@ public class LivestreamController {
     @Autowired
     private Environment env;
 
-    @GetMapping("/livestream")
+    @GetMapping("/livestreams")
     public String list(Model model, Principal p) {
         model.addAttribute("livestream", new Livestreams());
-        return "livestream";
+        return "livestreams";
     }
 
-    @GetMapping("/livestream/{id}")
+    @GetMapping("/livestreams/{id}")
     public String update(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("livestream", this.livestreamService.getLivestreamsById(id));
-        return "livestream";
+        return "livestreams";
     }
 
-    @PostMapping("/livestream")
+    @PostMapping("/livestreams")
     public String add(@ModelAttribute(value = "livestream") @Valid Livestreams p,
             BindingResult rs) {
         if (!rs.hasErrors()) {
@@ -62,15 +62,15 @@ public class LivestreamController {
                 return "redirect:/";
             }
         }
-        return "livestream";
+        return "livestreams";
     }
 
-    @RequestMapping("/livestream")
+    @RequestMapping("/livestreams")
     public String listpost(Model model, @RequestParam Map<String, String> params) {
         model.addAttribute("dslivestream", this.livestreamService.getLiveStreams(params));
         int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
         long count = this.livestreamService.countLivestreams();
         model.addAttribute("counter", Math.ceil(count * 1.0 / pageSize));
-        return "livestream";
+        return "livestreams";
     }
 }

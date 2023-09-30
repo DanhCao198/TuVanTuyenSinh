@@ -9,6 +9,7 @@ import com.tqh.service.AdmissionService;
 import com.tqh.service.BannerService;
 import com.tqh.service.BenmarkService;
 import com.tqh.service.FacultyService;
+import com.tqh.service.LivestreamService;
 import com.tqh.service.MajorService;
 import com.tqh.service.PostService;
 import com.tqh.service.UserService;
@@ -49,6 +50,8 @@ public class IndexController {
     private MajorService majorService;
     @Autowired
     private BenmarkService benmarkService;
+     @Autowired
+    private LivestreamService livestreamService;
 
     @ModelAttribute
     public void commonAttr(Model model, @RequestParam Map<String, String> params) {
@@ -59,6 +62,7 @@ public class IndexController {
         model.addAttribute("faculties", this.facultyService.getFalcuties(params));
         model.addAttribute("admission", this.admissionService.getAdmissions(params));
         model.addAttribute("posts", this.postService.getPosts(params));
+        model.addAttribute("livestreams", this.livestreamService.getLiveStreams(params));
         model.addAttribute("majors", this.majorService.getMajors(params));
         model.addAttribute("banner", this.bannerService.getBanners(params));
     }
@@ -89,6 +93,11 @@ public class IndexController {
     public String AdminSettings3(Model model, @RequestParam Map<String, String> params) {
         model.addAttribute("benmarks", this.benmarkService.getBenMarks(params));
         return "benmarksetting";
+    }
+     @GetMapping("/admin/livestreamsetting/")
+    public String AdminSettings5(Model model, @RequestParam Map<String, String> params) {
+        model.addAttribute("livestreams", this.livestreamService.getLiveStreams(params));
+        return "livestreamsetting";
     }
 //    @GetMapping("/admin/userssettings/")
 //    public String AdminSetting3(Model model, @RequestParam Map<String, String> params) {

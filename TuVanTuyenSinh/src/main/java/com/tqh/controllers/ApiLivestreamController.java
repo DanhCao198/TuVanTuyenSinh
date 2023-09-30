@@ -41,18 +41,18 @@ public class ApiLivestreamController {
     @Autowired
     private CommentService commentService;
 
-    @DeleteMapping("/livestream/{id}")
+    @DeleteMapping("/livestreams/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable(value = "id") int id) {
         this.livestreamService.deleteLivestreams(id);
     }
 
-    @RequestMapping("/livestream/")
+    @RequestMapping("/livestreams/")
     @CrossOrigin
     public ResponseEntity<List<Livestreams>> list(@RequestParam Map<String, String> params) {
         return new ResponseEntity<>(this.livestreamService.getLiveStreams(params), HttpStatus.OK);
     }
-    @PostMapping(path = "/livestream", consumes = {
+    @PostMapping(path = "/livestreams", consumes = {
         MediaType.MULTIPART_FORM_DATA_VALUE,
         MediaType.APPLICATION_JSON_VALUE
     })

@@ -34,7 +34,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>id</th>
+                <th>Mã</th>
                 <th>Tiêu đề</th>
                 <th>Loại Bài Đăng</th>
                 <th>Tác Giả</th>

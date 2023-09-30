@@ -60,6 +60,7 @@
                     </li>
                     <li class="nav-item"><a href="<c:url value='/school'/>" class="nav-link">Giới thiệu</a></li>
                     <li class="nav-item"><a href="<c:url value='/benmarks'/>" class="nav-link">Điểm chuẩn</a></li>
+                    <li class="nav-item"><a href="<c:url value='/livestreamlist/'/>" class="nav-link">Livestreams</a></li>
                     <li class="nav-item"><a href="<c:url value='/lienhe'/>" class="nav-link">Liên hệ</a></li>
                 </ul>
             </div>
@@ -77,13 +78,15 @@
                                     </div>
                                 </div>
                                 <div id="management-icon-container" style="display: flex; align-items: center;">
-                                    <div class="management-icon" onclick="toggleManagementMenu()">
+                                    <div class="management-icon rounded-circle" onclick="toggleManagementMenu()">
                                         <i class="fa fa-bars"></i>
                                     </div>
                                     <div id="management-menu" class="management-menu" style="display: none;">
                                         <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
                                             <a class="dropdown-item" href="<c:url value='/admin/facultysetting/' />">Quản lý khoa</a>
+                                            <a class="dropdown-item" href="<c:url value='/admin/majorsetting/' />">Quản lý ngành</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/settings/' />">Quản lý bài viết</a>
+                                            <a class="dropdown-item" href="<c:url value='/admin/livestreamsetting/' />">Quản lý livestream</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/bannersetting/' />">Quản lý Banners</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/userssetting/' />">Quản lý người dùng</a>
                                         </c:if>
