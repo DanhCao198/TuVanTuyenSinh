@@ -19,10 +19,11 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Mã</th>
                 <th>Tài khoản</th>
                 <th>Họ</th>
                 <th>Tên</th>
+                <th>Email</th>
                 <th>Chức năng</th>
             </tr>
         </thead>
@@ -33,10 +34,12 @@
                     <td>${ds.username}</td>
                     <td>${ds.firstName}</td>
                     <td>${ds.lastName}</td>
+                    <td>${ds.email}</td>
                     <td>${ds.roleUserIdRoleuser.name}</td>
                     <td>  
                         <c:url value="/api/users/${ds.idusers}" var="apiDel" />
-                        <a href="<c:url value="/admin/user1/${ds.idusers}"/>" class="btn btn-success">Cập nhật</a>                      
+                        <a href="<c:url value="/admin/user1/${ds.idusers}"/>" class="btn btn-success">Cập nhật</a> 
+                        <button class="btn btn-danger" onclick="delPost('${apiDel}', ${ds.idusers})">Xóa</button>
                     </td>
                 </tr>   
             </c:forEach>

@@ -64,7 +64,11 @@ public class UserController {
         model.addAttribute("users", new Users());
         return "user1";
     }
-
+    @GetMapping("/admin/usersetting")
+    public String list1(Model model, Principal p) {
+        model.addAttribute("users", new Users());
+        return "usersetting";
+    }
     @GetMapping("/admin/user1/{id}")
     public String update(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("users", this.userService.getUserByLogin(id));
