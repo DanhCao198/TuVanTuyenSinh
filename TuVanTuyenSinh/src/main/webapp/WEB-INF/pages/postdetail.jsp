@@ -42,7 +42,7 @@
                                                     <div class="flex-grow-1 flex-shrink-1">
                                                         <div>
                                                             <div class="d-flex justify-content-between align-items-center">
-                                                                <p class="mb-1">
+                                                                <p class="mb-1" class ="commentDate">
                                                                     ${ds.usersIdusers.username} <span class="small">_${ds.createdDate}</span>
                                                                 </p>
                                                                 <a id="repbtn" href="#"><i class="fa fa-reply fa-xs"></i><span class="small"> reply</span></a>
@@ -77,7 +77,7 @@
                                                                     <div class="flex-grow-1 flex-shrink-1">
                                                                         <div>
                                                                             <div class="d-flex justify-content-between align-items-center">
-                                                                                <p class="mb-1">
+                                                                                <p class="mb-1" class ="commentDate">
                                                                                     ${dsrep.fkreplyUserid.username}<span class="small">_${dsrep.createdDate}</span>
                                                                                 </p>
                                                                             </div>
@@ -116,4 +116,11 @@
             x = true;
         }
     }
+</script>
+<script>
+    window.onload = function() {
+        let dates = document.getElementsByClassName("commentDate")
+        for(let i = 0; i < dates.length; i++)
+            dates[i].innerText = moment(dates[i].innerText).fromNow()
+}
 </script>

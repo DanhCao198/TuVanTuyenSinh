@@ -5,6 +5,7 @@
 package com.tqh.controllers;
 
 import com.tqh.pojo.Users;
+import com.tqh.service.RoleUserService;
 import com.tqh.service.UserService;
 import javax.validation.Valid;
 import java.security.Principal;
@@ -34,6 +35,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private Environment env;
+    @Autowired
+    private RoleUserService roleuserService;
 
     @GetMapping("/login")
     public String login() {
@@ -55,26 +58,27 @@ public class UserController {
         }
         return "register";
     }
-//    @GetMapping("/users")
-//    public String list(Model model) {
-//        model.addAttribute("user", new Users());
-//        return "users";
-//    }
-//
-//    @GetMapping("/users/{id}")
-//    public String update(Model model, @PathVariable(value = "id") int id) {
-//        model.addAttribute("user", this.userService. getUserByLogin(id));
-//        return "users";
-//    }
-//        @PostMapping("/users")
-//    public String add(@ModelAttribute(value = "user") @Valid Users user,
-//            BindingResult rs) {
-//        if (!rs.hasErrors()) {
-//            if (userService.addOrUpdateUser(user) == true) {
-//                return "redirect:/";
-//            } 
-//        }
-//        return "users";
-//    }
 
+    @GetMapping("/admin/user1")
+    public String list(Model model, Principal p) {
+        model.addAttribute("users", new Users());
+        return "user1";
+    }
+
+    @GetMapping("/admin/user1/{id}")
+    public String update(Model model, @PathVariable(value = "id") int id) {
+        model.addAttribute("users", this.userService.getUserByLogin(id));
+        return "user1";
+    }
+
+    @PostMapping("/admin/user1")
+    public String add(@ModelAttribute(value = "user") @Valid Users u,
+            BindingResult rs) {
+        if (!rs.hasErrors()) {
+            if (userService.addOrUpdateUser(u) == true) {
+                return "redirect:/";
+            }
+        }
+        return "user1";
+    }
 }

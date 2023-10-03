@@ -4,26 +4,27 @@
  */
 package com.tqh.formatter;
 
-import com.tqh.pojo.Admission;
+
+import com.tqh.pojo.RoleUser;
 import java.text.ParseException;
 import java.util.Locale;
 import org.springframework.format.Formatter;
 
 /**
  *
- * @author HP
+ * @author Admin
  */
-public class AdmissionFormatter implements Formatter<Admission>{
+public class RoleuserFormatter implements Formatter<RoleUser>{
 
     @Override
-    public String print(Admission object, Locale locale) {
-       return String.valueOf(object.getIdadmission());
+    public String print(RoleUser object, Locale locale) {
+        return String.valueOf(object.getIdRoleuser());
     }
-
+    
     @Override
-    public Admission parse(String text, Locale locale) throws ParseException {
-        int id = Integer.parseInt(text);
-        return new Admission(id);
+    public RoleUser parse(String text, Locale locale) throws ParseException {
+         int id = Integer.parseInt(text);
+        return new RoleUser(id);
     }
     
 }

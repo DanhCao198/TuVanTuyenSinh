@@ -11,10 +11,7 @@
 
             <div class="row">
                 <div class="col-md-8">
-                    <!-- Section heading -->
                     <h2 class="h2-responsive font-weight-bold mb-3 m-primary-text" id="pageinfo_7_title">LIÊN HỆ</h2>
-                    <!-- Section description -->
-
                     <div class="single-news mb-lg-0 mb-12 dark-grey-text" id="pageinfo_7_content">
 
                         <style></style>

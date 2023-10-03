@@ -79,9 +79,4 @@ public class PostController {
         return "posts";
     }
 
-//    @DeleteMapping("/posts/{id}")
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    public void delete(@PathVariable(value = "id") int id) {
-//        this.postService.deletePost(id);
-//    }
 }

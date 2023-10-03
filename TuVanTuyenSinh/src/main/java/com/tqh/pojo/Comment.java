@@ -5,6 +5,7 @@
 package com.tqh.pojo;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -38,6 +39,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Comment.findByCommentinformation", query = "SELECT c FROM Comment c WHERE c.commentinformation = :commentinformation"),
     @NamedQuery(name = "Comment.findByCreatedDate", query = "SELECT c FROM Comment c WHERE c.createdDate = :createdDate")})
 public class Comment implements Serializable {
+
+    @OneToMany(mappedBy = "fkreplyCommentid")
+    private Collection<Reply> replyCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -161,6 +165,15 @@ public class Comment implements Serializable {
     @Override
     public String toString() {
         return "com.tqh.pojo.Comment[ idcomment=" + idcomment + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Reply> getReplyCollection() {
+        return replyCollection;
+    }
+
+    public void setReplyCollection(Collection<Reply> replyCollection) {
+        this.replyCollection = replyCollection;
     }
     
 }

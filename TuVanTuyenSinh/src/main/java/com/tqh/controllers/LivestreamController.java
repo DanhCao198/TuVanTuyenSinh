@@ -66,7 +66,7 @@ public class LivestreamController {
     }
 
     @RequestMapping("/livestreams")
-    public String listpost(Model model, @RequestParam Map<String, String> params) {
+    public String list(Model model, @RequestParam Map<String, String> params) {
         model.addAttribute("dslivestream", this.livestreamService.getLiveStreams(params));
         int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
         long count = this.livestreamService.countLivestreams();

@@ -99,9 +99,11 @@
                         <div class="fb-select form-group field-hedt">
                             <label for="hedt" class="fb-select-label">Hệ đào tạo:<br></label>
                             <select class="browser-default custom-select" name="hedt" id="hedt">
-                                <option value="daihoc_cq_daitra" selected="true" id="hedt-0">Đại học chính quy (Hệ đại trà)</option>
-                                <option value="daihoc_cq_dacbiet" id="hedt-1">Đại học chính quy (Chất lượng cao)</option>
-                                <option value="b2lt" id="hedt-2">Bằng 2 - Liên thông</option>
+                                <option value="daihoc_cq_daitra" selected="true" id="hedt-0" style="color:black;">Đại học chính quy</option>
+                                <option value="daihoc_cq_dacbiet" id="hedt-1" style="color:black;">Đào tạo từ xa</option>
+                                <option value="b2lt" id="hedt-2" style="color:black;">Văn bằng 2</option>
+                                <option value="b2lt" id="hedt-2" style="color:black;">Liên thông </option>
+                                <option value="b2lt" id="hedt-2" style="color:black;">Cao học</option>
                             </select>
                         </div>
                     </div>
@@ -118,75 +120,3 @@
 
 
 <script src="<c:url value="/assets/js/banner.js" />"></script>
-<script>
-                        /*$(function() {
-                         $('.mdb-select').materialSelect();
-                         });*/
-
-                        var formRenderOptions_4 = {
-                            formData: '[  {    "type": "header",    "subtype": "h1",    "label": "Câu hỏi Tuyển Sinh<br>",    "className": "text-center section_subs_title"  },  {    "type": "text",    "label": "Họ tên:<br>",    "className": "form-control",    "name": "hoten",    "subtype": "text",    "maxlength": "100"  },  {    "type": "text",    "label": "Email:",    "className": "form-control",    "name": "email",    "subtype": "text"  },  {    "type": "text",    "label": "Số điện thoại:<br>",    "className": "form-control",    "name": "dienthoai",    "subtype": "text"  },  {    "type": "textarea",    "label": "Câu hỏi<br>",    "className": "form-control",    "name": "textarea-1581500170575",    "subtype": "textarea"  },  {    "type": "select",    "label": "Hệ đào tạo:<br>",    "className": "form-control",    "name": "hedt",    "values": [      {        "label": "Đại học chính quy (Hệ đại trà)",        "value": "daihoc_cq_daitra",        "selected": true      },      {        "label": "Đại học chính quy (Chất lượng cao)",        "value": "daihoc_cq_dacbiet"      },      {        "label": "Bằng 2 - Liên thông",        "value": "b2lt"      }    ]  }]'
-                        };
-
-                        var formRenderInstance_4 = $('#w-4').formRender(formRenderOptions_4);
-
-                        /* add marerial */
-                        var _controls = formRenderInstance_4.userData;
-                        for (i = 0; i < _controls.length; i++) {
-                            /*console.log(_controls[i].type);
-                             if ( _controls[i].type == 'textarea' ) {
-                             $('#'+_controls[i].name).addClass('md-textarea');
-                             }
-                             else if ( _controls[i].type == 'select' ) {
-                             $('#'+_controls[i].name).addClass('mdb-select'); 
-                             $('#'+_controls[i].name).removeClass('form-control');            
-                             }
-                             $('.field-'+_controls[i].name).addClass('md-form');*/
-                            if (_controls[i].type == 'select') {
-                                $('#' + _controls[i].name).removeClass('form-control');
-                                $('#' + _controls[i].name).addClass('browser-default');
-                                $('#' + _controls[i].name).addClass('custom-select');
-                            }
-                        }
-
-                        do_submit_widget_form_4 = function () {
-                            var _formData = formRenderInstance_4.userData;
-                            var _submitData = [];
-                            for (i = 0; i < _formData.length; i++) {
-                                if (_formData[i].userData != null) {
-                                    _submitData.push({
-                                        id: _formData[i].name,
-                                        value: _formData[i].userData,
-                                        title: _formData[i].label
-                                    });
-                                }
-                            }
-                            $.ajax({
-                                type: 'POST',
-                                url: 'https://tuyensinh.ou.edu.vn/widget/form/submitform?form_id=4',
-                                data: '_token=UGNxQrDhTrGmgxtcEa6Kd1b6qqn6ELVbjQEqh2K2&userdata=' + JSON.stringify(_submitData),
-                                beforeSend: function () {
-                                    $('#w-4_container').LoadingOverlay('show');
-                                },
-                                error: function () {
-                                    $('#w-4_container').LoadingOverlay('hide');
-                                    bootbox.alert('[AJAX] get URL to modal error !');
-                                },
-                                success: function (response) {
-                                    $('#w-4_container').LoadingOverlay('hide');
-                                    if (response.status == 0) {
-                                        toastr.success(response.message);
-
-                                        /* clear data input */
-                                        for (i = 0; i < _formData.length; i++) {
-                                            if (_formData[i].userData != null) {
-                                                $('#' + _formData[i].name).val('').trigger('change');
-                                            }
-                                        }
-                                    } else {
-                                        toastr.error(response.message);
-                                    }
-                                },
-                                dataType: 'json'
-                            });
-                        };
-</script>

@@ -17,7 +17,7 @@
 
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
-                    path="title" id="ten" placeholder="Tên tiêu đề" />
+                    path="title" id="ten" />
         <label for="name">Tên tiêu đề</label>
     </div>
     <div class="form-floating mb-3 mt-3">
@@ -30,6 +30,17 @@
         <label for="postImg">Chọn hình</label>
     </div>
     <div class="form-floating mb-3 mt-3">
+        <form:input type="datetime-local" class="form-control"
+                    path="startTime" id="startTime" placeholder="Thời gian bắt đầu" />
+        <label for="startTime">Thời gian bắt đầu</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+        <form:input type="datetime-local" class="form-control"
+                    path="endTime" id="endTime" placeholder="Thời gian kết thúc" />
+        <label for="endTime">Thời gian kết thúc</label>
+    </div>
+
+    <div class="form-floating mb-3 mt-3">
         <button class="btn btn-info" type="submit">
             <c:choose>
                 <c:when test="${livestream.idlivestreams == null}">Thêm</c:when>
@@ -39,3 +50,12 @@
     </div>
 
 </form:form>
+<script>
+    document.getElementById('startTime').addEventListener('change', function () {
+        // Thực hiện xử lý khi người dùng chọn thời gian bắt đầu
+    });
+
+    document.getElementById('endTime').addEventListener('change', function () {
+        // Thực hiện xử lý khi người dùng chọn thời gian kết thúc
+    });
+</script>

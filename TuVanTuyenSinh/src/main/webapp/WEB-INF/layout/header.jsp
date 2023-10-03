@@ -77,21 +77,23 @@
                                         <!-- Nội dung thông báo sẽ được đưa vào đây -->
                                     </div>
                                 </div>
-                                <div id="management-icon-container" style="display: flex; align-items: center;">
-                                    <div class="management-icon rounded-circle" onclick="toggleManagementMenu()">
-                                        <i class="fa fa-bars"></i>
-                                    </div>
-                                    <div id="management-menu" class="management-menu" style="display: none;">
-                                        <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
+
+                                <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
+                                    <div id="management-icon-container" style="display: flex; align-items: center;">
+                                        <div class="management-icon rounded-circle" onclick="toggleManagementMenu()">
+                                            <i class="fa fa-bars"></i>
+                                        </div>
+                                        <div id="management-menu" class="management-menu" style="display: none;">
                                             <a class="dropdown-item" href="<c:url value='/admin/facultysetting/' />">Quản lý khoa</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/majorsetting/' />">Quản lý ngành</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/settings/' />">Quản lý bài viết</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/livestreamsetting/' />">Quản lý livestream</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/bannersetting/' />">Quản lý Banners</a>
-                                            <a class="dropdown-item" href="<c:url value='/admin/userssetting/' />">Quản lý người dùng</a>
-                                        </c:if>
+                                            <a class="dropdown-item" href="<c:url value='/admin/userssettings/' />">Quản lý người dùng</a>
+                                        </div>
                                     </div>
-                                </div>
+                                </c:if>
+
                                 <div id="avatar-container" class="dropdown" style="position: relative; margin-left: 10px;">
                                     <a class="" href="#" role="button" id="avatar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="avatar" style="position: relative;">

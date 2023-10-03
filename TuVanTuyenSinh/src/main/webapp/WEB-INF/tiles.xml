@@ -138,4 +138,14 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/livestreamsetting.jsp" />
     </definition>
+    <definition name="userssettings" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý người dùng" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/userssettings.jsp" />
+    </definition>
+    <definition name="user1" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý người dùng" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/user1.jsp" />
+    </definition>
 </tiles-definitions>

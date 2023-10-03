@@ -5,7 +5,7 @@
 package com.tqh.repository.impl;
 
 import com.tqh.pojo.RoleUser;
-import com.tqh.repository.RoleUserRepository;   
+import com.tqh.repository.RoleUserRepository;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
@@ -21,14 +21,14 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class RoleUserRepositoryImpl implements RoleUserRepository{
+public class RoleUserRepositoryImpl implements RoleUserRepository {
 
     @Autowired
     private LocalSessionFactoryBean factory;
-    
+
     @Override
     public List<RoleUser> getRoleUser() {
-           Session s = this.factory.getObject().getCurrentSession();
+        Session s = this.factory.getObject().getCurrentSession();
         Query q = s.createQuery("FROM RoleUser");
         return q.getResultList();
     }
@@ -39,5 +39,4 @@ public class RoleUserRepositoryImpl implements RoleUserRepository{
         return s.get(RoleUser.class, id);
     }
 
-    
 }
