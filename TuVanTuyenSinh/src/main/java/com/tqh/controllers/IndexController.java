@@ -12,6 +12,7 @@ import com.tqh.service.FacultyService;
 import com.tqh.service.LivestreamService;
 import com.tqh.service.MajorService;
 import com.tqh.service.PostService;
+import com.tqh.service.RoleUserService;
 import com.tqh.service.UserService;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +53,8 @@ public class IndexController {
     private BenmarkService benmarkService;
     @Autowired
     private LivestreamService livestreamService;
-
+    @Autowired
+    private RoleUserService roleuserService;
     @ModelAttribute
     public void commonAttr(Model model, @RequestParam Map<String, String> params) {
         if (StaticClass.users != null) {
@@ -66,6 +68,7 @@ public class IndexController {
         model.addAttribute("majors", this.majorService.getMajors(params));
         model.addAttribute("banner", this.bannerService.getBanners(params));
         model.addAttribute("users", this.userService.getUsers(params));
+        model.addAttribute("roleusers", this.roleuserService.getRoleUser());
     }
 
     @GetMapping("/admin/settings/")

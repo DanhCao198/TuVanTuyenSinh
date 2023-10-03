@@ -30,10 +30,15 @@
                     path="lastName" id="lastname"  name="lastname" readonly="true"/>
         <label for="lastname">Tên</label>
     </div>
+    <div class="form-floating mt-3 mb-3">
+        <form:input type="text" class="form-control"
+                    path="email" id="email"  name="email" readonly="true"/>
+        <label for="lastname">Email</label>
+    </div>
     <div class="form-floating mb-3 mt-3">
         <form:select class="form-select" id="roleUserIdRoleuser" name="roleUserIdRoleuser" 
                      path="roleUserIdRoleuser">
-            <c:forEach items="${Roleuser}" var="re">
+            <c:forEach items="${roleusers}" var="re">
                 <c:choose>
                     <c:when test="${re.idRoleuser == users.roleUserIdRoleuser.idRoleuser}">
                         <option value="${re.idRoleuser}" selected>${re.name}</option>
