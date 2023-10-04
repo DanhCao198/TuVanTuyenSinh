@@ -92,7 +92,7 @@ CREATE TABLE `benmarks` (
 
 LOCK TABLES `benmarks` WRITE;
 /*!40000 ALTER TABLE `benmarks` DISABLE KEYS */;
-INSERT INTO `benmarks` VALUES (4,'2022',30,23,500,1),(6,'2023',18,25,500,1),(9,'2019',16,27,500,2),(12,'2024',15,15,600,3);
+INSERT INTO `benmarks` VALUES (4,'2022',30,23,500,1),(6,'2023',18,25,500,1),(9,'2019',16,27,500,2);
 /*!40000 ALTER TABLE `benmarks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,7 +181,7 @@ CREATE TABLE `livestreams` (
   PRIMARY KEY (`idlivestreams`),
   KEY `fk_livestreams_users1_idx` (`users_idusers`),
   CONSTRAINT `fk_livestreams_users1` FOREIGN KEY (`users_idusers`) REFERENCES `users` (`idusers`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,7 +208,7 @@ CREATE TABLE `majors` (
   PRIMARY KEY (`idmajors`),
   KEY `fk_majors_faculty1_idx` (`faculty_idfaculty`),
   CONSTRAINT `fk_majors_faculty1` FOREIGN KEY (`faculty_idfaculty`) REFERENCES `faculty` (`idfaculty`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,7 +217,7 @@ CREATE TABLE `majors` (
 
 LOCK TABLES `majors` WRITE;
 /*!40000 ALTER TABLE `majors` DISABLE KEYS */;
-INSERT INTO `majors` VALUES (1,'Khoa học máy tính',1),(2,'Công Nghệ Thông Tin',1),(3,'Hệ thống thông tin quản lý',1);
+INSERT INTO `majors` VALUES (1,'Khoa học máy tính',1),(2,'Công Nghệ Thông Tin',1),(4,'Ngành test1',12);
 /*!40000 ALTER TABLE `majors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -353,4 +353,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-28 16:39:46
+-- Dump completed on 2023-10-04 12:12:16

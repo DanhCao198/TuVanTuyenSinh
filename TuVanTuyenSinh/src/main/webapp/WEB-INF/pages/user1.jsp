@@ -31,6 +31,11 @@
         <label for="lastname">Tên</label>
     </div>
     <div class="form-floating mt-3 mb-3">
+        <form:input type="file" class="form-control"
+                    path="file" id="avatar" name="avatar"/>
+        <label for="postImg">Chọn hình</label>
+    </div>
+    <div class="form-floating mt-3 mb-3">
         <form:input type="text" class="form-control"
                     path="email" id="email"  name="email" readonly="true"/>
         <label for="lastname">Email</label>
@@ -53,7 +58,6 @@
     </div>
     <div class="form-floating mb-3 mt-3">
         <button class="btn btn-info" type="submit">
-
             <c:choose>
                 <c:when test="${users.idusers == null}">Thêm</c:when>
                 <c:otherwise>Cập nhật</c:otherwise>

@@ -46,8 +46,7 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Users.findByActive", query = "SELECT u FROM Users u WHERE u.active = :active")})
 public class Users implements Serializable {
 
-    @OneToMany(mappedBy = "fkreplyUserid")
-    private Collection<Reply> replyCollection;
+
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -258,15 +257,6 @@ public class Users implements Serializable {
     @Override
     public String toString() {
         return "com.tqh.pojo.Users[ idusers=" + idusers + " ]";
-    }
-
-    @XmlTransient
-    public Collection<Reply> getReplyCollection() {
-        return replyCollection;
-    }
-
-    public void setReplyCollection(Collection<Reply> replyCollection) {
-        this.replyCollection = replyCollection;
     }
 
 }
