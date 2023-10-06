@@ -12,6 +12,8 @@ import com.tqh.pojo.StaticClass;
 import com.tqh.pojo.Users;
 import com.tqh.repository.CommentRepository;
 import com.tqh.service.MailService;
+import com.tqh.service.UserService;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -41,6 +43,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class CommentRepositoryImpl implements CommentRepository {
 
+    @Autowired
+    private UserService userService;
     @Autowired
     private MailService mailService;
     @Autowired
@@ -73,11 +77,10 @@ public class CommentRepositoryImpl implements CommentRepository {
     }
 
     @Override
-    public boolean addComment(Comment c, Post p) {
+    public boolean addComment(Comment c, Post p, Principal a) {
         Session s = this.factory.getObject().getCurrentSession();
         try {
-
-            c.setUsersIdusers(StaticClass.users);
+            c.setUsersIdusers(this.userService.getUserByUn(a.getName()));
             c.setPostIdpost(p);
             c.setCreatedDate(new Date());
             s.save(c);
@@ -175,6 +178,45 @@ public class CommentRepositoryImpl implements CommentRepository {
                 }
                 this.mailService.sendHtmlMessage(dests, "HELLO", "<p>Có câu hỏi mới"
                         + " của bài viết: " + l.getTitle() + " <br/>Có mã: " + l.getIdlivestreams()
+                        + "<br/>Nội dung câu hỏi: " + c.getCommentinformation() + " <br/>Của người dùng: " + StaticClass.users.getUsername()
+                        + "<br/>Vào lúc: " + c.getCreatedDate() + "</p>");
+            }
+
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean addComment1(Comment c, Post p, Principal a, Comment c1, Comment c2) {
+         Session s = this.factory.getObject().getCurrentSession();
+        try {
+            c.setUsersIdusers(this.userService.getUserByUn(a.getName()));
+            c.setPostIdpost(p);
+            c.setCreatedDate(new Date());
+            c.setCommentIdcomment(c1);
+            c.setCommentidcommentReply(c2);
+            s.save(c);
+
+            if (StaticClass.users.getRoleUserIdRoleuser().getName().equals("ROLE_USER")) {
+                ArrayList<String> emails = new ArrayList<String>();
+                for (Users u : getU()) {
+                    emails.add(u.getEmail());
+                }
+                InternetAddress dests[] = new InternetAddress[emails.size()];
+                for (int i = 0; i < emails.size(); i++) {
+
+                    try {
+                        dests[i] = new InternetAddress(emails.get(i).trim().toLowerCase());
+                    } catch (AddressException ex) {
+                        Logger.getLogger(CommentRepositoryImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+                this.mailService.sendHtmlMessage(dests, "HELLO", "<p>Có câu hỏi mới"
+                        + " của bài viết: " + p.getPostName() + " <br/>Có mã: " + p.getIdpost()
                         + "<br/>Nội dung câu hỏi: " + c.getCommentinformation() + " <br/>Của người dùng: " + StaticClass.users.getUsername()
                         + "<br/>Vào lúc: " + c.getCreatedDate() + "</p>");
             }

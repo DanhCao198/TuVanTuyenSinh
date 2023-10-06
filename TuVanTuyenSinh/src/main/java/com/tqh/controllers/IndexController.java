@@ -14,6 +14,7 @@ import com.tqh.service.MajorService;
 import com.tqh.service.PostService;
 import com.tqh.service.RoleUserService;
 import com.tqh.service.UserService;
+import java.security.Principal;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -56,9 +57,9 @@ public class IndexController {
     @Autowired
     private RoleUserService roleuserService;
     @ModelAttribute
-    public void commonAttr(Model model, @RequestParam Map<String, String> params) {
-        if (StaticClass.users != null) {
-            model.addAttribute("user", StaticClass.users);
+    public void commonAttr(Model model, @RequestParam Map<String, String> params, Principal p) {
+        if (p != null) {
+            model.addAttribute("user", this.userService.getUserByUn(p.getName()));
 
         }
         model.addAttribute("faculties", this.facultyService.getFalcuties(params));

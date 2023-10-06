@@ -83,6 +83,7 @@
                                         <div class="management-icon rounded-circle" onclick="toggleManagementMenu()">
                                             <i class="fa fa-bars"></i>
                                         </div>
+
                                         <div id="management-menu" class="management-menu" style="display: none;">
                                             <a class="dropdown-item" href="<c:url value='/admin/facultysetting/' />">Quản lý khoa</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/majorsetting/' />">Quản lý ngành</a>
@@ -91,19 +92,20 @@
                                             <a class="dropdown-item" href="<c:url value='/admin/bannersetting/' />">Quản lý Banners</a>
                                             <a class="dropdown-item" href="<c:url value='/admin/userssettings/' />">Quản lý người dùng</a>
                                         </div>
+
                                     </div>
                                 </c:if>
 
                                 <div id="avatar-container" class="dropdown" style="position: relative; margin-left: 10px;">
                                     <a class="" href="#" role="button" id="avatar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="avatar" style="position: relative;">
-                                            <c:if test="${user != null}">
+                                            <c:if test="${pageContext.request.userPrincipal.name != null}">
                                                 <img src="${user.avatar}" width="60px" height="60px" id="user-avatar" />
                                             </c:if>
                                         </div>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="avatar-dropdown" style="position: absolute; right: auto; left: -24px; top: 100%; min-width: 100px;">
-                                        <c:if test="${user != null}">
+                                        <c:if test="${pageContext.request.userPrincipal.name != null}">
                                             <div class="username">${pageContext.request.userPrincipal.name}</div>
                                             <hr class="username-separator" />
 

@@ -38,7 +38,6 @@
                 <th>Mã</th>
                 <th>Tiêu đề</th>
                 <th>Tác Giả</th>
-                <th>Linkstream</th>
                 <th>Start Time</th>
                 <th>End Time</th>
             </tr>
@@ -49,7 +48,6 @@
                     <td>${ds.idlivestreams}</td>
                     <td>${ds.title}</td>
                     <td>${ds.usersIdusers.firstName} ${ds.usersIdusers.lastName}</td>
-                    <td>${ds.linkstream}</td>
                     <td>${ds.startTime}</td>
                     <td>${ds.endTime}</td>
                     <td>

@@ -39,7 +39,6 @@
                     <td>  
                         <c:url value="/api/users/${ds.idusers}" var="apiDel" />
                         <a href="<c:url value="/admin/user1/${ds.idusers}"/>" class="btn btn-success">Cập nhật</a> 
-                        <button class="btn btn-danger" onclick="delPost('${apiDel}', ${ds.idusers})">Xóa</button>
                     </td>
                 </tr>   
             </c:forEach>

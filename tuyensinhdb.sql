@@ -111,12 +111,15 @@ CREATE TABLE `comment` (
   `comment_idcomment` int DEFAULT NULL,
   `post_idpost` int DEFAULT NULL,
   `livestreams_idlivestreams` int DEFAULT NULL,
+  `comment_idcommentReply` int DEFAULT NULL,
   PRIMARY KEY (`idcomment`),
   KEY `fk_comment_users1_idx` (`users_idusers`),
   KEY `fk_comment_comment1_idx` (`comment_idcomment`),
   KEY `fk_comment_post1_idx` (`post_idpost`),
   KEY `fk_comment_livestreams1_idx` (`livestreams_idlivestreams`),
+  KEY `fk_comment_idcommentReply_idx` (`comment_idcommentReply`),
   CONSTRAINT `fk_comment_comment1` FOREIGN KEY (`comment_idcomment`) REFERENCES `comment` (`idcomment`),
+  CONSTRAINT `fk_comment_idcommentReply` FOREIGN KEY (`comment_idcommentReply`) REFERENCES `comment` (`idcomment`),
   CONSTRAINT `fk_comment_livestreams1` FOREIGN KEY (`livestreams_idlivestreams`) REFERENCES `livestreams` (`idlivestreams`),
   CONSTRAINT `fk_comment_post1` FOREIGN KEY (`post_idpost`) REFERENCES `post` (`idpost`),
   CONSTRAINT `fk_comment_users1` FOREIGN KEY (`users_idusers`) REFERENCES `users` (`idusers`)
@@ -174,14 +177,14 @@ CREATE TABLE `livestreams` (
   `livestreaminfomation` longtext,
   `picture` longtext,
   `linkstream` longtext,
-  `startTime` date DEFAULT NULL,
-  `endTime` date DEFAULT NULL,
+  `startTime` varchar(255) DEFAULT NULL,
+  `endTime` varchar(255) DEFAULT NULL,
   `createdDate` date DEFAULT NULL,
   `users_idusers` int NOT NULL,
   PRIMARY KEY (`idlivestreams`),
   KEY `fk_livestreams_users1_idx` (`users_idusers`),
   CONSTRAINT `fk_livestreams_users1` FOREIGN KEY (`users_idusers`) REFERENCES `users` (`idusers`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +193,7 @@ CREATE TABLE `livestreams` (
 
 LOCK TABLES `livestreams` WRITE;
 /*!40000 ALTER TABLE `livestreams` DISABLE KEYS */;
-INSERT INTO `livestreams` VALUES (1,'TEST01','aaaaaaa',NULL,NULL,NULL,NULL,NULL,10);
+INSERT INTO `livestreams` VALUES (1,'TEST01','aaaaaaa',NULL,NULL,NULL,NULL,NULL,10),(3,'Test2','HHHHH','',NULL,'','',NULL,10),(4,'tesst4','123456','',NULL,'2023-10-10T12:00','2023-10-10T17:03',NULL,10);
 /*!40000 ALTER TABLE `livestreams` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,7 +343,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (10,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693565580/voezzit4zcpw9qm4lwld.jpg','admin','$2a$10$ttgAIqaB5kQQSDABONOgT.J2TqaMqCMWeuKHGgFI3kqUYoHhhZT7S','2051010035danh@ou.edu.vn',NULL,1),(11,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693570758/yf9pcqgz41ozoik1pwuu.png','testuser','$2a$10$tmk29hLfVJO.yixKHJodB.KmStM4NVd3SakAg.ksWwgYQyamaRcF2','2051010035danh@ou.edu.vn',NULL,2),(12,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693643496/onuye3osums8b4qrgy9g.jpg','testuser1','$2a$10$G87HV7lWiFwmQwmjeFM.MujSKfGKEnCa5LH.vkZWEOBIP8TOWeDBm','2051010035danh@ou.edu.vn',NULL,2),(13,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674643/co2wtxilujlfg8rgqzr8.png','admin1','$2a$10$RI8lu48ptQS14pqjx9J82.Rv38g/cjD8mRoW3TeMV.bDRiYt6E9qW','2051010114huy@ou.edu.vn',NULL,1),(14,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694165675/rekoewi3o7woj1ayyz4e.png','admin3','$2a$10$oG2IIGz5Fpaal.MqA3BZzO2x6LEETqG7xu1dQrBARGeeoTKtalPjG','2051010114huy@ou.edu.vn',NULL,1),(15,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694165864/oaetvtnfrjfrf0emhojk.png','tuvan1','$2a$10$Tcu/6AMwtDAFT1akZHRx3OrYWYqEpsnn5Mm6GWCz7JARipLGTIbXq','2051010035danh@ou.edu.vn',NULL,3),(16,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694166083/mdlzlpfhktcaltctiqmd.png','tuvan2','$2a$10$7gZEPJcoLzVKHncOMOmI5Obp.GM491nNdEprJbcaE5Enx3CkIkPl6','2051010114huy@ou.edu.vn',NULL,3);
+INSERT INTO `users` VALUES (10,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693565580/voezzit4zcpw9qm4lwld.jpg','admin','$2a$10$ttgAIqaB5kQQSDABONOgT.J2TqaMqCMWeuKHGgFI3kqUYoHhhZT7S','2051010035danh@ou.edu.vn',NULL,1),(11,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693570758/yf9pcqgz41ozoik1pwuu.png','testuser','$2a$10$tmk29hLfVJO.yixKHJodB.KmStM4NVd3SakAg.ksWwgYQyamaRcF2','2051010035danh@ou.edu.vn',NULL,2),(12,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693643496/onuye3osums8b4qrgy9g.jpg','testuser1','$2a$10$/SMd6cJDJskefTyV0pH4neuRF.vpnuf8IoeGYfQPd2QWPizD/4tcW','2051010035danh@ou.edu.vn',NULL,2),(13,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1693674643/co2wtxilujlfg8rgqzr8.png','admin1','$2a$10$RI8lu48ptQS14pqjx9J82.Rv38g/cjD8mRoW3TeMV.bDRiYt6E9qW','2051010114huy@ou.edu.vn',NULL,1),(14,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694165675/rekoewi3o7woj1ayyz4e.png','admin3','$2a$10$e8rO1R.xPx/oS4MEYxgtwOvXFoAjOA4sjdN0zL.Mzfz0oIWw4ZHiC','2051010114huy@ou.edu.vn',NULL,2),(15,'Nguyen','Danh','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694165864/oaetvtnfrjfrf0emhojk.png','tuvan1','$2a$10$Tcu/6AMwtDAFT1akZHRx3OrYWYqEpsnn5Mm6GWCz7JARipLGTIbXq','2051010035danh@ou.edu.vn',NULL,3),(16,'Tran','Huy','https://res.cloudinary.com/dev7q6f9g/image/upload/v1694166083/mdlzlpfhktcaltctiqmd.png','tuvan2','$2a$10$xnrG8VdDCdqxUuL1hZwMB.rDgRCodAVJKa7hGZv40.vzKUNPEPFSG','2051010114huy@ou.edu.vn',NULL,2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -353,4 +356,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-04 12:12:16
+-- Dump completed on 2023-10-06 19:55:21

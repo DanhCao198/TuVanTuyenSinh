@@ -7,6 +7,7 @@ package com.tqh.repository.impl;
 import com.tqh.pojo.Livestreams;
 import com.tqh.pojo.StaticClass;
 import com.tqh.repository.LivestreamRepository;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.Query;
@@ -36,6 +37,9 @@ public class LivestreamRepositoryImpl implements LivestreamRepository {
     @Autowired
     private Environment env;
 
+    @Autowired
+    private SimpleDateFormat sdp;
+    
     @Override
     public List<Livestreams> getLiveStreams(Map<String, String> params) {
        Session session = this.factory.getObject().getCurrentSession();

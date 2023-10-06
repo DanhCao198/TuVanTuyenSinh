@@ -43,6 +43,13 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Livestreams.findByCreatedDate", query = "SELECT l FROM Livestreams l WHERE l.createdDate = :createdDate")})
 public class Livestreams implements Serializable {
 
+    @Size(max = 255)
+    @Column(name = "startTime")
+    private String startTime;
+    @Size(max = 255)
+    @Column(name = "endTime")
+    private String endTime;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,12 +72,6 @@ public class Livestreams implements Serializable {
     @Size(max = 2147483647)
     @Column(name = "linkstream")
     private String linkstream;
-    @Column(name = "startTime")
-    @Temporal(TemporalType.DATE)
-    private Date startTime;
-    @Column(name = "endTime")
-    @Temporal(TemporalType.DATE)
-    private Date endTime;
     @Column(name = "createdDate")
     @Temporal(TemporalType.DATE)
     private Date createdDate;
@@ -137,21 +138,6 @@ public class Livestreams implements Serializable {
         this.linkstream = linkstream;
     }
 
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
 
     public Date getCreatedDate() {
         return createdDate;
@@ -201,6 +187,22 @@ public class Livestreams implements Serializable {
     @Override
     public String toString() {
         return "com.tqh.pojo.Livestreams[ idlivestreams=" + idlivestreams + " ]";
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
 }

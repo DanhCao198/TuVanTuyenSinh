@@ -40,7 +40,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Comment.findByCreatedDate", query = "SELECT c FROM Comment c WHERE c.createdDate = :createdDate")})
 public class Comment implements Serializable {
 
-    
+    @JoinColumn(name = "comment_idcommentReply", referencedColumnName = "idcomment")
+    @ManyToOne
+    private Comment commentidcommentReply;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -67,6 +70,7 @@ public class Comment implements Serializable {
     @JoinColumn(name = "users_idusers", referencedColumnName = "idusers")
     @ManyToOne(optional = false)
     private Users usersIdusers;
+
 
     public Comment() {
     }
@@ -165,6 +169,12 @@ public class Comment implements Serializable {
         return "com.tqh.pojo.Comment[ idcomment=" + idcomment + " ]";
     }
 
-    
-    
+    public Comment getCommentidcommentReply() {
+        return commentidcommentReply;
+    }
+
+    public void setCommentidcommentReply(Comment commentidcommentReply) {
+        this.commentidcommentReply = commentidcommentReply;
+    }
+
 }
