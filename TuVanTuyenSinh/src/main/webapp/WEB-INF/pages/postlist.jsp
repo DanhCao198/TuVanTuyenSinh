@@ -20,18 +20,18 @@
                 </c:forEach>
         </ul>
     </c:if>
-    <h1 class="text-center text-info mt-1">${admissions.typeoftraining}</h1>
+    <h2 class="card-title text-primary text-center fw-bold mb-4">THÔNG TIN TUYỂN SINH ĐẠI HỌC ${admissions.typeoftraining}</h2>
     <div class="row">
         <c:forEach items="${posts}" var="dsp">
             <c:if test="${admissions.typeoftraining==dsp.admissionIdadmission.typeoftraining}">
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <div class="card-body">
-                                <h5 class="nav-link text-sm-left" style="text-decoration: none; color: black;">${dsp.posttype}</h5>
-                                <a class="nav-item" href="<c:url value='/postdetail/${dsp.idpost}'/>">
-                                    <h2 class="nav-link">${dsp.postName}</h2>
-                                </a>
-                            </div>
+                            <img src="${dsp.postImg}" width="120px" height="90px" class="rounded-4 float-left display-inline-block mr-3"/>
+                            <a class="nav-item mt-3 " href="<c:url value='/postdetail/${dsp.idpost}'/>" style="text-decoration: none; ">
+                                <h3 class="nav-link mt-3 text-danger fw-bold"><img src="https://tuyensinh.ou.edu.vn/theme/ts2020/assets/images/icon-new.gif" style="width:48px;height:24px;">${dsp.postName}</h3>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </c:if>

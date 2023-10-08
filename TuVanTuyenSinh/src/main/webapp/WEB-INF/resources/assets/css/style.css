@@ -42,6 +42,7 @@
     box-sizing: border-box;
 }
 
+
 html {
     font-family: sans-serif;
     line-height: 1.15;
@@ -10736,6 +10737,6 @@ a[data-toggle="collapse"] {
     display: none;
 }
 .management-menu a:hover {
-    color: red; 
+    color: red;
     text-decoration: underline;
 }

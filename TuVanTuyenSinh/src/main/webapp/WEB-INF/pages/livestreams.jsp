@@ -30,6 +30,11 @@
         <label for="postImg">Chọn hình</label>
     </div>
     <div class="form-floating mb-3 mt-3">
+        <form:input type="text" class="form-control" 
+                    path="linkstream" id="linkstream" />
+        <label for="name">Link LiveStream</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
         <form:input type="datetime-local" class="form-control"
                     path="startTime" id="startTime" placeholder="Thời gian bắt đầu" />
         <label for="startTime">Thời gian bắt đầu</label>

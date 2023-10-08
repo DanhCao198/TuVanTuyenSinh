@@ -8,7 +8,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 
 <section class="container">
-    <h1 class="text-center text-info mt-1">ĐIỂM CHUẨN</h1>
+    <h2 class="text-center text-info mt-1 fw-bold text-dark">ĐIỂM CHUẨN TRƯỜNG ĐẠI HỌC MỞ THÀNH PHỐ HỒ CHÍ MINH</h2>
     <c:if test="${user.roleUserIdRoleuser.name == 'ROLE_ADMIN'}">
         <section class="container">
             <div class="text-right mb-3">
@@ -19,7 +19,6 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Khoa</th>
                 <th>Ngành</th>
                 <th>Điểm Thi THPT</th>
                 <th>Điểm Học Bạ</th>
@@ -30,7 +29,6 @@
         <tbody>
             <c:forEach items="${benmarks}" var="ds">
                 <tr>
-                    <td>${ds.majorsIdmajors.facultyIdfaculty.facultyname}</td>
                     <td>${ds.majorsIdmajors.majorname}</td>
                     <td>${ds.diemthpt}</td>
                     <td>${ds.diemhocba}</td>

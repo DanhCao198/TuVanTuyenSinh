@@ -26,7 +26,7 @@
                 <div class="carousel-inner">
                     <c:forEach items="${banner}" var="dsb" varStatus="status">
                         <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
-                            <img src="${dsb.image}" alt="Banner Image" width="1000px" height="500px" class="d-block w-100" >
+                            <img src="${dsb.image}" alt="Banner Image" class="d-block w-100 border-light">
                         </div>
                     </c:forEach>
                 </div>
@@ -42,12 +42,11 @@
         </div>
     </div>
 </div>
-<a href="bannersetting.jsp"></a>
+
+
 <c:forEach items="${admission}" var="ds" >  
     <div class="container my-5">
-        <a href="<c:url value='/postlist/${ds.idadmission}/'/>">
-            <h3 class="card-title text-dark fw-bold" id="${ds.idadmission}">${ds.typeoftraining}</h3>
-        </a>
+        <h2 class="card-title text-primary text-center fw-bold mb-4" id="${ds.idadmission}">THÔNG TIN TUYỂN SINH ĐẠI HỌC ${ds.typeoftraining}</h2>
         <div class="row">
             <c:set var="postCount" value="0" />
             <c:forEach items="${posts}" var="dsp" varStatus="loopStatus">
@@ -55,9 +54,9 @@
                     <div class="col-md-6">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h5 class="nav-link text-sm-left" style="text-decoration: none; color: black;">${dsp.posttype}</h5>
-                                <a class="nav-item" href="<c:url value='/postdetail/${dsp.idpost}'/>">
-                                    <h2 class="nav-link">${dsp.postName}</h2>
+                                <img src="${dsp.postImg}" width="120px" height="90px" class="rounded-4 float-left display-inline-block mr-3"/>
+                                <a class="nav-item mt-3 " href="<c:url value='/postdetail/${dsp.idpost}'/>" style="text-decoration: none; ">
+                                    <h3 class="nav-link mt-3 text-danger fw-bold"><img src="https://tuyensinh.ou.edu.vn/theme/ts2020/assets/images/icon-new.gif" style="width:48px;height:24px;"> ${dsp.postName}</h3>
                                 </a>
                             </div>
                         </div>
@@ -65,19 +64,22 @@
                     <c:set var="postCount" value="${postCount + 1}" />
                 </c:if>
             </c:forEach>
+            <a class="float-right"href="<c:url value='/postlist/${ds.idadmission}/'/>">
+                <h6 class="float-right">Xem thêm >></h6>
+            </a>
         </div>
     </div>
 </c:forEach>
-<section class="p-5 align-self-center section_subs">
+<section class="p-5 align-self-center section_subs bg-primary">
     <div class="container">
         <div class="col-md-12 m-pad-subs">
             <script src="https://tuyensinh.ou.edu.vn/core/plugins/formbuilder/form-render.min.js"></script>
             <div id="w-4_container">
                 <div id="w-4">
-                    <div class="rendered-form">
+                    <div class="rendered-form ">
                         <div class="">
-                            <h1 class="text-center section_subs_title" id="control-849089">
-                                Câu hỏi Tuyển Sinh<br>
+                            <h1 class="text-center section_subs_title fw-bold" id="control-849089">
+                                CÂU HỎI TUYỂN SINH<br>
                             </h1>
                         </div>
                         <div class="fb-text form-group field-hoten">
@@ -109,7 +111,7 @@
                     </div>
                 </div>
                 <div id="w-4_footer">
-                    <button type="button" class=" btn btn-primary m-btn-regsubs waves-effect waves-light"  onclick="do_submit_widget_form_4();return false;">
+                    <button type="button" class=" btn btn-danger m-btn-regsubs waves-effect waves-light"  onclick="do_submit_widget_form_4();return false;">
                         Đăng ký nhận thông tin
                     </button>
                 </div>
@@ -117,6 +119,4 @@
         </div>
     </div>
 </section>
-
-
 <script src="<c:url value="/assets/js/banner.js" />"></script>
