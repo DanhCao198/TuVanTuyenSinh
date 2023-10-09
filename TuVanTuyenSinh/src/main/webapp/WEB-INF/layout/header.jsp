@@ -91,9 +91,12 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="avatar-dropdown" style="position: absolute; right: auto; left: -40px; top: 100%; min-width: 100px;">
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                                    <div class="username text-center">${pageContext.request.userPrincipal.name}</div>
+                                    <div class="username text-center">
+                                        <a class="dropdown-item" href="<c:url value='/accoutsetting' />">
+                                            ${pageContext.request.userPrincipal.name}
+                                        </a>
+                                    </div>
                                     <hr class="username-separator" />
-
                                 </c:if>
                                 <div class="logout"><a class="dropdown-item" href="<c:url value='/logout' />">LOG OUT</a></div>
                             </div>

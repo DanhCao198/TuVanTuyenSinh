@@ -148,4 +148,9 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/user1.jsp" />
     </definition>
+    <definition name="accoutsetting" extends="baseLayout">
+        <put-attribute name="title" value="Thông tin cá nhân" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/accoutsetting.jsp" />
+    </definition>
 </tiles-definitions>

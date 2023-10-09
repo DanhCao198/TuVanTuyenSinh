@@ -45,7 +45,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String register(Model model) {
-        model.addAttribute("user", new Users());
+        model.addAttribute("users", new Users());
         return "register";
     }
 
@@ -84,5 +84,23 @@ public class UserController {
             }
         }
         return "user1";
+    }
+    
+     @GetMapping("/accoutsetting")
+    public String update1(Model model,Principal u) {
+        Users user= this.userService.getUserByUn(u.getName());
+        model.addAttribute("users", user);
+        return "accoutsetting";
+    }
+
+    @PostMapping("/accoutsetting")
+    public String add1(@ModelAttribute(value = "user") @Valid Users u,
+            BindingResult rs) {
+        if (!rs.hasErrors()) {
+            if (userService.addOrUpdateUser(u) == true) {
+                return "redirect:/";
+            }
+        }
+        return "accoutsetting";
     }
 }

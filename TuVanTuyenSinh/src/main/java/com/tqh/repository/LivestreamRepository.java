@@ -5,6 +5,7 @@
 package com.tqh.repository;
 
 import com.tqh.pojo.Livestreams;
+import com.tqh.pojo.Users;
 import java.util.List;
 import java.util.Map;
 
@@ -27,4 +28,5 @@ public interface LivestreamRepository {
     Livestreams getLivestreamsById(int id);
 
     boolean deleteLivestreams(int id);
+        List<Users> getU();
 }

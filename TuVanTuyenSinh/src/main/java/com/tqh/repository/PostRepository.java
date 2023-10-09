@@ -5,6 +5,7 @@
 package com.tqh.repository;
 
 import com.tqh.pojo.Post;
+import com.tqh.pojo.Users;
 import java.util.List;
 import java.util.Map;
 
@@ -20,4 +21,5 @@ public interface PostRepository {
     boolean addOrUpdatePost(Post p);
     Post getPostById(int id);
     boolean deletePost(int id);
+        List<Users> getU();
 }
