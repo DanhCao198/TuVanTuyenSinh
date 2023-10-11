@@ -4,6 +4,7 @@
  */
 package com.tqh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -44,6 +45,7 @@ public class RoleUser implements Serializable {
     @Column(name = "name")
     private String name;
     @OneToMany(mappedBy = "roleUserIdRoleuser")
+    @JsonIgnore
     private Set<Users> usersSet;
 
     public RoleUser() {

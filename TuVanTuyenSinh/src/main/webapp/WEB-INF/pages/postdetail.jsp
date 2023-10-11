@@ -32,8 +32,8 @@
                                     </div>
                                     <button class="btn btn-info" type="submit">Submit</button>
                                 </form:form>
-                                <c:forEach items="${comment}" var="ds">
 
+                                <c:forEach items="${comment}" var="ds">
                                     <c:if test="${ds.commentIdcomment == null && ds.postIdpost.idpost == post.idpost}">
                                         <div class="d-flex flex-start mt-4">
 
@@ -46,7 +46,7 @@
                                                         <p class="mb-1" class ="commentDate">
                                                             ${ds.usersIdusers.username} <span class="small">Time:${ds.createdDate}</span>
                                                         </p>
-                                                        <a id="repbtn" href="#"><i class="fa fa-reply fa-xs"></i><span class="small"> reply</span></a>
+
                                                     </div>
                                                     <p class="small mb-0">
                                                         ${ds.commentinformation}
@@ -59,7 +59,7 @@
 
                                                             <div class="form-floating mb-3 mt-3">
                                                                 <form:textarea  rows="2" cols="70"
-                                                                                path="commentinformation" id="noidung"  />
+                                                                                path="commentinformation" id="noidung"  required = "true" />
                                                             </div>
                                                             <button class="btn btn-info" type="submit">Trả lời:${ds.usersIdusers.username}</button>
                                                         </form:form>
@@ -69,7 +69,6 @@
                                         </div>
                                     </c:if>
                                     <c:forEach items="${comment}" var="ds1">
-
                                         <c:if test="${ds1.commentIdcomment.idcomment != null && ds1.commentIdcomment.idcomment == ds.idcomment}">
                                             <div class="d-flex flex-start mt-4 ml-5" >
                                                 <img class="rounded-circle shadow-1-strong me-3"
@@ -81,7 +80,7 @@
                                                             <p class="mb-1" class ="commentDate">
                                                                 ${ds1.usersIdusers.username} <span class="small">Time: ${ds1.createdDate}</span>
                                                             </p>
-                                                            <a id="repbtn" href="#"><i class="fa fa-reply fa-xs"></i><span class="small"> reply</span></a>
+
                                                         </div>
 
                                                         <p class="small mb-0">
@@ -95,9 +94,9 @@
 
                                                                 <div class="form-floating mb-3 mt-3">
                                                                     <form:textarea  rows="2" cols="70"
-                                                                                    path="commentinformation" id="noidung"  />
+                                                                                    path="commentinformation" id="noidung" required = "true" />
                                                                 </div>
-                                                                <button class="btn btn-info" type="submit">Trả lời:${ds1.usersIdusers.username}</button>
+                                                                <button class="btn btn-info hidden-button" type="submit">Trả lời:${ds1.usersIdusers.username}</button>
                                                             </form:form>
                                                         </div> 
                                                     </div>
@@ -106,13 +105,13 @@
                                         </c:if>
                                     </c:forEach> 
                                 </c:forEach>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 </section>
 
 <script src="<c:url value="/assets/js/main1.js" />"></script>

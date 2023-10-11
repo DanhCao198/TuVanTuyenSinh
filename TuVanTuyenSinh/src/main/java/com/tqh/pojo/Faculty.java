@@ -4,6 +4,7 @@
  */
 package com.tqh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -70,8 +71,10 @@ public class Faculty implements Serializable {
     @Column(name = "hocPhi")
     private Integer hocPhi;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "facultyIdfaculty")
+    @JsonIgnore
     private Set<Majors> majorsSet;
     @OneToMany(mappedBy = "facultyIdfaculty")
+    @JsonIgnore
     private Set<Post> postSet;
     @Transient
     private MultipartFile file;

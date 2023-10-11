@@ -5,7 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!-- Remove the container if you want to extend the Footer to full width. -->
 <div class="my-5">
 
     <!-- Footer -->

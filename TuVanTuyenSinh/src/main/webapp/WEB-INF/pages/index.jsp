@@ -17,7 +17,12 @@
     .section_subs * {
         color: white;
     }
-
+    select.browser-default.custom-select{
+        color: black;
+    }
+    select.browser-default.custom-select option {
+        color: black;
+    }
 </style>
 <div class="container">
     <div class="row">
@@ -73,7 +78,6 @@
 <section class="p-5 align-self-center section_subs bg-primary">
     <div class="container">
         <div class="col-md-12 m-pad-subs">
-            <script src="https://tuyensinh.ou.edu.vn/core/plugins/formbuilder/form-render.min.js"></script>
             <div id="w-4_container">
                 <div id="w-4">
                     <div class="rendered-form ">
@@ -99,13 +103,11 @@
                             <textarea type="textarea" class="form-control" name="textarea-1581500170575" id="textarea-1581500170575"></textarea>
                         </div>
                         <div class="fb-select form-group field-hedt">
-                            <label for="hedt" class="fb-select-label">Hệ đào tạo:<br></label>
-                            <select class="browser-default custom-select" name="hedt" id="hedt">
-                                <option value="daihoc_cq_daitra" selected="true" id="hedt-0" style="color:black;">Đại học chính quy</option>
-                                <option value="daihoc_cq_dacbiet" id="hedt-1" style="color:black;">Đào tạo từ xa</option>
-                                <option value="b2lt" id="hedt-2" style="color:black;">Văn bằng 2</option>
-                                <option value="b2lt" id="hedt-2" style="color:black;">Liên thông </option>
-                                <option value="b2lt" id="hedt-2" style="color:black;">Cao học</option>
+                            <label class="fb-select-label">Hệ đào tạo:<br></label>
+                            <select class="browser-default custom-select" id="hedtSelect" name="hedt">
+                                <c:forEach items="${admission}" var="ds">
+                                    <option value="${ds.typeoftraining}">${ds.typeoftraining}</option>
+                                </c:forEach>
                             </select>
                         </div>
                     </div>

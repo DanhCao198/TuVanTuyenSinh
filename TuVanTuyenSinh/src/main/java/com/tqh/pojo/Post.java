@@ -4,6 +4,7 @@
  */
 package com.tqh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -72,7 +73,7 @@ public class Post implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date createdDate;
     @JoinColumn(name = "admission_idadmission", referencedColumnName = "idadmission")
-    @ManyToOne
+    @ManyToOne   
     private Admission admissionIdadmission;
     @JoinColumn(name = "faculty_idfaculty", referencedColumnName = "idfaculty")
     @ManyToOne
@@ -81,6 +82,7 @@ public class Post implements Serializable {
     @ManyToOne
     private Users usersIdusers;
     @OneToMany(mappedBy = "postIdpost")
+    @JsonIgnore
     private Set<Comment> commentSet;
     @Transient
     private MultipartFile file;

@@ -1,17 +1,17 @@
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/home";
+import { BrowserRouter,Route,  Routes } from "react-router-dom";
+import Home from "./components/Home";
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from "react-bootstrap";
-import Login from "./components/login";
+import Login from "./components/Login";
 import { createContext, useReducer } from "react";
 import MyUserReducer from "./reducers/MyUserReducer";
 import cookie from "react-cookies";
-import Register from "./components/register";
+import Register from "./components/Register";
 import MyAdmissionCounterReducer from "./reducers/MyAdmissionCounterReducer";
-import Admission from "./components/admission";
+import Admission from "./components/Admission";
 
 export const MyUserContext = createContext();
 export const MyAdmissionContext = createContext();
@@ -24,16 +24,16 @@ const App = () => {
     <MyUserContext.Provider value={[user, dispatch]}>
       <MyAdmissionContext.Provider value={[admissionCounter, admissionDispatch]}>
       <BrowserRouter>
-        <Header />
+        <Header/>
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            {/* <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/admission" element={<Admission />} />
+            <Route path="/admission" element={<Admission />} />  */}
           </Routes>
         </Container>
-        <Footer />
+        <Footer/>
       </BrowserRouter>
       </MyAdmissionContext.Provider>
     </MyUserContext.Provider>

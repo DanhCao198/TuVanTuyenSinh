@@ -4,6 +4,7 @@
  */
 package com.tqh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Set;
@@ -81,14 +82,19 @@ public class Users implements Serializable {
     @Column(name = "active")
     private Boolean active;
     @OneToMany(mappedBy = "usersIdusers")
+    @JsonIgnore
     private Set<Post> postSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersIdusers")
+    @JsonIgnore
     private Set<School> schoolSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersIdusers")
+    @JsonIgnore
     private Set<Livestreams> livestreamsSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersIdusers")
+    @JsonIgnore
     private Set<Banner> bannerSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersIdusers")
+    @JsonIgnore
     private Set<Comment> commentSet;
     @JoinColumn(name = "role_user_id_roleuser", referencedColumnName = "id_roleuser")
     @ManyToOne

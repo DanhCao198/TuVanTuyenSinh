@@ -4,6 +4,7 @@
  */
 package com.tqh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -46,6 +47,7 @@ public class Admission implements Serializable {
     @Column(name = "typeoftraining")
     private String typeoftraining;
     @OneToMany(mappedBy = "admissionIdadmission")
+    @JsonIgnore
     private Set<Post> postSet;
 
     public Admission() {

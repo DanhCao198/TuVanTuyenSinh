@@ -1,5 +1,5 @@
 import axios from "axios";
-import cookie from "react-cookie";
+import cookie from "react-cookies";
 
 const SERVER_CONTEXT ="/TuVanTuyenSinh";
 const SERVER ="http://localhost:8080";
