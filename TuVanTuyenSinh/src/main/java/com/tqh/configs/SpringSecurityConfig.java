@@ -14,6 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
@@ -77,7 +78,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .access("hasRole('ROLE_ADMIN')");
 //        .antMatchers("/**/pay")
 //                .access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-
+         http.authorizeRequests().antMatchers(HttpMethod.POST,"/postdetail/**")
+                .access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER') or hasRole('ROLE_TUVAN')");
         http.csrf().disable();
     }
 

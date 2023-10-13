@@ -6,7 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <style>
     .section_subs {
         background-color: black;
@@ -75,50 +75,67 @@
         </div>
     </div>
 </c:forEach>
-<section class="p-5 align-self-center section_subs bg-primary">
-    <div class="container">
-        <div class="col-md-12 m-pad-subs">
-            <div id="w-4_container">
-                <div id="w-4">
-                    <div class="rendered-form ">
-                        <div class="">
-                            <h1 class="text-center section_subs_title fw-bold" id="control-849089">
-                                CÂU HỎI TUYỂN SINH<br>
-                            </h1>
-                        </div>
-                        <div class="fb-text form-group field-hoten">
-                            <label for="hoten" class="fb-text-label">Họ tên:<br></label>
-                            <input type="text" class="form-control" name="hoten" maxlength="100" id="hoten">
-                        </div>
-                        <div class="fb-text form-group field-email">
-                            <label for="email" class="fb-text-label">Email:</label>
-                            <input type="text" class="form-control" name="email" id="email">
-                        </div>
-                        <div class="fb-text form-group field-dienthoai">
-                            <label for="dienthoai" class="fb-text-label">Số điện thoại:<br></label>
-                            <input type="text" class="form-control" name="dienthoai" id="dienthoai">
-                        </div>
-                        <div class="fb-textarea form-group field-textarea-1581500170575">
-                            <label for="textarea-1581500170575" class="fb-textarea-label">Câu hỏi<br> </label>
-                            <textarea type="textarea" class="form-control" name="textarea-1581500170575" id="textarea-1581500170575"></textarea>
-                        </div>
-                        <div class="fb-select form-group field-hedt">
-                            <label class="fb-select-label">Hệ đào tạo:<br></label>
-                            <select class="browser-default custom-select" id="hedtSelect" name="hedt">
-                                <c:forEach items="${admission}" var="ds">
-                                    <option value="${ds.typeoftraining}">${ds.typeoftraining}</option>
-                                </c:forEach>
-                            </select>
+<form:form modelAttribute="QModel" action="${action}" method="post"  enctype="multipart/form-data">
+    <section class="p-5 align-self-center section_subs bg-primary">
+        <div class="container">
+            <div class="col-md-12 m-pad-subs">
+                <div id="w-4_container">
+                    <div id="w-4">
+                        <div class="rendered-form ">
+                            <div class="">
+                                <h1 class="text-center section_subs_title fw-bold" id="control-849089">
+                                    CÂU HỎI TUYỂN SINH<br>
+                                </h1>
+                            </div>
+                            <div class="fb-text form-group field-hoten">
+
+                                <label for="hoten" class="fb-text-label">Họ tên:<br></label>
+                                <div class="form-floating mb-3 mt-3">
+                                    <form:input type="text" class="form-control" 
+                                                path="hoTen" id="ten" placeholder="Tên tiêu đề" />
+                                    <label for="name">Họ tên:</label>
+                                </div>
+                            </div>
+                            <div class="fb-text form-group field-email">
+                                <label for="hoten" class="fb-text-label">Email:<br></label>
+                                <div class="form-floating mb-3 mt-3">
+                                    <form:input type="text" class="form-control" 
+                                                path="Email" id="email" placeholder="Tên tiêu đề" />
+                                    <label for="name">Email</label>
+                                </div>
+                            </div>
+                            <div class="fb-text form-group field-dienthoai">
+                                <label for="hoten" class="fb-text-label">Điện thoại:<br></label>
+                                <div class="form-floating mb-3 mt-3">
+                                    <form:input type="text" class="form-control" 
+                                                path="sdt" id="ten" placeholder="Tên tiêu đề" />
+                                    <label for="name">Số Điện Thoại</label>
+                                </div>
+                            </div>
+                            <div class="fb-textarea form-group field-textarea-1581500170575">
+                                <label for="hoten" class="fb-text-label">Câu hỏi:<br></label>
+                                <form:input type="text" class="form-control" 
+                                            path="cauHoi" id="ten" placeholder="Tên tiêu đề" />
+                                <label for="name">Câu hỏi</label>
+                            </div>
+                            <div class="fb-select form-group field-hedt">
+                                <label class="fb-select-label">Hệ đào tạo:<br></label>
+                                <select path"heDaoTao" class="browser-default custom-select" id="hedtSelect" name="hedt">
+                                    <c:forEach items="${admission}" var="ds">
+                                        <option value="${ds.typeoftraining}">${ds.typeoftraining}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="w-4_footer">
-                    <button type="button" class=" btn btn-danger m-btn-regsubs waves-effect waves-light"  onclick="do_submit_widget_form_4();return false;">
-                        Đăng ký nhận thông tin
-                    </button>
+                    <div id="w-4_footer">
+                        <button type="button" class=" btn btn-danger m-btn-regsubs waves-effect waves-light"  onclick="do_submit_widget_form_4();return false;">
+                            Đăng ký nhận thông tin
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</form:form>
 <script src="<c:url value="/assets/js/banner.js" />"></script>

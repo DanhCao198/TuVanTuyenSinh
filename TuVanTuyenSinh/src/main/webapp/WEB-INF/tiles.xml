@@ -153,4 +153,9 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/accoutsetting.jsp" />
     </definition>
+     <definition name="gpt" extends="baseLayout">
+        <put-attribute name="title" value="ChatGPT bot AI" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/gpt.jsp" />
+    </definition>
 </tiles-definitions>
