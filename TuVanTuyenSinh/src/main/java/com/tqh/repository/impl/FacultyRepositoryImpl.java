@@ -48,7 +48,7 @@ public class FacultyRepositoryImpl implements FacultyRepository {
     @Override
     public Long countFaculty() {
         Session s = this.factory.getObject().getCurrentSession();
-        Query q = s.createQuery("SELECT Count(*) FROM Falcuty");
+        Query q = s.createQuery("SELECT Count(*) FROM Faculty");
         return Long.parseLong(q.getSingleResult().toString());
     }
 
@@ -79,5 +79,12 @@ public class FacultyRepositoryImpl implements FacultyRepository {
             ex.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public List<Faculty> getFalcuties() {
+        Session s = this.factory.getObject().getCurrentSession();
+        Query q = s.createQuery("FROM Faculty");
+        return q.getResultList();
     }
 }

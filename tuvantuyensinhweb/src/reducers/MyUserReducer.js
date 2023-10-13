@@ -1,14 +1,14 @@
-// import cookie from "react-cookies";
+import cookie from "react-cookies";
 
 const MyUserReducer = (currentState, action) => {
-    // switch (action.type) {
-    //     case "login":
-    //         return action.payload;
-    //     case "logout":
-    //         cookie.remove("token");
-    //         cookie.remove("user");
-    //         return null;
-    // }
+    switch (action.type) {
+        case "login":
+            return action.payload;
+        case "logout":
+            cookie.remove("token");
+            cookie.remove("users");
+            return null;
+    }
     return currentState;
 }
 

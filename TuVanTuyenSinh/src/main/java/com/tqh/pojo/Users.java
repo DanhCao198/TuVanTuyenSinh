@@ -101,7 +101,6 @@ public class Users implements Serializable {
     private RoleUser roleUserIdRoleuser;
     @Transient
     private MultipartFile file;
-
     public MultipartFile getFile() {
         return file;
     }

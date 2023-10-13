@@ -5,13 +5,12 @@ import Apis, { endpoints } from "../configs/Apis";
 import MySpinner from "../layout/MySpinner";
 
 const Register = () => {
-    const [user, setUser] = useState({
+    const [users, setUser] = useState({
         "username": "", 
         "password": "", 
         "firstName": "", 
         "lastName": "", 
         "email": "",
-        "phone": "",
         "confirmPass": ""
     });
     const [err, setErr] = useState(null);
@@ -25,9 +24,9 @@ const Register = () => {
         const process = async () => {
             let form = new FormData();
 
-            for (let field in user)
+            for (let field in users)
                 if (field !== "confirmPass")
-                    form.append(field, user[field]);
+                    form.append(field, users[field]);
 
             form.append("avatar", avatar.current.files[0]);
 
@@ -39,7 +38,7 @@ const Register = () => {
             setErr("Hệ thống bị lỗi!");
         }
 
-        if (user.password === user.confirmPass)
+        if (users.password === users.confirmPass)
             process();
         else {
             setErr("Mật khẩu Không khớp!");
@@ -72,20 +71,16 @@ const Register = () => {
                 <Form.Control type="email" onChange={(e) => change(e, "email")} placeholder="Email" />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Điện thoại</Form.Label>
-                <Form.Control type="tel" onChange={(e) => change(e, "phone")} placeholder="Điện thoại" />
-            </Form.Group>
-            <Form.Group className="mb-3">
                 <Form.Label>Tên đăng nhập</Form.Label>
-                <Form.Control value={user.username} onChange={(e) => change(e, "username")} type="text" placeholder="Tên đăng nhập" required />
+                <Form.Control value={users.username} onChange={(e) => change(e, "username")} type="text" placeholder="Tên đăng nhập" required />
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label>Mật khẩu</Form.Label>
-                <Form.Control value={user.password} onChange={(e) => change(e, "password")} type="password" placeholder="Mật khẩu" required />
+                <Form.Control value={users.password} onChange={(e) => change(e, "password")} type="password" placeholder="Mật khẩu" required />
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label>Xác nhận mật khẩu</Form.Label>
-                <Form.Control value={user.confirmPass} onChange={(e) => change(e, "confirmPass")} type="password" placeholder="Xác nhận mật khẩu" required />
+                <Form.Control value={users.confirmPass} onChange={(e) => change(e, "confirmPass")} type="password" placeholder="Xác nhận mật khẩu" required />
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label>Ảnh đại diện</Form.Label>

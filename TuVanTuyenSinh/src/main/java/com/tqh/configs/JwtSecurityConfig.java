@@ -19,6 +19,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 /**
  *
  * @author Admin
@@ -29,16 +30,18 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan(basePackages = {
     "com.tqh.controllers",
     "com.tqh.repository",
-    "com.tqh.service", 
+    "com.tqh.service",
     "com.tqh.components"})
 @Order(1)
-public class JwtSecurityConfig extends WebSecurityConfigurerAdapter{
+public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Bean
     public JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter() throws Exception {
         JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter = new JwtAuthenticationTokenFilter();
         jwtAuthenticationTokenFilter.setAuthenticationManager(authenticationManager());
         return jwtAuthenticationTokenFilter;
     }
+
     @Bean
     public RestAuthenticationEntryPoint restServicesEntryPoint() {
         return new RestAuthenticationEntryPoint();
@@ -54,12 +57,16 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter{
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
-     @Override
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().ignoringAntMatchers("/api/**");
         http.authorizeRequests().antMatchers("/api/login/").permitAll();
         http.authorizeRequests().antMatchers("/api/posts/").permitAll();
+        http.authorizeRequests().antMatchers("/api/posts/**").permitAll();
         http.authorizeRequests().antMatchers("/api/admissions/").permitAll();
+        http.authorizeRequests().antMatchers("/api/faculties/").permitAll();
+        http.authorizeRequests().antMatchers("/api/faculties/**").permitAll();
         http.authorizeRequests().antMatchers("/api/users/").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/**/comments/").permitAll();
         http.antMatcher("/api/**").httpBasic().authenticationEntryPoint(restServicesEntryPoint()).and()

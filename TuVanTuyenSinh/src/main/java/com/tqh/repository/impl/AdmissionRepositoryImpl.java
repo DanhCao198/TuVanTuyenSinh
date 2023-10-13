@@ -26,12 +26,13 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class AdmissionRepositoryImpl implements AdmissionRepository{
+public class AdmissionRepositoryImpl implements AdmissionRepository {
+
     @Autowired
     private LocalSessionFactoryBean factory;
-    
-   @Override
-    public List<Admission> getAdmissions(Map<String, String> params){
+
+    @Override
+    public List<Admission> getAdmissions(Map<String, String> params) {
         Session session = this.factory.getObject().getCurrentSession();
         CriteriaBuilder b = session.getCriteriaBuilder();
         CriteriaQuery<Admission> q = b.createQuery(Admission.class);
@@ -58,5 +59,13 @@ public class AdmissionRepositoryImpl implements AdmissionRepository{
         Session s = this.factory.getObject().getCurrentSession();
         return s.get(Admission.class, id);
     }
-    
+
+    @Override
+    public List<Admission> getAdmissions() {
+        Session s = this.factory.getObject().getCurrentSession();
+        Query q = s.createQuery("FROM Admission");
+
+        return q.getResultList();
+    }
+
 }

@@ -13,6 +13,7 @@ import java.util.Map;
  * @author HP
  */
 public interface  FacultyService {
+     List<Faculty> getFalcuties();
     
     List<Faculty> getFalcuties(Map<String, String> params);
 

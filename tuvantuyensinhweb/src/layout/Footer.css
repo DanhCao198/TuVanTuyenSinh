@@ -1,0 +1,29 @@
+.social-icons {
+    display: flex; 
+    justify-content: center; 
+  }
+  
+  .social-icon {
+    margin: 0 20px; /* Khoảng cách giữa các biểu tượng */
+    transition: transform 0.2s, background-color 0.2s; 
+    font-size: 2rem; 
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.5); 
+    color: #ffcc00;
+  }
+  .contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info li {
+  align-items: center;
+  transition: text-decoration 0.2s; /* Thời gian hoàn thành hiệu ứng */
+}
+
+.contact-info li:hover {
+  text-decoration: underline; /* Thêm dấu gạch chân khi di chuột vào */
+}

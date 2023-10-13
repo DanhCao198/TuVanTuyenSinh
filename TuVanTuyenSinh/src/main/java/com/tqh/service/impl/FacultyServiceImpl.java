@@ -62,4 +62,9 @@ public class FacultyServiceImpl implements FacultyService {
         return this.facultyRepo.deleteFalcuty(id);
     }
 
+    @Override
+    public List<Faculty> getFalcuties() {
+        return this.facultyRepo.getFalcuties();
+    }
+
 }

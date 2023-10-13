@@ -8,8 +8,14 @@ export const endpoints = {
     "admissions": `${SERVER_CONTEXT}/api/admissions/`,
     "posts": `${SERVER_CONTEXT}/api/posts/`,
     "login": `${SERVER_CONTEXT}/api/login/`,
-    "current-user": `${SERVER_CONTEXT}/api/current-user`,
-    "register": `${SERVER_CONTEXT}/api/register/`
+    "current-user": `${SERVER_CONTEXT}/api/current-user/`,
+    "register": `${SERVER_CONTEXT}/api/users/`,
+    "details": (id) => `${SERVER_CONTEXT}/api/posts/${id}/`,
+    "comments": (id) => `${SERVER_CONTEXT}/api/posts/${id}/comments/`,
+    "add-comment": `${SERVER_CONTEXT}/api/comments/`,
+    "faculties": `${SERVER_CONTEXT}/api/faculties/`,
+    "details1": (id) => `${SERVER_CONTEXT}/api/faculties/${id}/`,
+
 }
 
 export const authApi = () =>{

@@ -30,6 +30,11 @@ public class AdmissionServiceImpl implements AdmissionService{
     public Admission getAdmissionById(int id) {
        return this.admissionRepo.getAdmissionById(id);
     }
+
+    @Override
+    public List<Admission> getAdmissions() {
+        return this.admissionRepo.getAdmissions();
+    }
     
     
 }

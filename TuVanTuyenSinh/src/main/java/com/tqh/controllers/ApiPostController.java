@@ -1,4 +1,4 @@
-    /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -52,11 +52,19 @@ public class ApiPostController {
         this.postService.deletePost(id);
     }
 
+    
     @RequestMapping("/posts/")
     @CrossOrigin
     public ResponseEntity<List<Post>> list(@RequestParam Map<String, String> params) {
         return new ResponseEntity<>(this.postService.getPosts(params), HttpStatus.OK);
     }
+
+    @RequestMapping(path = "/posts/{id}/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin
+    public ResponseEntity<Post> details(@PathVariable(value = "id") int id) {
+    return new ResponseEntity<>(this.postService.getPostById(id), HttpStatus.OK);
+    }
+
     @PostMapping(path = "/posts", consumes = {
         MediaType.MULTIPART_FORM_DATA_VALUE,
         MediaType.APPLICATION_JSON_VALUE
@@ -69,21 +77,20 @@ public class ApiPostController {
         p.setPosttype(params.get("type"));
         p.setPostImg(params.get("image"));
         p.setAdmissionIdadmission(this.admissionService.getAdmissionById(Integer.parseInt(params.get("admissionId"))));
-        if (file.length > 0)
+        if (file.length > 0) {
             p.setFile(file[0]);
+        }
         this.postService.addOrUpdatePost(p);
     }
-    
-     
-//    @GetMapping("/posts/{id}/comments/")
-//    public ResponseEntity<List<Comment>> listComments(@PathVariable(value = "idpost") int id) {
-//        return new ResponseEntity<>(this.commentService.getComments(id), HttpStatus.OK);
-//    }
-//    
+
+    @GetMapping("/posts/{id}/comments/")
+    public ResponseEntity<List<Comment>> listComments(@RequestParam Map<String, String> params) {
+        return new ResponseEntity<>(this.commentService.getComments(params), HttpStatus.OK);
+    }
+
 //    @PostMapping(path="/comments/", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<Comment> addComment(@RequestBody Comment comment) {
-//        Comment c = this.commentService.addComment(comment);
-//        
+//    public ResponseEntity<Boolean> addComment(@RequestBody Boolean comment) {
+//        Comment c = this.commentService.addComment(true);        
 //        return new ResponseEntity<>(c, HttpStatus.CREATED);
 //    }
 }

@@ -4,6 +4,7 @@
  */
 package com.tqh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -57,6 +58,7 @@ public class Comment implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date createdDate;
     @OneToMany(mappedBy = "commentIdcomment")
+    @JsonIgnore
     private Set<Comment> commentSet;
     @JoinColumn(name = "comment_idcomment", referencedColumnName = "idcomment")
     @ManyToOne

@@ -4,6 +4,7 @@
  */
 package com.tqh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -79,6 +80,7 @@ public class Livestreams implements Serializable {
     @ManyToOne(optional = false)
     private Users usersIdusers;
     @OneToMany(mappedBy = "livestreamsIdlivestreams")
+    @JsonIgnore
     private Set<Comment> commentSet;
     @Transient
     private MultipartFile file;

@@ -13,6 +13,7 @@ import java.util.Map;
  * @author Admin
  */
 public interface AdmissionRepository {
-     List<Admission> getAdmissions(Map<String, String> params);
+    List<Admission> getAdmissions();
+    List<Admission> getAdmissions(Map<String, String> params);
     Admission getAdmissionById(int id);
 }

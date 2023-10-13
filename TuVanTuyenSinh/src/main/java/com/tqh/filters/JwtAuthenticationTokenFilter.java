@@ -7,7 +7,6 @@ package com.tqh.filters;
 import com.tqh.components.JwtService;
 import com.tqh.pojo.Users;
 import com.tqh.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
@@ -51,7 +50,7 @@ public class JwtAuthenticationTokenFilter extends UsernamePasswordAuthentication
                 boolean accountNonLocked = true;
                 
                 Set<GrantedAuthority> authorities = new HashSet<>();
-//                authorities.add(new SimpleGrantedAuthority(user.getRoleUserIdRoleuser()));
+                authorities.add(new SimpleGrantedAuthority(user.getRoleUserIdRoleuser()));  
                 
                 UserDetails userDetail = new org.springframework.security.core.userdetails.User(username, user.getPassword(), enabled, accountNonExpired,
                         credentialsNonExpired, accountNonLocked, authorities);
