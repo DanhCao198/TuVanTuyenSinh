@@ -61,6 +61,7 @@
                     <li class="nav-item"><a href="<c:url value='/school'/>" class="nav-link">Giới thiệu</a></li>
                     <li class="nav-item"><a href="<c:url value='/benmarks'/>" class="nav-link">Điểm chuẩn</a></li>
                     <li class="nav-item"><a href="<c:url value='/livestreamlist/'/>" class="nav-link">Livestreams</a></li>
+                     <li class="nav-item"><a href="<c:url value='/gpt/'/>" class="nav-link">AI ChatGPT</a></li>
                     <li class="nav-item"><a href="<c:url value='/lienhe'/>" class="nav-link">Liên hệ</a></li>
                 </ul>
             </div>
