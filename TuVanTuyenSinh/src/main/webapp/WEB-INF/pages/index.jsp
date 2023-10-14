@@ -75,52 +75,62 @@
         </div>
     </div>
 </c:forEach>
-<section class="p-5 align-self-center section_subs">
+<section class="p-5 align-self-center section_subs bg-primary">
     <div class="container">
         <div class="col-md-12 m-pad-subs">
-            <script src="https://tuyensinh.ou.edu.vn/core/plugins/formbuilder/form-render.min.js"></script>
             <div id="w-4_container">
                 <div id="w-4">
-                    <div class="rendered-form">
+                    <div class="rendered-form ">
                         <div class="">
-                            <h1 class="text-center section_subs_title" id="control-849089">
-                                Câu hỏi Tuyển Sinh<br>
+                            <h1 class="text-center section_subs_title fw-bold" id="control-849089">
+                                CÂU HỎI TUYỂN SINH<br>
                             </h1>
                         </div>
-                        <div class="fb-text form-group field-hoten">
-                            <label for="hoten" class="fb-text-label">Họ tên:<br></label>
-                            <input type="text" class="form-control" name="hoten" maxlength="100" id="hoten">
-                        </div>
-                        <div class="fb-text form-group field-email">
-                            <label for="email" class="fb-text-label">Email:</label>
-                            <input type="text" class="form-control" name="email" id="email">
-                        </div>
-                        <div class="fb-text form-group field-dienthoai">
-                            <label for="dienthoai" class="fb-text-label">Số điện thoại:<br></label>
-                            <input type="text" class="form-control" name="dienthoai" id="dienthoai">
-                        </div>
-                        <div class="fb-textarea form-group field-textarea-1581500170575">
-                            <label for="textarea-1581500170575" class="fb-textarea-label">Câu hỏi<br> </label>
-                            <textarea type="textarea" class="form-control" name="textarea-1581500170575" id="textarea-1581500170575"></textarea>
-                        </div>
-                        <div class="fb-select form-group field-hedt">
-                            <label for="hedt" class="fb-select-label">Hệ đào tạo:<br></label>
-                            <select class="browser-default custom-select" name="hedt" id="hedt">
-                                <option value="daihoc_cq_daitra" selected="true" id="hedt-0">Đại học chính quy (Hệ đại trà)</option>
-                                <option value="daihoc_cq_dacbiet" id="hedt-1">Đại học chính quy (Chất lượng cao)</option>
-                                <option value="b2lt" id="hedt-2">Bằng 2 - Liên thông</option>
-                                <option value="daihoc_cq_daitra" selected="true" id="hedt-0" style="color:black;">Đại học chính quy</option>
-                                <option value="daihoc_cq_dacbiet" id="hedt-1" style="color:black;">Đào tạo từ xa</option>
-                                <option value="b2lt" id="hedt-2" style="color:black;">Văn bằng 2</option>
-                                <option value="b2lt" id="hedt-2" style="color:black;">Liên thông </option>
-                                <option value="b2lt" id="hedt-2" style="color:black;">Cao học</option>
-                            </select>
-                        </div>
+                        <c:url value="/questionnow/" var="action" />
+                        <form:form method="post" action="${action}" modelAttribute="QModel" enctype="multipart/form-data">
+                            <div class="fb-text form-group field-hoten">
+                                <label for="hoten" class="fb-text-label">Họ tên:<br></label>
+                                    <form:input type="text" class="form-control" 
+                                                path="hoTen" id="ten" maxlength="100"/>
+                               
+                            </div>
+                            <div class="fb-text form-group field-email">
+                                <label for="hoten" class="fb-text-label">Email:<br></label>
+                                    <form:input type="text" class="form-control" 
+                                                path="Email" id="email" maxlength="100" />
+                                
+                            </div>
+                            <div class="fb-text form-group field-dienthoai">
+                                <label for="hoten" class="fb-text-label">Điện thoại:<br></label>
+                                    <form:input type="text" class="form-control" 
+                                                path="sdt" id="ten" maxlength="100" />
+                            
+                            </div>
+                            <div class="fb-textarea form-group field-textarea-1581500170575">
+                                <label for="hoten" class="fb-text-label">Câu hỏi:<br></label>
+                                    <form:input type="text" class="form-control" 
+                                                path="cauHoi" id="ten" maxlength="100"/>
+                            </div>
+                            <div class="fb-select form-group field-hedt">
+                                <label class="fb-select-label">Hệ đào tạo:<br></label>
+                                    <form:select class="browser-default custom-select" id="heDaoTao" name="heDaoTao" 
+                                                 path="heDaoTao">
+                                        <c:forEach items="${admission}" var="ds">
+                                        <option value="${ds.typeoftraining}">${ds.typeoftraining}</option>
+                                    </c:forEach>
+                                </form:select>
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <button class="btn btn-info" type="submit">
+                                    Đăng ký nhận thông tin
+                                </button>
+                            </div>
+                        </form:form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section> 
+</section>
 
 <script src="<c:url value="/assets/js/banner.js" />"></script>

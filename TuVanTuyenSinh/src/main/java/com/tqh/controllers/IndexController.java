@@ -4,6 +4,7 @@
  */
 package com.tqh.controllers;
 
+import com.tqh.pojo.QuestionNow;
 import com.tqh.pojo.StaticClass;
 import com.tqh.service.AdmissionService;
 import com.tqh.service.BannerService;
@@ -117,6 +118,7 @@ public class IndexController {
     @RequestMapping("/")
     public String index(Model model, @RequestParam Map<String, String> params) {
         model.addAttribute("posts", this.postService.getPosts(params));
+        model.addAttribute("QModel", new QuestionNow());
         int pageSize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
         long count = this.postService.countPost();
         model.addAttribute("counter", Math.ceil(count * 1.0 / pageSize));

@@ -1,15 +1,9 @@
-<%-- 
-    Document   : livestreamsetting
-    Created on : Sep 29, 2023, 6:10:42 PM
-    Author     : HP
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <section class="container">
-    <h1 class="text-center text-info mt-1">QUẢN LÝ BÀI VIẾT</h1>
+    <h1 class="text-center text-info mt-1">QUẢN LÝ LIVESTREAM</h1>
     <section class="container">
         <div class="text-right mb-3">
             <a href="<c:url value='/admin/livestreams' />" class="btn btn-info">Đăng bài</a>

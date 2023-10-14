@@ -85,7 +85,7 @@
                         <!-- Links -->
                         <h5 class="font-weight-bold text-uppercase mb-4">CƠ SỞ TRỰC THUỘC</h5>
 
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled" style="text-align: left;">
                             <li><b>Cơ sở 1:</b> 97 Võ Văn Tần P6 Q3 Tp.HCM.</li>
                             <li><b>Cơ sở 2:</b> 35-37 Hồ Hảo Hớn, Phường Cô Giang, Quận 1, Tp. Hồ Chí Minh.</li>
                             <li><b>Cơ sở 3:</b> Khu dân cư Nhơn Trạch, Huyện Nhà Bè, Tp. Hồ Chí Minh.</li>
@@ -101,7 +101,7 @@
                     <hr class="clearfix w-100 d-md-none">
 
                     <!-- Grid column -->
-                    <div class="col-md-5 mx-auto">
+                    <div class="col-md-5 mx-auto mt-5">
 
                         <div class="mapouter"><div class="gmap_canvas"><iframe width="445" height="260" id="gmap_canvas" src="https://maps.google.com/maps?q=35-37%20H%E1%BB%93%20H%E1%BA%A3o%20H%E1%BB%9Bn%20Qu%E1%BA%ADn%201%20Th%C3%A0nh%20ph%E1%BB%91%20H%E1%BB%93%20Ch%C3%AD%20Minh&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{
                                         position:relative;

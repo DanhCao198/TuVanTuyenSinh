@@ -1,14 +1,8 @@
-<%-- 
-    Document   : livestreams
-    Created on : Sep 29, 2023, 6:08:49 PM
-    Author     : HP
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<h1 class="text-center text-info mt-1">Quản Lý Người Dùng</h1>
+<h1 class="text-center text-info mt-1">Cập nhật thông tin</h1>
 <c:url value="/accoutsetting" var="action" />
 <form:form method="post" action="${action}" modelAttribute="users" enctype="multipart/form-data">
     <form:errors path="*" element="div" cssClass="alert alert-danger" />
@@ -17,7 +11,7 @@
 
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control" 
-                    path="username" id="username"  name="username" readonly="false"/>
+                    path="username" id="username"  name="username" readonly="true"/>
         <label for="username">Tên đăng nhập</label>
     </div>
         <div class="form-floating mb-3 mt-3">
@@ -44,22 +38,6 @@
         <form:input type="text" class="form-control"
                     path="email" id="email"  name="email" readonly="false"/>
         <label for="lastname">Email</label>
-    </div>
-    <div class="form-floating mb-3 mt-3">
-        <form:select class="form-select" id="roleUserIdRoleuser" name="roleUserIdRoleuser" 
-                     path="roleUserIdRoleuser">
-            <c:forEach items="${roleusers}" var="re">
-                <c:choose>
-                    <c:when test="${re.idRoleuser == users.roleUserIdRoleuser.idRoleuser}">
-                        <option value="${re.idRoleuser}" selected>${re.name}</option>
-                    </c:when>
-                    <c:otherwise>
-                        <option value="${re.idRoleuser}" selected>${re.name}</option>
-                    </c:otherwise>
-                </c:choose>
-            </c:forEach>
-        </form:select>
-        <label for="des">Chức năng</label>
     </div>
     <div class="form-floating mb-3 mt-3">
         <button class="btn btn-info" type="submit">

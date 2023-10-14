@@ -38,13 +38,15 @@ public class SendQuestion {
         model.addAttribute("QModel", new QuestionNow());
         return "index";
     }
-
     @PostMapping("/questionnow/")
     public String add(@ModelAttribute(value = "QModel") @Valid QuestionNow n, Model model, Principal u,
             BindingResult rs) throws AddressException {
-        String noiDungEmail = "<p>Có câu hỏi của" + n.getHoTen() + "<br/>" + "Số điện thoại:" + n.getSdt() + "Email:" + n.getEmail() + "Nội dung câu hỏi:" + n.getCauHoi() + "</p>";
+        String noiDungEmail = "<p> Có câu hỏi của " + n.getHoTen() + " <br/> "
+                + " Số điện thoại: " + n.getSdt() + " <br/> "
+                + " Email: " + n.getEmail() + " <br/> "
+                + " Nội dung câu hỏi: " + n.getCauHoi() + " </p> ";
         InternetAddress dests[] = new InternetAddress[1];
-        dests[0]=new InternetAddress("2051010035danh@ou.edu.vn");
+        dests[0] = new InternetAddress("2051010035danh@ou.edu.vn");
         mailService.sendHtmlMessage(dests, "Câu Hỏi", noiDungEmail);
         return "index";
     }
