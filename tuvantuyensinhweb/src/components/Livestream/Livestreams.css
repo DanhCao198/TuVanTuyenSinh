@@ -1,0 +1,13 @@
+.card {
+  /* Đừng đặt chiều cao cho card, để nó tự điều chỉnh kích thước dựa trên nội dung bên trong */
+}
+
+.card .card-body {
+  height: 100%; /* Đặt chiều cao mà bạn muốn cho phần nội dung của card */
+}
+/* Đảm bảo rằng hình ảnh có chiều cao và chiều rộng cố định */
+.custom-image {
+  width: 100%; /* Đặt chiều rộng mà bạn muốn, ví dụ: 100% */
+  height: 200px; /* Đặt chiều cao mà bạn muốn, ví dụ: 200px */
+  object-fit: cover; /* Đảm bảo hình ảnh bao phủ khu vực */
+}

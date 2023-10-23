@@ -3,6 +3,7 @@ import { Alert, Card, Col, Row, Pagination } from "react-bootstrap";
 import { useSearchParams, Link } from "react-router-dom";
 import Apis, { endpoints } from "../../configs/Apis";
 import MySpinner from '../../layout/MySpinner';
+import './Posts.css';
 
 const Posts = () => {
   const [posts, setPosts] = useState(null);
@@ -15,9 +16,9 @@ const Posts = () => {
       try {
         let e = endpoints['posts'];
 
-        let admissionId = q.get("admissionId");
-        if (admissionId !== null)
-          e = `${e}?cateId=${admissionId}`;
+        let idadmission = q.get("idadmission");
+        if (idadmission !== null)
+          e = `${e}?idadmission=${idadmission}`;
         else {
           let kw = q.get("kw");
           if (kw !== null)
@@ -34,7 +35,7 @@ const Posts = () => {
     loadPosts();
   }, [q]);
 
-  if (posts === null)
+  if (posts == null)
     return <MySpinner />
 
   if (posts.length === 0)
@@ -58,15 +59,17 @@ const Posts = () => {
           let url = `/posts/${p.idpost}`;
           return (
             <Col xs={12} md={3} className="mt-2 mb-2">
-              <Card style={{ width: '18rem' }}>
+              <Card style={{ width: '18rem', height: '100%' }}>
+              <Card className="card-custom">
                 <Card.Img variant="top" src={p.postImg} fluid rounded />
-                <Card.Body>
-                  <Card.Title>{p.postName}</Card.Title>
+                <Card.Body className="d-flex flex-column justify-content-start">
+                <Card.Title className="card-title1" title={p.postName}>{p.postName}</Card.Title>
                   <Card.Text>{p.posttype}</Card.Text>
-                  <Link to={url} className="btn btn-info" style={{ marginRight: "5px" }} variant="primary">
+                  <Link to={url} className="btn btn-info mt-auto" style={{ alignSelf: "flex-end" }} variant="primary">
                     Xem chi tiết
                   </Link>
                 </Card.Body>
+              </Card>
               </Card>
             </Col>
           );

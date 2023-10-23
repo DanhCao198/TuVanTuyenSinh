@@ -6,7 +6,7 @@ import { MyUserContext } from "../App";
 import Apis, { authApi, endpoints } from "../configs/Apis";
 
 const Login = () => {
-    const [users, dispatch] = useContext(MyUserContext);
+    const [user, dispatch] = useContext(MyUserContext);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     const [q] = useSearchParams();
@@ -37,7 +37,7 @@ const Login = () => {
         process();
     }
 
-    if (users !== null) {
+    if (user !== null) {
         let next = q.get("next") || "/";
         return <Navigate to={next} />
     }

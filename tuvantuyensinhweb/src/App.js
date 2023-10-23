@@ -1,4 +1,4 @@
-import { BrowserRouter,Route,  Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
@@ -10,7 +10,10 @@ import MyUserReducer from "./reducers/MyUserReducer";
 import cookie from "react-cookies";
 import Register from "./components/Register"
 import PostDetails from "./components/PostDetails";
+import FacultyDetails from "./components/FacultyDetails";
+import LivestreamDetails from "./components/LivestreamDetails";
 import 'moment/locale/vi';
+import LienHe from "./layout/LienHe";
 
 export const MyUserContext = createContext();
 export const MyAdmissionContext = createContext();
@@ -21,16 +24,19 @@ const App = () => {
   return (
     <MyUserContext.Provider value={[users, dispatch]}>
       <BrowserRouter>
-        <Header/>
+        <Header />
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/posts/:id" element={<PostDetails />} />
+            <Route path="/faculties/:id" element={<FacultyDetails />} />
+            <Route path="/LienHe" element={<LienHe />} />
+            <Route path="/livestreams/:id" element={<LivestreamDetails />} />
           </Routes>
         </Container>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </MyUserContext.Provider>
   )

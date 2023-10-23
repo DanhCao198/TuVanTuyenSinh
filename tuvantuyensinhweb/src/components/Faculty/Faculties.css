@@ -1,0 +1,26 @@
+.faculties-container {
+  /* background-image: url('/public/image/2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px; 
+  margin-bottom: 20px; 
+  min-height: 80vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;  */
+  margin-bottom: 40px;
+}
+
+.my-slider1 {
+  overflow: hidden; 
+  position: relative; 
+}
+
+
+.my-slider1 .slick-slide {
+  margin-right: 20px; /* Đẩy slide con về phía phải */
+  margin-bottom: 5px; /* Đẩy slide con về phía dưới */
+}
+

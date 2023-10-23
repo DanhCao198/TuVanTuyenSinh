@@ -5,7 +5,6 @@ import { MyUserContext } from "../App";
 import Apis, { endpoints } from "../configs/Apis";
 import MySpinner from "./MySpinner";
 
-
 const Header = () => {
     const [users, dispatch] = useContext(MyUserContext);
     const [kw, setKw] = useState("");
@@ -64,7 +63,7 @@ const Header = () => {
                                 })}
 
                             </NavDropdown>
-                            <NavDropdown title="Danh sách Khoa" id="faculty-nav-dropdown">
+                            {/* <NavDropdown title="Danh sách Khoa" id="faculty-nav-dropdown">
                                 {faculties.map(faculty => (
                                         <Link
                                             className="dropdown-item"
@@ -75,9 +74,9 @@ const Header = () => {
                                         </Link>
                                     ))
                                 }
-                            </NavDropdown>
+                            </NavDropdown> */}
 
-
+                            <Link className="nav-link" to="/LienHe">&#127965; Liên hệ</Link>
                             {users === null ? <>
                                 <Link className="nav-link text-danger" to="/login">Đăng nhập</Link>
                                 <Link className="nav-link text-danger" to="/register">Đăng ký</Link>

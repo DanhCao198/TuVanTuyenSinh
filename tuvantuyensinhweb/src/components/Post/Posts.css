@@ -1,0 +1,18 @@
+/* Thêm CSS để đảm bảo chiều cao cố định cho Card */
+.card {
+    height: 100%; /* Đặt chiều cao mà bạn muốn */
+  }
+  
+  /* Nếu bạn muốn cố định chiều cao cả thẻ Card và nội dung bên trong, bạn có thể sử dụng .card-body */
+  .card .card-body {
+    height: 100%; /* Đặt chiều cao mà bạn muốn */
+  }
+  .card-custom .card-title1 {
+    max-height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+  

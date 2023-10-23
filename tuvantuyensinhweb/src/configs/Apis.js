@@ -15,6 +15,10 @@ export const endpoints = {
     "add-comment": `${SERVER_CONTEXT}/api/comments/`,
     "faculties": `${SERVER_CONTEXT}/api/faculties/`,
     "details1": (id) => `${SERVER_CONTEXT}/api/faculties/${id}/`,
+    "banners": `${SERVER_CONTEXT}/api/banners/`,
+    "livestreams": `${SERVER_CONTEXT}/api/livestreams/`,
+    "details2": (id) => `${SERVER_CONTEXT}/api/livestreams/${id}/`,
+    "benmarks": `${SERVER_CONTEXT}/api/benmarks/`,
 
 }
 

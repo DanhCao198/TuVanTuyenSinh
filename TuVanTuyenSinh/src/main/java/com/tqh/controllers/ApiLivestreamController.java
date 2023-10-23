@@ -32,7 +32,8 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/api")
 public class ApiLivestreamController {
-     @Autowired
+
+    @Autowired
     private LivestreamService livestreamService;
     @Autowired
     private FacultyService facultyService;
@@ -40,30 +41,38 @@ public class ApiLivestreamController {
     private AdmissionService admissionService;
     @Autowired
     private CommentService commentService;
-
+    
     @DeleteMapping("/livestreams/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable(value = "id") int id) {
         this.livestreamService.deleteLivestreams(id);
     }
-
+    
     @RequestMapping("/livestreams/")
     @CrossOrigin
     public ResponseEntity<List<Livestreams>> list(@RequestParam Map<String, String> params) {
         return new ResponseEntity<>(this.livestreamService.getLiveStreams(params), HttpStatus.OK);
     }
+    
+    @RequestMapping(path = "/livestreams/{id}/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin
+    public ResponseEntity<Livestreams> details2(@PathVariable(value = "id") int id) {
+        return new ResponseEntity<>(this.livestreamService.getLivestreamsById(id), HttpStatus.OK );
+    }
+    
     @PostMapping(path = "/livestreams", consumes = {
         MediaType.MULTIPART_FORM_DATA_VALUE,
         MediaType.APPLICATION_JSON_VALUE
     })
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(@RequestParam Map<String, String> params,MultipartFile[] file) {
+    public void add(@RequestParam Map<String, String> params, MultipartFile[] file) {
         Livestreams p = new Livestreams();
         p.setTitle(params.get("name"));
         p.setLivestreaminfomation(params.get("information"));
         p.setPicture(params.get("image"));
-        if (file.length > 0)
+        if (file.length > 0) {
             p.setFile(file[0]);
+        }
         this.livestreamService.addOrUpdateLivestreams(p);
     }
 }

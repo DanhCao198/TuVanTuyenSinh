@@ -23,8 +23,9 @@ public class ChatGPTServiceImpl implements ChatGPTService{
    @Override
     public String GPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = "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"; // API key goes here
-        String model = "gpt-3.5-turbo"; // current model of chatgpt api
+//Thêm api key trong dấu ngoặc kép dòng 27.
+        String apiKey = "";
+        String model = "gpt-3.5-turbo";
 
         try {
             // Create the HTTP POST request

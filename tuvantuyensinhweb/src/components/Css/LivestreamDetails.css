@@ -1,0 +1,14 @@
+.centered-video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 560px; /* Điều chỉnh kích thước video theo mong muốn */
+    margin: 0 auto; /* Để canh giữa video theo chiều ngang */
+  }
+  
+  .centered-video iframe {
+    width: 100%;
+    height: 315px; /* Điều chỉnh chiều cao video theo mong muốn */
+  }
+  
